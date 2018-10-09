@@ -29,7 +29,7 @@ export default class Card extends Component {
           onMouseOut={() => {this.setState({ src: src1 })}}
           alt='The hilt of a lightsaber. Turn the lightsaber on to favorite this card.'
           onClick={() => {
-            this.setState({ src: src2 });
+            this.setState({ src: src1 });
             this.handleSaberClick();
           }} />
       </article>
