@@ -1,6 +1,6 @@
 import React from 'react';
-import App from './index';
 import { shallow } from 'enzyme';
+import App from './index';
 
 describe('App', () => {
   let wrapper;
