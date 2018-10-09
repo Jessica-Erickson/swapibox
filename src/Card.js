@@ -20,7 +20,7 @@ export default class Card extends Component {
   render() {
     return (
       <article className={'Card ' + (this.state.isActive ? 'isAlsoLit' : 'isAlsoOff')}>
-        <h3 className={'name ' + (this.state.isActive ? 'goesBlack' : '')}>Luke Skywalker</h3>
+        <h3 className={'name ' + (this.state.isActive ? 'isBlack' : 'isWhite')}>Luke Skywalker</h3>
         <div className={'saber ' + (this.state.isActive ? 'isLit' : 'isOff')} ></div>
         <img
           className='hilt'
