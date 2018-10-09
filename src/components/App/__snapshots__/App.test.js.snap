@@ -5,3 +5,5 @@ exports[`App matches the snapshot 1`] = `
   className="App"
 />
 `;
+
+exports[`App should have a default state 1`] = `null`;

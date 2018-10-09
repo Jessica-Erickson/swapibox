@@ -12,5 +12,10 @@ describe('App', () => {
   it('matches the snapshot', () => {
     expect(wrapper).toMatchSnapshot()
   })
-})
 
+  it('should have a default state', () => {
+    wrapper = shallow(<App />, { disableLifecycleMethods: true })
+
+    expect(wrapper.state()).toMatchSnapshot()
+  })
+})
