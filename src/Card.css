@@ -1,0 +1,32 @@
+.Card {
+  box-shadow: 0 0 0 0 black;
+  height: 250px;
+  width: 100px;
+  transition-property: box-shadow;
+  transition-delay: 2s;
+  transition-duration: 2s;
+}
+
+.saber {
+  background-color: transparent;
+  box-shadow: 0 0 0 0 transparent;
+  height: 5px;
+  position: absolute;
+  left: 10px;
+  width: 0px;
+  transition-property: width;
+  transition-duration: 2s;
+}
+
+.isLit {
+  box-shadow: 0 0 5px -2px lightblue, 0 0 5px -2px white;
+  width: 80px;
+}
+
+.isAlsoLit {
+  box-shadow: 0 0 50px -15px lightblue, 0 0 50px -15px white;
+}
+
+img {
+  transform: rotate(225deg);
+}
