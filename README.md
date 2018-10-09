@@ -20,11 +20,9 @@ SWAPI-box is a single page web app with different cards populating a card contai
 ```
 App (stateful)
 |
-|_ ScrollingText (stateless)
+|_ ScrollingText (stateful)
 |
 |_ Header (stateless)
-|   |
-|   |_ Button (Back) (stateless)
 |   |
 |   |_ Button (Favorites) (stateful)
 |   |
