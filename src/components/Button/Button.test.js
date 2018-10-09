@@ -12,4 +12,10 @@ describe('Button', () => {
   it('should match the snapshot', () => {
     expect(wrapper).toMatchSnapshot()
   })
+
+  it('should have default state', () => {
+    wrapper = shallow(<Button />, { disableLifecycleMethods: true })
+
+    expect(wrapper.state()).toMatchSnapshot()
+  })
 })
