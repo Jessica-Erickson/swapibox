@@ -3,7 +3,11 @@
 exports[`App matches the snapshot 1`] = `
 <div
   className="App"
-/>
+>
+  <ScrollingText />
+  <Header />
+  <CardContainer />
+</div>
 `;
 
-exports[`App should have a default state 1`] = `null`;
+exports[`App should have a default state 1`] = `Object {}`;

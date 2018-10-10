@@ -6,16 +6,22 @@ describe('ScrollingText', () => {
   let wrapper;
 
   beforeEach(() => {
-    wrapper = shallow(<ScrollingText />)
-  })
+    wrapper = shallow(<ScrollingText />);
+  });
 
   it('should match the snapshot', () => {
-    expect(wrapper).toMatchSnapshot()
-  })
+    expect(wrapper).toMatchSnapshot();
+  });
 
-  it('shoudl have default state', () => {
-    wrapper = shallow(<ScrollingText />, { disableLifecycleMethods: true })
+  it('should have default state', () => {
+    wrapper = shallow(<ScrollingText />, { disableLifecycleMethods: true });
 
-    expect(wrapper.state()).toMatchSnapshot()
-  })
-})
+    expect(wrapper.state()).toMatchSnapshot();
+  });
+
+  it('should know which movie text to show', () => {
+    wrapper = shallow(<ScrollingText />);
+
+    expect(wrapper.state('film')).toEqual(0);
+  });
+});
