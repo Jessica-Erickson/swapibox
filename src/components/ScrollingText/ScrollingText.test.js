@@ -20,8 +20,13 @@ describe('ScrollingText', () => {
   });
 
   it('should know which movie text to show', () => {
-    wrapper = shallow(<ScrollingText />);
-
     expect(wrapper.state('film')).toEqual(0);
+  });
+
+  it('should get a new number between -1 & 8', () => {
+    wrapper.instance().changeText();
+
+    expect(wrapper.state('film')).toBeGreaterThan(-1);
+    expect(wrapper.state('film')).toBeLessThan(8);
   });
 });
