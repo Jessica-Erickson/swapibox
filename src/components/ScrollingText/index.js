@@ -16,7 +16,9 @@ class ScrollingText extends Component {
 
   render() {
     return (
-      <aside className="ScrollingText">
+      <aside 
+        className="ScrollingText"
+        onAnimationEnd={this.changeText}>
         
       </aside>
     )
