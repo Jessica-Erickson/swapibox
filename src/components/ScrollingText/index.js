@@ -1,8 +1,10 @@
-import React, { Component } from 'react'
-import './ScrollingText.css'
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import './ScrollingText.css';
+
 
 class ScrollingText extends Component {
-  constructor({ allFilms }) {
+  constructor() {
     super();
     this.state = {
       film: 0
@@ -23,6 +25,10 @@ class ScrollingText extends Component {
       </aside>
     )
   }
+}
+
+ScrollingText.propTypes = {
+  allFilms: PropTypes.array.isRequired
 }
 
 export default ScrollingText;

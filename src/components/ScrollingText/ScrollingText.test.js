@@ -6,7 +6,7 @@ describe('ScrollingText', () => {
   let wrapper;
 
   beforeEach(() => {
-    wrapper = shallow(<ScrollingText />);
+    wrapper = shallow(<ScrollingText allFilms={[]} />);
   });
 
   it('should match the snapshot', () => {
@@ -14,7 +14,7 @@ describe('ScrollingText', () => {
   });
 
   it('should have default state', () => {
-    wrapper = shallow(<ScrollingText />, { disableLifecycleMethods: true });
+    wrapper = shallow(<ScrollingText allFilms={[]} />, { disableLifecycleMethods: true });
 
     expect(wrapper.state()).toMatchSnapshot();
   });
@@ -44,7 +44,7 @@ describe('ScrollingText', () => {
   });
 
   it('should call changeText on animation end', () => {
-    wrapper = mount(<ScrollingText />);
+    wrapper = mount(<ScrollingText allFilms={[]} />);
 
     const spy = spyOn(wrapper.instance(), 'changeText');
 
