@@ -1,3 +1,6 @@
 .Header {
+  grid-row: 1 / 2;
+  grid-column: 2 / 3;
+  background: red;
 
 }

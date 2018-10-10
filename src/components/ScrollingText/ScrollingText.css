@@ -1,3 +1,7 @@
 .ScrollingText {
-
+/*  height: 100%;
+  width: 100%;*/
+  grid-column: 1 / 2;
+  grid-row: 1 / 3;
+  background: url(../../assets/images/space.jpg) black cover;
 }
