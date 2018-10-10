@@ -7,13 +7,13 @@ describe('API', () => {
     beforeEach(() => {
       mockFilms = [
         {title: 'Star Wars 1',
-          release_date: '1977-05-25',
+          release_date: '1977',
           opening_crawl: 'This is opening crawl 1'},
         {title: 'Star Wars 2',
-          release_date: '1978-06-26',
+          release_date: '1978',
           opening_crawl: 'This is opening crawl 2'},
         {title: 'Star Wars 3',
-          release_date: '1979-07-27',
+          release_date: '1979',
           opening_crawl: 'This is opening crawl 3'}
         ];
 
