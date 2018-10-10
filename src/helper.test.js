@@ -38,5 +38,13 @@ describe('API', () => {
 
       expect(result).toEqual(expected);
     });
+
+    it('should throw an error if the status is not ok', async () => {
+      const expected = Error('Status was not ok');
+
+      window.fetch = jest.fn().mockImplementation(() => Promise.resolve({ ok: false }));
+
+      await expect(API.getFilms()).rejects.toEqual(expected);
+    });
   });
 });
