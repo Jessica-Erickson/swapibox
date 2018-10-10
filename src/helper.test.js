@@ -17,7 +17,7 @@ describe('API', () => {
           opening_crawl: 'This is opening crawl 3'}
         ];
 
-      window.fetch = jest.fn().mockImplementation(() => Promise.resolve({
+      window.fetch = jest.fn(() => Promise.resolve({
           ok: true,
           json: () => Promise.resolve(mockFilms)
       }));
@@ -42,7 +42,7 @@ describe('API', () => {
     it('should throw an error if the status is not ok', async () => {
       const expected = Error('Status was not ok');
 
-      window.fetch = jest.fn().mockImplementation(() => Promise.resolve({ ok: false }));
+      window.fetch = jest.fn(() => Promise.resolve({ ok: false }));
 
       await expect(API.getFilms()).rejects.toEqual(expected);
     });
