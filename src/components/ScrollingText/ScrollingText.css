@@ -1,4 +1,10 @@
 .ScrollingText {
   grid-column: 1 / 2;
   grid-row: 1 / 3;
+  color: gold;
+  font-size: 1.4rem;
+  text-align: justify;
+  padding: 20px;
 }
+
+
