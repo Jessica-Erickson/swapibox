@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import * as API from '../../helper.js';
 
 import ScrollingText from '../ScrollingText'
 import Header from '../Header'
@@ -9,18 +10,19 @@ class App extends Component {
   constructor() {
     super()
     this.state = {
-
+      allFilms: []
     }
   }
 
-  componentDidMount() {
-
+  async componentDidMount() {
+    this.setState({ allFilms: await API.getFilms() });
   }
 
   render() {
+    const { allFilms } = this.state;
     return (
       <div className="App">
-        <ScrollingText />
+        <ScrollingText allFilms={allFilms} />
         <Header />
         <CardContainer />
       </div>
