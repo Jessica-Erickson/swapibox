@@ -8,7 +8,7 @@ class ScrollingText extends Component {
     super();
     this.state = {
       film: 0
-    } 
+    }
   }
 
   changeText = () => {
@@ -17,11 +17,16 @@ class ScrollingText extends Component {
   }
 
   render() {
+    const currentFilm = this.props.allFilms[this.state.film]
+    const { title, releaseDate, openingCrawl } = currentFilm;
+
     return (
-      <aside 
+      <aside
         className="ScrollingText"
         onAnimationEnd={this.changeText}>
-        
+        <p className="opening-crawl">{openingCrawl}</p>
+        <h3 className="title">{title}</h3>
+        <h4 className="release-date">{releaseDate}</h4>
       </aside>
     )
   }

@@ -8,14 +8,14 @@ describe('API', () => {
       mockFilms = {
         results: [
           {title: 'Star Wars 1',
-            release_date: '1977',
-            opening_crawl: 'This is opening crawl 1'},
+            releaseDate: '1977',
+            openingCrawl: 'This is opening crawl 1'},
           {title: 'Star Wars 2',
-            release_date: '1978',
-            opening_crawl: 'This is opening crawl 2'},
+            releaseDate: '1978',
+            openingCrawl: 'This is opening crawl 2'},
           {title: 'Star Wars 3',
-            release_date: '1979',
-            opening_crawl: 'This is opening crawl 3'}
+            releaseDate: '1979',
+            openingCrawl: 'This is opening crawl 3'}
         ]
       };
 
