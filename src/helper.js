@@ -3,7 +3,8 @@ export const getFilms = async () => {
   const response = await fetch(url);
 
   if (response.ok) {
-    const rawFilms = await response.json();
+    const rawFilms = (await response.json()).results;
+    debugger
     return cleanFilms(rawFilms);
   } else {
     throw new Error('Status was not ok');
