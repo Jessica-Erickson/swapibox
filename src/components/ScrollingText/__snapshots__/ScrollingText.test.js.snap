@@ -15,7 +15,7 @@ exports[`ScrollingText should match the snapshot 1`] = `
   />
   <div
     className="scrolling-wrapper"
-    onAnimationEnd={[Function]}
+    onAnimationIteration={[Function]}
   >
     <p
       className="opening-crawl"

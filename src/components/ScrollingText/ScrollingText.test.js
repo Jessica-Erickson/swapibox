@@ -39,7 +39,7 @@ describe('ScrollingText', () => {
   });
 
   it('should get a new number between -1 & 8', () => {
-    wrapper = mount(<ScrollingText allFilms={allFilms} />);
+    wrapper = shallow(<ScrollingText allFilms={allFilms} />);
     
     wrapper.instance().changeText();
 
@@ -67,7 +67,7 @@ describe('ScrollingText', () => {
 
     wrapper.instance().forceUpdate();
 
-    wrapper.find('.scrolling-wrapper').simulate('animationend');
+    wrapper.find('.scrolling-wrapper').simulate('animationiteration');
 
     expect(spy).toHaveBeenCalled();
   });
