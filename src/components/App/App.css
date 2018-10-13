@@ -13,6 +13,8 @@
   width: 100vw;
   background-image: url(../../assets/images/bb8-loading.gif);
   background-position: center;
+  background-repeat: no-repeat;
+  background-color: rgb(8, 31, 41)
 }
 
 h1,
