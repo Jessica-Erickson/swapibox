@@ -16,8 +16,8 @@ class App extends Component {
   }
 
   async componentDidMount() {
-    this.setState({ allFilms: await API.getFilms() });
-    setTimeout(() => this.setState({ isLoading: false }), 1500)
+    this.setState({ allFilms: await API.getFilms(), isLoading: false });
+    // this.setTimeout(this.setState({isLoading: false}), 1500)
   }
 
   render() {

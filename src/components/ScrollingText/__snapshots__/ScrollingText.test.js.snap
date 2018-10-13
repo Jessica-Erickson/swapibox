@@ -6,9 +6,4 @@ Object {
 }
 `;
 
-exports[`ScrollingText should match the snapshot 1`] = `
-<aside
-  className="ScrollingText"
-  onAnimationEnd={[Function]}
-/>
-`;
+exports[`ScrollingText should match the snapshot 1`] = `undefined`;
