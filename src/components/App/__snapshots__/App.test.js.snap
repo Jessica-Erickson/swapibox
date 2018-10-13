@@ -2,18 +2,13 @@
 
 exports[`App matches the snapshot 1`] = `
 <div
-  className="App"
->
-  <ScrollingText
-    allFilms={Array []}
-  />
-  <Header />
-  <CardContainer />
-</div>
+  className="loading"
+/>
 `;
 
 exports[`App should have a default state 1`] = `
 Object {
   "allFilms": Array [],
+  "isLoading": true,
 }
 `;

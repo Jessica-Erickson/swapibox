@@ -10,23 +10,33 @@ class App extends Component {
   constructor() {
     super()
     this.state = {
+      isLoading: true,
       allFilms: []
     }
   }
 
   async componentDidMount() {
-    this.setState({ allFilms: await API.getFilms() });
+    this.setState({ allFilms: await API.getFilms(), isLoading: false });
+    // this.setTimeout(this.setState({isLoading: false}), 1500)
   }
 
   render() {
-    const { allFilms } = this.state;
-    return (
-      <div className="App">
-        <ScrollingText allFilms={allFilms} />
-        <Header />
-        <CardContainer />
-      </div>
-    );
+    const { isLoading, allFilms } = this.state;
+
+    if (isLoading) {
+      return (
+        <div className="loading">
+        </div>
+      )
+    } else {
+      return (
+        <div className="App">
+          <ScrollingText allFilms={allFilms} />
+          <Header />
+          <CardContainer />
+        </div>
+      );
+    }
   }
 }
 

@@ -4,9 +4,24 @@ import ScrollingText from './index'
 
 describe('ScrollingText', () => {
   let wrapper;
+  let allFilms;
 
   beforeEach(() => {
-    wrapper = shallow(<ScrollingText allFilms={[]} />);
+    allFilms = [
+          {title: 'Star Wars 1',
+            releaseDate: '1977',
+            openingCrawl: 'This is opening crawl 1'},
+          {title: 'Star Wars 2',
+            releaseDate: '1978',
+            openingCrawl: 'This is opening crawl 2'},
+          {title: 'Star Wars 3',
+            releaseDate: '1979',
+            openingCrawl: 'This is opening crawl 3'},
+          {title: 'Star Wars 7',
+            releaseDate: '1980',
+            openingCrawl: 'This is opening crawl 7'}
+        ]
+    wrapper = shallow(<ScrollingText allFilms={allFilms} />);
   });
 
   it('should match the snapshot', () => {
@@ -14,7 +29,7 @@ describe('ScrollingText', () => {
   });
 
   it('should have default state', () => {
-    wrapper = shallow(<ScrollingText allFilms={[]} />, { disableLifecycleMethods: true });
+    wrapper = shallow(<ScrollingText allFilms={allFilms} />, { disableLifecycleMethods: true });
 
     expect(wrapper.state()).toMatchSnapshot();
   });
@@ -44,7 +59,7 @@ describe('ScrollingText', () => {
   });
 
   it('should call changeText on animation end', () => {
-    wrapper = mount(<ScrollingText allFilms={[]} />);
+    wrapper = mount(<ScrollingText allFilms={allFilms} />);
 
     const spy = spyOn(wrapper.instance(), 'changeText');
 

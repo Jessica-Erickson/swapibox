@@ -5,17 +5,19 @@ describe('API', () => {
     let mockFilms;
 
     beforeEach(() => {
-      mockFilms = [
-        {title: 'Star Wars 1',
-          release_date: '1977',
-          opening_crawl: 'This is opening crawl 1'},
-        {title: 'Star Wars 2',
-          release_date: '1978',
-          opening_crawl: 'This is opening crawl 2'},
-        {title: 'Star Wars 3',
-          release_date: '1979',
-          opening_crawl: 'This is opening crawl 3'}
-        ];
+      mockFilms = {
+        results: [
+          {title: 'Star Wars 1',
+            release_date: '1977-01-03',
+            opening_crawl: 'This is opening crawl 1'},
+          {title: 'Star Wars 2',
+            release_date: '1978-04-05',
+            opening_crawl: 'This is opening crawl 2'},
+          {title: 'Star Wars 3',
+            release_date: '1979-07-09',
+            opening_crawl: 'This is opening crawl 3'}
+        ]
+      };
 
       window.fetch = jest.fn(() => Promise.resolve({
           ok: true,
@@ -32,7 +34,18 @@ describe('API', () => {
     });
 
     it('should return films if the status is ok', async () => {
-      const expected = mockFilms;
+      // const expected = mockFilms.results;
+      const expected = [
+          {title: 'Star Wars 1',
+            releaseDate: '1977',
+            openingCrawl: 'This is opening crawl 1'},
+          {title: 'Star Wars 2',
+            releaseDate: '1978',
+            openingCrawl: 'This is opening crawl 2'},
+          {title: 'Star Wars 3',
+            releaseDate: '1979',
+            openingCrawl: 'This is opening crawl 3'}
+        ]
 
       const result = await API.getFilms();
 
