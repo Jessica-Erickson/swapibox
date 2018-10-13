@@ -65,7 +65,7 @@ describe('ScrollingText', () => {
 
     wrapper.instance().forceUpdate();
 
-    wrapper.find('.ScrollingText').simulate('animationend');
+    wrapper.find('.scrolling-wrapper').simulate('animationend');
 
     expect(spy).toHaveBeenCalled();
   });

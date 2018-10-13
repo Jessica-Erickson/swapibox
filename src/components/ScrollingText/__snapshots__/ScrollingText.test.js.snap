@@ -9,22 +9,29 @@ Object {
 exports[`ScrollingText should match the snapshot 1`] = `
 <aside
   className="ScrollingText"
-  onAnimationEnd={[Function]}
 >
-  <p
-    className="opening-crawl"
+  <div
+    className="fade"
+  />
+  <div
+    className="scrolling-wrapper"
+    onAnimationEnd={[Function]}
   >
-    This is opening crawl 1
-  </p>
-  <h3
-    className="title"
-  >
-    Star Wars 1
-  </h3>
-  <h4
-    className="release-date"
-  >
-    1977
-  </h4>
+    <p
+      className="opening-crawl"
+    >
+      This is opening crawl 1
+    </p>
+    <h2
+      className="title"
+    >
+      Star Wars 1
+    </h2>
+    <h3
+      className="release-date"
+    >
+      1977
+    </h3>
+  </div>
 </aside>
 `;
