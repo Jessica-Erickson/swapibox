@@ -4,9 +4,11 @@ import { shallow } from 'enzyme'
 
 describe('Header', () => {
   let wrapper;
+  let favorites;
 
   beforeEach(() => {
-    wrapper = shallow(<Header />)
+    favorites = []
+    wrapper = shallow(<Header favorites={favorites} />)
   })
 
   it('should match the snapshot', () => {

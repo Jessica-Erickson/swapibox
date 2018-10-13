@@ -38,15 +38,6 @@ describe('ScrollingText', () => {
     expect(wrapper.state('film')).toEqual(0);
   });
 
-  it('should get a new number between -1 & 8', () => {
-    wrapper = shallow(<ScrollingText allFilms={allFilms} />);
-    
-    wrapper.instance().changeText();
-
-    expect(wrapper.state('film')).toBeGreaterThan(-1);
-    expect(wrapper.state('film')).toBeLessThan(8);
-  });
-
   it('should set state with a new random number', () => {
     const initialState = 0;
     const expected = 3;

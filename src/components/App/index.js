@@ -11,7 +11,8 @@ class App extends Component {
     super()
     this.state = {
       isLoading: true,
-      allFilms: []
+      allFilms: [],
+      favorites: []
     }
   }
 
@@ -21,7 +22,7 @@ class App extends Component {
   }
 
   render() {
-    const { isLoading, allFilms } = this.state;
+    const { isLoading, allFilms, favorites } = this.state;
 
     if (isLoading) {
       return (
@@ -32,7 +33,7 @@ class App extends Component {
       return (
         <div className="App">
           <ScrollingText allFilms={allFilms} />
-          <Header />
+          <Header favorites={favorites} />
           <CardContainer />
         </div>
       );

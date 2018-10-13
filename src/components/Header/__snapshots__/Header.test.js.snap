@@ -9,5 +9,13 @@ exports[`Header should match the snapshot 1`] = `
   >
     SWAPI-box
   </h1>
+  <Button
+    favorites={Array []}
+  />
+  <nav>
+    <Button />
+    <Button />
+    <Button />
+  </nav>
 </header>
 `;

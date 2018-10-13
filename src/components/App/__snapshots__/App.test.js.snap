@@ -9,6 +9,7 @@ exports[`App matches the snapshot 1`] = `
 exports[`App should have a default state 1`] = `
 Object {
   "allFilms": Array [],
+  "favorites": Array [],
   "isLoading": true,
 }
 `;
