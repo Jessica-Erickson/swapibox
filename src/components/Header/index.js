@@ -6,8 +6,11 @@ import './Header.css'
 const Header = (props) => {
   return (
     <header className="Header">
-      <h1 className="header-title">SWAPI-box</h1>
-      <Button favorites={props.favorites}/>
+      <div className="upper-header">
+        <div></div>
+        <h1 className="header-title">SWAPI-box</h1>
+        <Button favorites={props.favorites}/>
+      </div>
       <nav>
         <Button />
         <Button />

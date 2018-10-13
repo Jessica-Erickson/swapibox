@@ -4,14 +4,19 @@ exports[`Header should match the snapshot 1`] = `
 <header
   className="Header"
 >
-  <h1
-    className="header-title"
+  <div
+    className="upper-header"
   >
-    SWAPI-box
-  </h1>
-  <Button
-    favorites={Array []}
-  />
+    <div />
+    <h1
+      className="header-title"
+    >
+      SWAPI-box
+    </h1>
+    <Button
+      favorites={Array []}
+    />
+  </div>
   <nav>
     <Button />
     <Button />
