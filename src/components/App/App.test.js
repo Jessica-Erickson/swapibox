@@ -18,4 +18,10 @@ describe('App', () => {
 
     expect(wrapper.state()).toMatchSnapshot();
   });
+
+  it('should render the app if not Loading', () => {
+    wrapper.setState({ isLoading: false })
+
+    expect(wrapper).toMatchSnapshot();
+  })
 });

@@ -9,6 +9,21 @@ exports[`App matches the snapshot 1`] = `
 exports[`App should have a default state 1`] = `
 Object {
   "allFilms": Array [],
+  "favorites": Array [],
   "isLoading": true,
 }
+`;
+
+exports[`App should render the app if not Loading 1`] = `
+<div
+  className="App"
+>
+  <ScrollingText
+    allFilms={Array []}
+  />
+  <Header
+    favorites={Array []}
+  />
+  <CardContainer />
+</div>
 `;

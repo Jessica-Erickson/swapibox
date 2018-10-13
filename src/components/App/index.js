@@ -11,17 +11,17 @@ class App extends Component {
     super()
     this.state = {
       isLoading: true,
-      allFilms: []
+      allFilms: [],
+      favorites: []
     }
   }
 
   async componentDidMount() {
     this.setState({ allFilms: await API.getFilms(), isLoading: false });
-    // this.setTimeout(this.setState({isLoading: false}), 1500)
   }
 
   render() {
-    const { isLoading, allFilms } = this.state;
+    const { isLoading, allFilms, favorites } = this.state;
 
     if (isLoading) {
       return (
@@ -32,7 +32,7 @@ class App extends Component {
       return (
         <div className="App">
           <ScrollingText allFilms={allFilms} />
-          <Header />
+          <Header favorites={favorites} />
           <CardContainer />
         </div>
       );
