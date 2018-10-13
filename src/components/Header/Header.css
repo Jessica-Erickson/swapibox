@@ -1,7 +1,7 @@
-/*@font-face {
-  font-family: 'StarJedi', 'News Cycle', sans-serif;
-  src: url(../../assets/fonts/Starjedi.ttf) format('truetype');
-}*/
+@font-face {
+  font-family: StarJedi, 'News Cycle', sans-serif;
+  src: url(./../../assets/fonts/Star_Jedi_Rounded.ttf) format('truetype');
+}
 
 .Header {
   font-family: 'News Cycle', sans-serif;
@@ -21,6 +21,7 @@
 }
 
 .header-title {
+  font-family: StarJedi, 'News Cycle', sans-serif;
   text-align: center;
   color: gold;
   margin: 0 0 5px 150px;
