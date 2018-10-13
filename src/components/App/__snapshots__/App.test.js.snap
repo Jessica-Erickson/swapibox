@@ -13,3 +13,17 @@ Object {
   "isLoading": true,
 }
 `;
+
+exports[`App should render the app if not Loading 1`] = `
+<div
+  className="App"
+>
+  <ScrollingText
+    allFilms={Array []}
+  />
+  <Header
+    favorites={Array []}
+  />
+  <CardContainer />
+</div>
+`;
