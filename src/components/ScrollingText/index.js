@@ -24,9 +24,9 @@ class ScrollingText extends Component {
       <aside
         className="ScrollingText">
         <div className="fade"></div>
-        <div 
+        <div
           className="scrolling-wrapper" 
-          onAnimationEnd={this.changeText}>
+          onAnimationIteration={this.changeText}>
           <p className="opening-crawl">{openingCrawl}</p>
           <h2 className="title">{title}</h2>
           <h3 className="release-date">{releaseDate}</h3>

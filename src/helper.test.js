@@ -34,7 +34,6 @@ describe('API', () => {
     });
 
     it('should return films if the status is ok', async () => {
-      // const expected = mockFilms.results;
       const expected = [
           {title: 'Star Wars 1',
             releaseDate: '1977',

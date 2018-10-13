@@ -39,6 +39,8 @@ describe('ScrollingText', () => {
   });
 
   it('should get a new number between -1 & 8', () => {
+    wrapper = mount(<ScrollingText allFilms={allFilms} />);
+    
     wrapper.instance().changeText();
 
     expect(wrapper.state('film')).toBeGreaterThan(-1);
