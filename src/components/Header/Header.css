@@ -1,14 +1,15 @@
 @font-face {
-  font-family: 'StarJedi', sans-serif;
-  src: url(../../assets/fonts/Starjedi.ttf) format('truetype');
+  font-family: StarJedi, 'News Cycle', sans-serif;
+  src: url(./../../assets/fonts/Star_Jedi_Rounded.ttf) format('truetype');
 }
 
 .Header {
+  font-family: 'News Cycle', sans-serif;
   grid-row: 1 / 2;
   grid-column: 2 / 3;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
 }
 
@@ -20,8 +21,12 @@
 }
 
 .header-title {
-  font-family: StarJedi, sans-serif;
+  font-family: StarJedi, 'News Cycle', sans-serif;
+  text-align: center;
   color: gold;
+  margin: 0 0 5px 150px;
+  font-size: 5rem;
+  line-height: 4.5rem;
 }
 
 nav {

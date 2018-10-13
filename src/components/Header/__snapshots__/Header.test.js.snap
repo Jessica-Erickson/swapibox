@@ -15,12 +15,19 @@ exports[`Header should match the snapshot 1`] = `
     </h1>
     <Button
       favorites={Array []}
+      label="Favorites"
     />
   </div>
   <nav>
-    <Button />
-    <Button />
-    <Button />
+    <Button
+      label="People"
+    />
+    <Button
+      label="Planets"
+    />
+    <Button
+      label="Vehicles"
+    />
   </nav>
 </header>
 `;

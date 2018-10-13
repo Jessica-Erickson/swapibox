@@ -1,0 +1,43 @@
+.Button {
+  font-family: 'News Cycle', sans-serif;
+  height: 45px;
+  width: 150px;
+  border: 2px solid gold;
+  background-color: transparent;
+  color: gold;
+  font-size: 1.25rem;
+  border-radius: 15px;
+  padding-bottom: 3px;
+  letter-spacing: 1px;
+}
+
+.Button:hover {
+  color: white;
+  border-color: white;
+}
+
+.Favorites {
+  position: relative;
+  display: flex;
+  justify-content: space-around;
+}
+
+.Favorites:hover {
+  box-shadow: 0 0 15px gold, 0 0 15px white;
+}
+
+.favorites-badge {
+  font-weight: 700;
+}
+
+.People:hover {
+  box-shadow: 0 0 15px deepskyblue, 0 0 15px white;
+}
+
+.Planets:hover {
+  box-shadow: 0 0 15px springgreen, 0 0 15px white;
+}
+
+.Vehicles:hover {
+  box-shadow: 0 0 15px red, 0 0 15px white;
+}
