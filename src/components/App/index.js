@@ -23,7 +23,12 @@ class App extends Component {
   render() {
     const { isLoading, allFilms } = this.state;
 
-    if (!isLoading) {
+    if (isLoading) {
+      return (
+        <div className="loading">
+        </div>
+      )
+    } else {
       return (
         <div className="App">
           <ScrollingText allFilms={allFilms} />
@@ -31,11 +36,6 @@ class App extends Component {
           <CardContainer />
         </div>
       );
-    } else {
-      return (
-        <div className="loading">
-        </div>
-      )
     }
   }
 }

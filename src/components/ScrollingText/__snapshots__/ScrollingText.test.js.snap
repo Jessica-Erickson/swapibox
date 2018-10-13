@@ -6,4 +6,25 @@ Object {
 }
 `;
 
-exports[`ScrollingText should match the snapshot 1`] = `undefined`;
+exports[`ScrollingText should match the snapshot 1`] = `
+<aside
+  className="ScrollingText"
+  onAnimationEnd={[Function]}
+>
+  <p
+    className="opening-crawl"
+  >
+    This is opening crawl 1
+  </p>
+  <h3
+    className="title"
+  >
+    Star Wars 1
+  </h3>
+  <h4
+    className="release-date"
+  >
+    1977
+  </h4>
+</aside>
+`;
