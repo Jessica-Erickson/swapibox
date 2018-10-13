@@ -1,6 +1,8 @@
 @font-face {
-  font-family: StarJedi, 'News Cycle', sans-serif;
-  src: url(./../../assets/fonts/Star_Jedi_Rounded.ttf) format('truetype');
+  font-family: "StarJedi";
+  src: url("../../assets/fonts/Starjedi.ttf") format("truetype");
+  font-weight: normal;
+  font-style:normal;
 }
 
 .Header {
@@ -27,6 +29,7 @@
   margin: 0 0 5px 150px;
   font-size: 5rem;
   line-height: 4.5rem;
+  letter-spacing: 8px;
 }
 
 nav {

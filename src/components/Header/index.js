@@ -8,7 +8,7 @@ const Header = (props) => {
     <header className="Header">
       <div className="upper-header">
         <div></div>
-        <h1 className="header-title">SWAPI-box</h1>
+        <h1 className="header-title">SWApi-Box</h1>
         <Button
           label='Favorites'
           favorites={props.favorites}
