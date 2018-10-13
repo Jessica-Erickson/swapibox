@@ -22,11 +22,15 @@ class ScrollingText extends Component {
 
     return (
       <aside
-        className="ScrollingText"
-        onAnimationEnd={this.changeText}>
-        <p className="opening-crawl">{openingCrawl}</p>
-        <h3 className="title">{title}</h3>
-        <h4 className="release-date">{releaseDate}</h4>
+        className="ScrollingText">
+        <div className="fade"></div>
+        <div
+          className="scrolling-wrapper" 
+          onAnimationIteration={this.changeText}>
+          <p className="opening-crawl">{openingCrawl}</p>
+          <h2 className="title">{title}</h2>
+          <h3 className="release-date">{releaseDate}</h3>
+        </div>
       </aside>
     )
   }

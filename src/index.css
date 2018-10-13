@@ -2,7 +2,7 @@ body {
   margin: 0;
   padding: 0;
   background-image: url(./assets/images/space.jpg);
-  background-position: cover;
+  background-size: cover;
   background-color: hsla(0, 0%, 0%, 0.75);
   background-blend-mode: multiply;
   background-repeat: no-repeat;
