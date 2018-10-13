@@ -4,9 +4,11 @@ import Button from './index'
 
 describe('Button', () => {
   let wrapper;
+  let label;
 
   beforeEach(() => {
-    wrapper = shallow(<Button />)
+    label='People'
+    wrapper = shallow(<Button label={label}/>)
   })
 
   it('should match the snapshot', () => {
@@ -14,8 +16,15 @@ describe('Button', () => {
   })
 
   it('should have default state', () => {
-    wrapper = shallow(<Button />, { disableLifecycleMethods: true })
+    wrapper = shallow(<Button label={label} />, { disableLifecycleMethods: true })
 
     expect(wrapper.state()).toMatchSnapshot()
+  })
+
+  it('should render favorites button', () => {
+    const favorites = []
+    wrapper = shallow(<Button label='Favorites' favorites={favorites} />)
+
+    expect(wrapper.find('.Favorites')).toHaveLength(1)
   })
 })

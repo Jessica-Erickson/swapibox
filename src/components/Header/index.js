@@ -9,12 +9,21 @@ const Header = (props) => {
       <div className="upper-header">
         <div></div>
         <h1 className="header-title">SWAPI-box</h1>
-        <Button favorites={props.favorites}/>
+        <Button
+          label='Favorites'
+          favorites={props.favorites}
+        />
       </div>
       <nav>
-        <Button />
-        <Button />
-        <Button />
+        <Button
+          label='People'
+        />
+        <Button
+          label='Planets'
+        />
+        <Button
+          label='Vehicles'
+        />
       </nav>
     </header>
   )
