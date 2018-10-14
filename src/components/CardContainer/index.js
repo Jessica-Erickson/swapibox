@@ -10,7 +10,7 @@ const CardContainer = ({ cardContents }) => {
     cards = <h1 className="default">Select a Category!</h1>;
   } else {
     cards = cardContents.map(thingy => {
-      return <Card contents={thingy} />
+      return <Card contents={thingy} key={thingy.name} />
     })
   }
 
