@@ -6,16 +6,16 @@ describe('Card', () => {
   let wrapper;
 
   beforeEach(() => {
-    wrapper = shallow(<Card />)
-  })
+    wrapper = shallow(<Card />);
+  });
 
   it('should match the snapshot', () => {
-    expect(wrapper).toMatchSnapshot()
-  })
+    expect(wrapper).toMatchSnapshot();
+  });
 
   it('should have default state', () => {
-    wrapper = shallow(<Card />, { disableLifecycleMethods: true })
+    wrapper = shallow(<Card />, { disableLifecycleMethods: true });
 
-    expect(wrapper.state()).toMatchSnapshot()
-  })
-})
+    expect(wrapper.state()).toMatchSnapshot();
+  });
+});
