@@ -27,4 +27,36 @@ const cleanFilms = (filmCollection) => {
 export const getPeople = async () => {
   const url = 'https://swapi.co/api/people/';
   const response = await fetch(url);
+  const rawPeople = (await response.json()).results;
+  return cleanPeople(rawPeople);
 }
+
+const cleanPeople = (peopleList) => {
+  const newPeople = peopleList.map(async person => {
+    const response = await Promise.all([ fetch(person.homeworld), fetch(person.species) ]);
+    const rawJson = await Promise.all([ response[0].json(), response[1].json() ]);
+    const homeData = { homeworld: rawJson[0].name, homePop: rawJson[0].population };
+    const speciesData = { species: rawJson[1].name };
+  });
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

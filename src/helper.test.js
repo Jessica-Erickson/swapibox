@@ -78,12 +78,13 @@ describe('API', () => {
       { name: 'Luke Skywalker',
         homeworld: 'Tatooine',
         species: 'Human',
-        homePop: '200000'}];
+        homePop: '200000' }];
 
-      mockResponse = [
+      mockResponse = { results: [
       { name: 'Luke Skywalker',
         homeworld: 'https://swapi.co/api/planets/1/',
-        species: 'https://swapi.co/api/species/1/'}];
+        species: 'https://swapi.co/api/species/1/' }
+      ] };
 
       mockPlanet = { name: 'Tatooine', population: '200000' };
 
