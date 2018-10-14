@@ -59,4 +59,18 @@ describe('API', () => {
       await expect(API.getFilms()).rejects.toEqual(expected);
     });
   });
+
+  describe('getPeople', () => {
+    beforeEach(() => {
+      window.fetch = () => {}
+    });
+
+    it('should call fetch with the correct url', () => {
+      const expected = 'https://swapi.co/api/people/';
+
+      await API.getPeople();
+
+      expect(window.fetch).toHaveBeenCalledWith(expected);
+    }
+  });
 });

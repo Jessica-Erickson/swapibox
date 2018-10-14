@@ -7,7 +7,7 @@ export const getFilms = async () => {
 
     return cleanFilms(rawFilms);
   } else {
-    throw new Error('Status was not ok');
+    throw new Error('Films status was not ok.');
   }
 }
 
