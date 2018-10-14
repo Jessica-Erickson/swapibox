@@ -5,12 +5,18 @@ import { shallow } from 'enzyme'
 describe('Header', () => {
   let wrapper;
   let favorites;
+  let handleNavClick;
+  let currentDisplay
 
   beforeEach(() => {
     favorites = []
-    wrapper = shallow(<Header 
+    handleNavClick = jest.fn()
+    currentDisplay = 'default'
+    wrapper = shallow(<Header
                         favorites={favorites}
-                        handleNavClick={() => {}} />)
+                        handleNavClick={handleNavClick}
+                        currentDisplay={currentDisplay}
+                      />)
   })
 
   it('should match the snapshot', () => {

@@ -5,16 +5,22 @@ import Button from './index'
 describe('Button', () => {
   let wrapper;
   let label;
+  let favorites;
   let currentDisplay;
   let handleNavClick;
+  let isActive;
 
   beforeEach(() => {
-    currentDisplay = 'default'
     label = 'People'
+    favorites = []
     handleNavClick = jest.fn()
+    currentDisplay = 'default'
+    isActive = false
+
     wrapper = shallow(<Button label={label}
                               handleNavClick={handleNavClick}
                               currentDisplay={currentDisplay}
+                              isActive={isActive}
                       />)
   });
 
@@ -22,32 +28,27 @@ describe('Button', () => {
     expect(wrapper).toMatchSnapshot()
   });
 
-  it('should have default state', () => {
-    wrapper = shallow(<Button label={label}
-                              handleNavClick={handleNavClick}
-                              currentDisplay={currentDisplay}
-                      />, { disableLifecycleMethods: true })
-
-    expect(wrapper.state()).toMatchSnapshot()
-  });
+  it('should be inactive by default', () => {
+    expect(wrapper.find('.active')).toHaveLength(0)
+  })
 
   it('should render favorites button', () => {
-    const favorites = []
     wrapper = shallow(<Button label='Favorites'
                               favorites={favorites}
                               handleNavClick={handleNavClick}
                               currentDisplay={currentDisplay}
+                              isActive={isActive}
                       />)
 
     expect(wrapper.find('.Favorites')).toHaveLength(1)
   });
 
   it('should call handleNavClick when category button clicked', () => {
-    const handleNavClick = jest.fn();
     wrapper = mount(<Button
                       label={label}
                       handleNavClick={handleNavClick}
                       currentDisplay={currentDisplay}
+                      isActive={isActive}
                     />);
 
     wrapper.find('.People').simulate('click');
@@ -56,8 +57,6 @@ describe('Button', () => {
   });
 
   it('should call handleNavClick when favorites button clicked', () => {
-    const handleNavClick = jest.fn();
-    const favorites = [];
     label = 'Favorites';
 
     wrapper = mount(<Button
@@ -65,6 +64,7 @@ describe('Button', () => {
                       favorites={favorites}
                       handleNavClick={handleNavClick}
                       currentDisplay={currentDisplay}
+                      isActive={isActive}
                     />);
 
     wrapper.find('.Favorites').simulate('click');
@@ -72,7 +72,27 @@ describe('Button', () => {
     expect(handleNavClick).toHaveBeenCalled();
   });
 
-  it('when a user clicks different nav button, it should toggle the state of the old and new buttons', () => {
+  it('should add "active" class if isActive', () => {
+    isActive = true
+    wrapper = shallow(<Button label={label}
+                      handleNavClick={handleNavClick}
+                      currentDisplay={currentDisplay}
+                      isActive={isActive}
+                      />)
 
+    expect(wrapper.find('.active')).toHaveLength(1)
+  })
+
+  it('should add "active" class if favorites button isActive', () => {
+    isActive = true
+    label='Favorites'
+    wrapper = shallow(<Button label={label}
+                      favorites={favorites}
+                      handleNavClick={handleNavClick}
+                      currentDisplay={currentDisplay}
+                      isActive={isActive}
+                      />)
+
+    expect(wrapper.find('.active')).toHaveLength(1)
   })
 })

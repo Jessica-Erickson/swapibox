@@ -14,22 +14,30 @@ exports[`Header should match the snapshot 1`] = `
       SWApi-Box
     </h1>
     <Button
+      currentDisplay="default"
       favorites={Array []}
-      handleNavClick={[Function]}
+      handleNavClick={[MockFunction]}
+      isActive={false}
       label="Favorites"
     />
   </div>
   <nav>
     <Button
-      handleNavClick={[Function]}
+      currentDisplay="default"
+      handleNavClick={[MockFunction]}
+      isActive={false}
       label="People"
     />
     <Button
-      handleNavClick={[Function]}
+      currentDisplay="default"
+      handleNavClick={[MockFunction]}
+      isActive={false}
       label="Planets"
     />
     <Button
-      handleNavClick={[Function]}
+      currentDisplay="default"
+      handleNavClick={[MockFunction]}
+      isActive={false}
       label="Vehicles"
     />
   </nav>
