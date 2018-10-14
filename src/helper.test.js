@@ -62,7 +62,7 @@ describe('API', () => {
 
   describe('getPeople', () => {
     beforeEach(() => {
-      window.fetch = () => {}
+      window.fetch = jest.fn(() => {})
     });
 
     it('should call fetch with the correct url', async () => {

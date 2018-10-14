@@ -23,3 +23,8 @@ const cleanFilms = (filmCollection) => {
 
   return newFilms;
 }
+
+export const getPeople = async () => {
+  const url = 'https://swapi.co/api/people/';
+  const response = await fetch(url);
+}
