@@ -123,5 +123,33 @@ describe('API', () => {
       expect(window.fetch).toHaveBeenCalledWith(url2);
       expect(window.fetch).toHaveBeenCalledWith(url3);
     });
+
+    it('should return people if the status is ok', async () => {
+      const people = await API.getPeople();
+
+      expect(people).toEqual(mockFormatted);
+    });
   });
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

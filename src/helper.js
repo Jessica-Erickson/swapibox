@@ -37,7 +37,11 @@ const cleanPeople = (peopleList) => {
     const rawJson = await Promise.all([ response[0].json(), response[1].json() ]);
     const homeData = { homeworld: rawJson[0].name, homePop: rawJson[0].population };
     const speciesData = { species: rawJson[1].name };
+    return { name: person.name,
+             ...homeData, 
+             ...speciesData }
   });
+  return Promise.all(newPeople);
 }
 
 
