@@ -11,17 +11,23 @@ class App extends Component {
     super()
     this.state = {
       isLoading: true,
+      default: ['Select a Category!'],
       allFilms: [],
-      favorites: []
+      people: [],
+      favorites: [],
+      currentDisplay: 'default'
     }
   }
 
   async componentDidMount() {
-    this.setState({ allFilms: await API.getFilms(), isLoading: false });
+    this.setState({ 
+      allFilms: await API.getFilms(),
+      people: await API.getPeople(), 
+      isLoading: false });
   }
 
   render() {
-    const { isLoading, allFilms, favorites } = this.state;
+    const { isLoading, allFilms, favorites, currentDisplay } = this.state;
 
     if (isLoading) {
       return (
@@ -33,7 +39,7 @@ class App extends Component {
         <div className="App">
           <ScrollingText allFilms={allFilms} />
           <Header favorites={favorites} />
-          <CardContainer />
+          <CardContainer cardContents={this.state[currentDisplay]} />
         </div>
       );
     }
