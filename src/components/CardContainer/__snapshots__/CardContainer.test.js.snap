@@ -1,14 +1,33 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`CardContainer should display the Favorites default message if no Favorites 1`] = `
+<main
+  className="CardContainer"
+>
+  <div>
+    <h2
+      className="Favorites-default"
+    >
+      You currently don't have any favorites.
+    </h2>
+    <p
+      className="Favorites-default-text"
+    >
+      Click on the lightsaber in the top right corner of a card to favorite it.
+    </p>
+  </div>
+</main>
+`;
+
 exports[`CardContainer should match the snapshot 1`] = `
 <main
   className="CardContainer"
 >
-  <h1
+  <h2
     className="default"
   >
-    Select a Category!
-  </h1>
+    Select a Category or Favorites
+  </h2>
 </main>
 `;
 
@@ -27,6 +46,7 @@ exports[`CardContainer should render cards when it gets contents 1`] = `
       },
     ]
   }
+  currentDisplay="default"
 >
   <main
     className="CardContainer"
@@ -58,7 +78,9 @@ exports[`CardContainer should render cards when it gets contents 1`] = `
           onMouseOver={[Function]}
           src="lightsaber-wt.png"
         />
-        <ul>
+        <ul
+          className="content"
+        >
           <li>
             Homeworld: 
           </li>
@@ -98,7 +120,9 @@ exports[`CardContainer should render cards when it gets contents 1`] = `
           onMouseOver={[Function]}
           src="lightsaber-wt.png"
         />
-        <ul>
+        <ul
+          className="content"
+        >
           <li>
             Homeworld: 
           </li>
@@ -138,7 +162,9 @@ exports[`CardContainer should render cards when it gets contents 1`] = `
           onMouseOver={[Function]}
           src="lightsaber-wt.png"
         />
-        <ul>
+        <ul
+          className="content"
+        >
           <li>
             Homeworld: 
           </li>

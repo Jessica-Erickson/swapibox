@@ -10,7 +10,7 @@ exports[`Button should add "active" class if favorites button isActive 1`] = `
   <div
     className="favorites-badge"
   >
-    0
+    2
   </div>
 </button>
 `;
@@ -43,7 +43,7 @@ exports[`Button should render favorites button 1`] = `
   <div
     className="favorites-badge"
   >
-    0
+    2
   </div>
 </button>
 `;

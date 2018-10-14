@@ -48,7 +48,10 @@ class App extends Component {
             handleNavClick={this.handleNavClick}
             currentDisplay={currentDisplay}
           />
-          <CardContainer cardContents={cardContents} />
+          <CardContainer
+            cardContents={cardContents}
+            currentDisplay={currentDisplay}
+          />
         </div>
       );
     }

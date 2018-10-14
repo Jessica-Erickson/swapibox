@@ -20,7 +20,9 @@ exports[`Card should change colors when user hovers over hilt 1`] = `
     onMouseOver={[Function]}
     src="lightsaber-bk.png"
   />
-  <ul>
+  <ul
+    className="content"
+  >
     <li>
       Homeworld: 
       Tatooine
@@ -57,7 +59,9 @@ exports[`Card should change colors when user hovers over hilt 2`] = `
     onMouseOver={[Function]}
     src="lightsaber-wt.png"
   />
-  <ul>
+  <ul
+    className="content"
+  >
     <li>
       Homeworld: 
       Tatooine
@@ -140,7 +144,9 @@ exports[`Card should toggle isActive on when hilt is clicked 1`] = `
     onMouseOver={[Function]}
     src="lightsaber-wt.png"
   />
-  <ul>
+  <ul
+    className="content"
+  >
     <li>
       Homeworld: 
       Tatooine
@@ -177,7 +183,9 @@ exports[`Card should toggle isActive on when hilt is clicked 2`] = `
     onMouseOver={[Function]}
     src="lightsaber-wt.png"
   />
-  <ul>
+  <ul
+    className="content"
+  >
     <li>
       Homeworld: 
       Tatooine

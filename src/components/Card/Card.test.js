@@ -20,7 +20,9 @@ describe('Card', () => {
   });
 
   it('should have default state', () => {
-    wrapper = shallow(<Card contents={contents} />, { disableLifecycleMethods: true });
+    wrapper = shallow(<Card contents={contents} />,
+                      { disableLifecycleMethods: true }
+                     );
 
     expect(wrapper.state()).toMatchSnapshot();
   });

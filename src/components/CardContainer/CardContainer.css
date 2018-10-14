@@ -8,7 +8,18 @@
   overflow: scroll;
 }
 
-.default {
+.default,
+.Favorites-default {
   color: gold;
   text-align: center;
+  font-size: 2rem;
+  margin-bottom: 0;
 }
+
+.Favorites-default-text {
+  color: gold;
+  font-size: 1.75rem;
+  margin-top: 0;
+  align-self: flex-start;
+}
+
