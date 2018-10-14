@@ -18,4 +18,14 @@ describe('Card', () => {
 
     expect(wrapper.state()).toMatchSnapshot();
   });
+
+  it('should become active when clicked', () => {
+    wrapper = shallow(<Card />);
+
+    expect(wrapper.state('isActive')).toEqual(false);
+
+    wrapper.find('.hilt').simulate('click');
+
+    expect(wrapper.state('isActive')).toEqual(true);
+  })
 });

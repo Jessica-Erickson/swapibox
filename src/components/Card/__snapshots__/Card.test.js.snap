@@ -1,9 +1,31 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Card should have default state 1`] = `null`;
+exports[`Card should have default state 1`] = `
+Object {
+  "isActive": false,
+  "src": "lightsaber-wt.png",
+}
+`;
 
 exports[`Card should match the snapshot 1`] = `
 <article
-  className="Card"
-/>
+  className="Card isAlsoOff"
+>
+  <h3
+    className="name isWhite"
+  >
+    Luke Skywalker
+  </h3>
+  <div
+    className="saber isOff"
+  />
+  <img
+    alt="The hilt of a lightsaber. Turn the lightsaber on to favorite this card."
+    className="hilt"
+    onClick={[Function]}
+    onMouseOut={[Function]}
+    onMouseOver={[Function]}
+    src="lightsaber-wt.png"
+  />
+</article>
 `;
