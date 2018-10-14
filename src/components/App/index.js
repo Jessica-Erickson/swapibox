@@ -24,9 +24,9 @@ class App extends Component {
   }
 
   async componentDidMount() {
-    this.setState({ 
+    this.setState({
       allFilms: await API.getFilms(),
-      People: await API.getPeople(), 
+      People: await API.getPeople(),
       isLoading: false });
   }
 
@@ -43,7 +43,11 @@ class App extends Component {
       return (
         <div className="App">
           <ScrollingText allFilms={allFilms} />
-          <Header favorites={Favorites} handleNavClick={this.handleNavClick} />
+          <Header
+            favorites={Favorites}
+            handleNavClick={this.handleNavClick}
+            currentDisplay={currentDisplay}
+          />
           <CardContainer cardContents={cardContents} />
         </div>
       );

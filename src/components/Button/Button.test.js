@@ -5,10 +5,17 @@ import Button from './index'
 describe('Button', () => {
   let wrapper;
   let label;
+  let currentDisplay;
+  let handleNavClick;
 
   beforeEach(() => {
-    label='People'
-    wrapper = shallow(<Button label={label}/>)
+    currentDisplay = 'default'
+    label = 'People'
+    handleNavClick = jest.fn()
+    wrapper = shallow(<Button label={label}
+                              handleNavClick={handleNavClick}
+                              currentDisplay={currentDisplay}
+                      />)
   });
 
   it('should match the snapshot', () => {
@@ -16,23 +23,31 @@ describe('Button', () => {
   });
 
   it('should have default state', () => {
-    wrapper = shallow(<Button label={label} />, { disableLifecycleMethods: true })
+    wrapper = shallow(<Button label={label}
+                              handleNavClick={handleNavClick}
+                              currentDisplay={currentDisplay}
+                      />, { disableLifecycleMethods: true })
 
     expect(wrapper.state()).toMatchSnapshot()
   });
 
   it('should render favorites button', () => {
     const favorites = []
-    wrapper = shallow(<Button label='Favorites' favorites={favorites} />)
+    wrapper = shallow(<Button label='Favorites'
+                              favorites={favorites}
+                              handleNavClick={handleNavClick}
+                              currentDisplay={currentDisplay}
+                      />)
 
     expect(wrapper.find('.Favorites')).toHaveLength(1)
   });
 
   it('should call handleNavClick when category button clicked', () => {
     const handleNavClick = jest.fn();
-    wrapper = mount(<Button 
-                      label={label} 
-                      handleNavClick={handleNavClick} 
+    wrapper = mount(<Button
+                      label={label}
+                      handleNavClick={handleNavClick}
+                      currentDisplay={currentDisplay}
                     />);
 
     wrapper.find('.People').simulate('click');
@@ -45,28 +60,19 @@ describe('Button', () => {
     const favorites = [];
     label = 'Favorites';
 
-    wrapper = mount(<Button 
-                      label={label} 
+    wrapper = mount(<Button
+                      label={label}
                       favorites={favorites}
-                      handleNavClick={handleNavClick} 
+                      handleNavClick={handleNavClick}
+                      currentDisplay={currentDisplay}
                     />);
 
     wrapper.find('.Favorites').simulate('click');
 
     expect(handleNavClick).toHaveBeenCalled();
   });
+
+  it('when a user clicks different nav button, it should toggle the state of the old and new buttons', () => {
+
+  })
 })
-
-
-
-
-
-
-
-
-
-
-
-
-
-
