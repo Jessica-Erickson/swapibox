@@ -20,8 +20,17 @@ describe('App', () => {
   });
 
   it('should render the app if not Loading', () => {
-    wrapper.setState({ isLoading: false })
+    wrapper.setState({ isLoading: false });
 
     expect(wrapper).toMatchSnapshot();
-  })
+  });
+
+  it('should update category when a nav button is clicked', () => {
+
+    expect(wrapper.state('currentDisplay')).toEqual('default');
+
+    wrapper.instance().handleNavClick('People');
+
+    expect(wrapper.state('currentDisplay')).toEqual('People');
+  });
 });

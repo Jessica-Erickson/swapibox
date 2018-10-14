@@ -48,24 +48,3 @@ const cleanPeople = (peopleList) => {
   });
   return Promise.all(newPeople);
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

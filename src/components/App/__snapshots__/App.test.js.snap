@@ -8,8 +8,11 @@ exports[`App matches the snapshot 1`] = `
 
 exports[`App should have a default state 1`] = `
 Object {
+  "Favorites": Array [],
+  "People": Array [],
   "allFilms": Array [],
-  "favorites": Array [],
+  "currentDisplay": "default",
+  "default": Array [],
   "isLoading": true,
 }
 `;
@@ -23,7 +26,10 @@ exports[`App should render the app if not Loading 1`] = `
   />
   <Header
     favorites={Array []}
+    handleNavClick={[Function]}
   />
-  <CardContainer />
+  <CardContainer
+    cardContents={Array []}
+  />
 </div>
 `;

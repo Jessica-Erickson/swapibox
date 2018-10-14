@@ -8,7 +8,9 @@ describe('Header', () => {
 
   beforeEach(() => {
     favorites = []
-    wrapper = shallow(<Header favorites={favorites} />)
+    wrapper = shallow(<Header 
+                        favorites={favorites}
+                        handleNavClick={() => {}} />)
   })
 
   it('should match the snapshot', () => {

@@ -11,17 +11,28 @@ class App extends Component {
     super()
     this.state = {
       isLoading: true,
+      default: [],
       allFilms: [],
-      favorites: []
+      People: [],
+      Favorites: [],
+      currentDisplay: 'default'
     }
   }
 
+  handleNavClick = (category) => {
+    this.setState({ currentDisplay: category });
+  }
+
   async componentDidMount() {
-    this.setState({ allFilms: await API.getFilms(), isLoading: false });
+    this.setState({ 
+      allFilms: await API.getFilms(),
+      People: await API.getPeople(), 
+      isLoading: false });
   }
 
   render() {
-    const { isLoading, allFilms, favorites } = this.state;
+    const { isLoading, allFilms, Favorites, currentDisplay } = this.state;
+    const cardContents = this.state[currentDisplay];
 
     if (isLoading) {
       return (
@@ -32,8 +43,8 @@ class App extends Component {
       return (
         <div className="App">
           <ScrollingText allFilms={allFilms} />
-          <Header favorites={favorites} />
-          <CardContainer />
+          <Header favorites={Favorites} handleNavClick={this.handleNavClick} />
+          <CardContainer cardContents={cardContents} />
         </div>
       );
     }

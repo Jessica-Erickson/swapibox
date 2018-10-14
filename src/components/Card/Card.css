@@ -1,0 +1,71 @@
+.Card {
+  background-color: #444;
+  border-radius: 40px;
+  box-shadow: 0 0 0 0 transparent;
+  display: grid;
+  grid-template: 'heading hilt' 100px
+                  / 1fr 90px;
+  margin: 25px;
+  width: 300px;
+  z-index: 0;
+}
+
+.saber {
+  margin-top: 27px;
+  border-radius: 5px;
+  grid-area: heading;
+  height: 10px;
+  justify-self: end;
+  z-index: 3;
+}
+
+.hilt {
+  grid-area: hilt;
+  margin-left: 1px;
+  transform: rotate(225deg);
+  z-index: 6;
+}
+
+.hilt:hover {
+  cursor: pointer;
+}
+
+.name {
+  grid-area: heading;
+  margin-top: 21px;
+  z-index: 9;
+}
+
+.isLit {
+  background-color: hsl(195, 85%, 70%);
+  box-shadow: 0 0 10px deepskyblue, 0 0 15px white;
+  transition: width 1s;
+  width: 185px;
+}
+
+.isOff {
+  background-color: transparent;
+  box-shadow: 0 0 0  transparent;
+  transition: background-color 0s 1.8s , box-shadow 0s 1.8s, width 1s 0.8s;
+  width: 1px;
+}
+
+.isAlsoLit {
+  box-shadow: 0 0 50px -5px deepskyblue, 0 0 60px -5px white;
+  transition: box-shadow 1s 0.8s;
+}
+
+.isAlsoOff {
+  box-shadow: 0 0 0 0 transparent;
+  transition: box-shadow 1s;
+}
+
+.isBlack {
+  color: black;
+  transition: color 1s;
+}
+
+.isWhite {
+  color: white;
+  transition: color 1s 0.8s;
+}

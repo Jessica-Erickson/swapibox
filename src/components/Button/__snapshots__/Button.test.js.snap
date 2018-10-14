@@ -1,10 +1,15 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Button should have default state 1`] = `Object {}`;
+exports[`Button should have default state 1`] = `
+Object {
+  "isActive": false,
+}
+`;
 
 exports[`Button should match the snapshot 1`] = `
 <input
   className="Button People"
+  onClick={[Function]}
   type="button"
   value="People"
 />
