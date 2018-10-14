@@ -13,7 +13,6 @@ const Header = ({ favorites, handleNavClick, currentDisplay }) => {
           label='Favorites'
           favorites={favorites}
           handleNavClick={handleNavClick}
-          currentDisplay={currentDisplay}
           isActive={'Favorites' === currentDisplay}
         />
       </div>
@@ -21,20 +20,17 @@ const Header = ({ favorites, handleNavClick, currentDisplay }) => {
         <Button
           label='People'
           handleNavClick={handleNavClick}
-          currentDisplay={currentDisplay}
           isActive={'People' === currentDisplay}
 
         />
         <Button
           label='Planets'
           handleNavClick={handleNavClick}
-          currentDisplay={currentDisplay}
           isActive={'Planets' === currentDisplay}
         />
         <Button
           label='Vehicles'
           handleNavClick={handleNavClick}
-          currentDisplay={currentDisplay}
           isActive={'Vehicles' === currentDisplay}
         />
       </nav>
@@ -43,7 +39,7 @@ const Header = ({ favorites, handleNavClick, currentDisplay }) => {
 }
 
 Header.propTypes = {
-  favorites: PropTypes.array.isRequired,
+  favorites: PropTypes.number.isRequired,
   handleNavClick: PropTypes.func.isRequired,
   currentDisplay: PropTypes.string.isRequired
 }

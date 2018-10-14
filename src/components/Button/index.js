@@ -11,7 +11,7 @@ const Button = ({ label , favorites , handleNavClick, isActive }) => {
       >
         Favorites
         <div className="favorites-badge">
-          {favorites.length}
+          {favorites}
         </div>
       </button>
     )
@@ -28,9 +28,8 @@ const Button = ({ label , favorites , handleNavClick, isActive }) => {
 
 Button.propTypes = {
   label: PropTypes.string.isRequired,
-  favorites: PropTypes.array,
+  favorites: PropTypes.number,
   handleNavClick: PropTypes.func.isRequired,
-  currentDisplay: PropTypes.string.isRequired,
   isActive: PropTypes.bool.isRequired
 }
 
