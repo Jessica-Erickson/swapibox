@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 import './Card.css';
-const src1 = require('./../../assets/icons/lightsaber-wt.png');
-const src2 = require('./../../assets/icons/lightsaber-bk.png');
+import whiteSaber from './../../assets/icons/lightsaber-wt.png';
+import blackSaber from './../../assets/icons/lightsaber-bk.png';
 
 class Card extends Component {
   constructor () {
     super();
     this.state = {
       isActive: false,
-      src: src1
+      src: whiteSaber
     }
   }
 
@@ -27,11 +27,11 @@ class Card extends Component {
         <img
           className='hilt'
           src={src}
-          onMouseOver={() => {this.setState({ src: src2 })}}
-          onMouseOut={() => {this.setState({ src: src1 })}}
+          onMouseOver={() => {this.setState({ src: blackSaber })}}
+          onMouseOut={() => {this.setState({ src: whiteSaber })}}
           alt='The hilt of a lightsaber. Turn the lightsaber on to favorite this card.'
           onClick={() => {
-            this.setState({ src: src1 });
+            this.setState({ src: whiteSaber });
             this.handleSaberClick();
           }} />
         <ul>
