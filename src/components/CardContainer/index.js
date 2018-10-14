@@ -6,7 +6,7 @@ import Card from './../Card';
 const CardContainer = ({ cardContents }) => {
   let cards;
 
-  if ( cardContents[0] === '') {
+  if ( cardContents.length === 0 ) {
     cards = <h1 className="default">Select a Category!</h1>;
   } else {
     cards = cardContents.map(thingy => {

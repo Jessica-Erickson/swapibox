@@ -11,7 +11,7 @@ class App extends Component {
     super()
     this.state = {
       isLoading: true,
-      default: [''],
+      default: [],
       allFilms: [],
       people: [],
       favorites: [],

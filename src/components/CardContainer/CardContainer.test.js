@@ -13,6 +13,14 @@ describe('CardContainer', () => {
     expect(wrapper).toMatchSnapshot();
   });
 
+  it('should render instructions by default', () => {
+    const expected = <h1 className="default">Select a Category!</h1>;
+
+    wrapper = mount(<CardContainer cardContents={[]} />);
+
+    expect(wrapper.find('h1')).toContainEqual(expected);
+  });
+
   it('should render cards when it gets contents', () => {
     const cardContents = [{ name: 'Luke Skywalker' }, 
                           { name: 'Leia Organa'}, 
