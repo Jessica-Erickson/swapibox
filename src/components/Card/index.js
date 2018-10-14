@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './Card.css';
+import PropTypes from 'prop-types';
 const src1 = require('./../../assets/icons/lightsaber-wt.png');
 const src2 = require('./../../assets/icons/lightsaber-bk.png');
 
@@ -42,6 +43,10 @@ class Card extends Component {
       </article>
     )
   }
+}
+
+Card.propTypes = {
+  contents: PropTypes.object.isRequired
 }
 
 export default Card;

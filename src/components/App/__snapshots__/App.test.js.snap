@@ -26,7 +26,7 @@ exports[`App should render the app if not Loading 1`] = `
   />
   <Header
     currentDisplay="default"
-    favorites={Array []}
+    favorites={0}
     handleNavClick={[Function]}
   />
   <CardContainer

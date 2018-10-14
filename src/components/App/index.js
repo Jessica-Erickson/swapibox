@@ -38,13 +38,13 @@ class App extends Component {
       return (
         <div className="loading">
         </div>
-      )
+      );
     } else {
       return (
         <div className="App">
           <ScrollingText allFilms={allFilms} />
           <Header
-            favorites={Favorites}
+            favorites={Favorites.length}
             handleNavClick={this.handleNavClick}
             currentDisplay={currentDisplay}
           />

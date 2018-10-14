@@ -6,20 +6,20 @@ describe('Header', () => {
   let wrapper;
   let favorites;
   let handleNavClick;
-  let currentDisplay
+  let currentDisplay;
 
   beforeEach(() => {
-    favorites = []
-    handleNavClick = jest.fn()
-    currentDisplay = 'default'
+    favorites = 0;
+    handleNavClick = jest.fn();
+    currentDisplay = 'default';
     wrapper = shallow(<Header
                         favorites={favorites}
                         handleNavClick={handleNavClick}
                         currentDisplay={currentDisplay}
-                      />)
-  })
+                      />);
+  });
 
   it('should match the snapshot', () => {
-    expect(wrapper).toMatchSnapshot()
-  })
-})
+    expect(wrapper).toMatchSnapshot();
+  });
+});
