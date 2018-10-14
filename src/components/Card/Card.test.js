@@ -27,5 +27,9 @@ describe('Card', () => {
     wrapper.find('.hilt').simulate('click');
 
     expect(wrapper.state('isActive')).toEqual(true);
-  })
+
+    wrapper.find('.hilt').simulate('click');
+
+    expect(wrapper.state('isActive')).toEqual(false);
+  });
 });
