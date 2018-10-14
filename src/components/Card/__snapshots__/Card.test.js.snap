@@ -1,5 +1,79 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Card should change colors when user hovers over hilt 1`] = `
+<article
+  className="Card isAlsoOff"
+>
+  <h3
+    className="name isWhite"
+  >
+    Luke Skywalker
+  </h3>
+  <div
+    className="saber isOff"
+  />
+  <img
+    alt="The hilt of a lightsaber. Turn the lightsaber on to favorite this card."
+    className="hilt"
+    onClick={[Function]}
+    onMouseOut={[Function]}
+    onMouseOver={[Function]}
+    src="lightsaber-bk.png"
+  />
+  <ul>
+    <li>
+      Homeworld: 
+      Tatooine
+    </li>
+    <li>
+      Species: 
+      Human
+    </li>
+    <li>
+      Population: 
+      200000
+    </li>
+  </ul>
+</article>
+`;
+
+exports[`Card should change colors when user hovers over hilt 2`] = `
+<article
+  className="Card isAlsoOff"
+>
+  <h3
+    className="name isWhite"
+  >
+    Luke Skywalker
+  </h3>
+  <div
+    className="saber isOff"
+  />
+  <img
+    alt="The hilt of a lightsaber. Turn the lightsaber on to favorite this card."
+    className="hilt"
+    onClick={[Function]}
+    onMouseOut={[Function]}
+    onMouseOver={[Function]}
+    src="lightsaber-wt.png"
+  />
+  <ul>
+    <li>
+      Homeworld: 
+      Tatooine
+    </li>
+    <li>
+      Species: 
+      Human
+    </li>
+    <li>
+      Population: 
+      200000
+    </li>
+  </ul>
+</article>
+`;
+
 exports[`Card should have default state 1`] = `
 Object {
   "isActive": false,
@@ -30,6 +104,80 @@ exports[`Card should match the snapshot 1`] = `
   <ul
     className="content"
   >
+    <li>
+      Homeworld: 
+      Tatooine
+    </li>
+    <li>
+      Species: 
+      Human
+    </li>
+    <li>
+      Population: 
+      200000
+    </li>
+  </ul>
+</article>
+`;
+
+exports[`Card should toggle isActive on when hilt is clicked 1`] = `
+<article
+  className="Card isAlsoLit"
+>
+  <h3
+    className="name isBlack"
+  >
+    Luke Skywalker
+  </h3>
+  <div
+    className="saber isLit"
+  />
+  <img
+    alt="The hilt of a lightsaber. Turn the lightsaber on to favorite this card."
+    className="hilt"
+    onClick={[Function]}
+    onMouseOut={[Function]}
+    onMouseOver={[Function]}
+    src="lightsaber-wt.png"
+  />
+  <ul>
+    <li>
+      Homeworld: 
+      Tatooine
+    </li>
+    <li>
+      Species: 
+      Human
+    </li>
+    <li>
+      Population: 
+      200000
+    </li>
+  </ul>
+</article>
+`;
+
+exports[`Card should toggle isActive on when hilt is clicked 2`] = `
+<article
+  className="Card isAlsoOff"
+>
+  <h3
+    className="name isWhite"
+  >
+    Luke Skywalker
+  </h3>
+  <div
+    className="saber isOff"
+  />
+  <img
+    alt="The hilt of a lightsaber. Turn the lightsaber on to favorite this card."
+    className="hilt"
+    onClick={[Function]}
+    onMouseOut={[Function]}
+    onMouseOver={[Function]}
+    src="lightsaber-wt.png"
+  />
+  <ul>
     <li>
       Homeworld: 
       Tatooine
