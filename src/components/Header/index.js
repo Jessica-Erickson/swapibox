@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import Button from '../Button'
 import './Header.css'
 
-const Header = ({ favorites, handleNavClick }) => {
+const Header = ({ favorites, handleNavClick, currentDisplay }) => {
   return (
     <header className="Header">
       <div className="upper-header">
@@ -13,20 +13,29 @@ const Header = ({ favorites, handleNavClick }) => {
           label='Favorites'
           favorites={favorites}
           handleNavClick={handleNavClick}
+          currentDisplay={currentDisplay}
+          isActive={'Favorites' === currentDisplay}
         />
       </div>
       <nav>
         <Button
-          label='People' 
+          label='People'
           handleNavClick={handleNavClick}
+          currentDisplay={currentDisplay}
+          isActive={'People' === currentDisplay}
+
         />
         <Button
           label='Planets'
           handleNavClick={handleNavClick}
+          currentDisplay={currentDisplay}
+          isActive={'Planets' === currentDisplay}
         />
         <Button
           label='Vehicles'
           handleNavClick={handleNavClick}
+          currentDisplay={currentDisplay}
+          isActive={'Vehicles' === currentDisplay}
         />
       </nav>
     </header>
@@ -35,7 +44,8 @@ const Header = ({ favorites, handleNavClick }) => {
 
 Header.propTypes = {
   favorites: PropTypes.array.isRequired,
-  handleNavClick: PropTypes.func.isRequired
+  handleNavClick: PropTypes.func.isRequired,
+  currentDisplay: PropTypes.string.isRequired
 }
 
 export default Header;
