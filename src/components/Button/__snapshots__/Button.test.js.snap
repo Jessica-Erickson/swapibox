@@ -8,7 +8,7 @@ Object {
 
 exports[`Button should match the snapshot 1`] = `
 <input
-  className="Button People"
+  className="Button People "
   onClick={[Function]}
   type="button"
   value="People"

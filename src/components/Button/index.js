@@ -10,13 +10,22 @@ class Button extends Component {
     }
   }
 
+  handleClick = (event) => {
+    const { value } = event.target
+
+    this.props.handleNavClick(value)
+    this.setState({ isActive: true })
+  }
+
   render() {
     const { label , favorites , handleNavClick } = this.props
+    const { isActive } = this.state
 
     if (favorites) {
       return (
-        <button className={`Button ${label}`}
-                onClick={() => {handleNavClick(label)}} 
+        <button className={`Button ${label} ${ isActive ? 'active' : '' }`}
+                value={ label }
+                onClick={this.handleClick}
         >
           Favorites
           <div className="favorites-badge">
@@ -26,10 +35,10 @@ class Button extends Component {
       )
     } else {
       return (
-        <input className={`Button ${label}`} 
-               type="button" 
+        <input className={`Button ${label} ${ isActive ? 'active' : '' }`}
+               type="button"
                value={ label }
-               onClick={() => {handleNavClick(label)}} 
+               onClick={this.handleClick}
         />
       )
     }

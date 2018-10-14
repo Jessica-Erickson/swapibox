@@ -41,3 +41,18 @@
 .Vehicles:hover {
   box-shadow: 0 0 15px red, 0 0 15px white;
 }
+
+.active {
+  background-color: gold;
+  color: black;
+  font-weight: 700;
+}
+
+.active:hover {
+  color: black;
+  border-color: black;
+}
+
+.active:focus {
+  outline: none;
+}
