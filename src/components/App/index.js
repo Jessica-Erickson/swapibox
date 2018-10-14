@@ -28,6 +28,7 @@ class App extends Component {
 
   render() {
     const { isLoading, allFilms, favorites, currentDisplay } = this.state;
+    const cardContents = this.state[currentDisplay];
 
     if (isLoading) {
       return (
@@ -39,7 +40,7 @@ class App extends Component {
         <div className="App">
           <ScrollingText allFilms={allFilms} />
           <Header favorites={favorites} />
-          <CardContainer cardContents={this.state[currentDisplay]} />
+          <CardContainer cardContents={cardContents} />
         </div>
       );
     }

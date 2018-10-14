@@ -4,9 +4,15 @@ import Card from './index'
 
 describe('Card', () => {
   let wrapper;
+  let contents;
 
   beforeEach(() => {
-    wrapper = shallow(<Card />);
+    contents = { name: 'Luke Skywalker',
+                 homeworld: 'Tatooine',
+                 species: 'Human',
+                 homePop: '200000' };
+
+    wrapper = shallow(<Card contents={contents} />);
   });
 
   it('should match the snapshot', () => {
@@ -14,14 +20,12 @@ describe('Card', () => {
   });
 
   it('should have default state', () => {
-    wrapper = shallow(<Card />, { disableLifecycleMethods: true });
+    wrapper = shallow(<Card contents={contents} />, { disableLifecycleMethods: true });
 
     expect(wrapper.state()).toMatchSnapshot();
   });
 
   it('should become active when hilt is clicked', () => {
-    wrapper = shallow(<Card />);
-
     expect(wrapper.state('isActive')).toEqual(false);
 
     wrapper.find('.hilt').simulate('click');
@@ -34,7 +38,6 @@ describe('Card', () => {
   });
 
   it('should change colors when user hovers over hilt', () => {
-    wrapper = shallow(<Card />);
     const src1 = 'lightsaber-wt.png';
     const src2 = 'lightsaber-bk.png';
 

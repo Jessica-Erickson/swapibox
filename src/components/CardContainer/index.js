@@ -11,7 +11,7 @@ const CardContainer = ({ cardContents }) => {
   } else {
     cards = cardContents.map(thingy => {
       return <Card contents={thingy} key={thingy.name} />
-    })
+    });
   }
 
   return (

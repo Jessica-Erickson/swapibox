@@ -27,5 +27,19 @@ exports[`Card should match the snapshot 1`] = `
     onMouseOver={[Function]}
     src="lightsaber-wt.png"
   />
+  <ul>
+    <li>
+      Homeworld: 
+      Tatooine
+    </li>
+    <li>
+      Species: 
+      Human
+    </li>
+    <li>
+      Population: 
+      200000
+    </li>
+  </ul>
 </article>
 `;
