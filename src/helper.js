@@ -27,8 +27,13 @@ const cleanFilms = (filmCollection) => {
 export const getPeople = async () => {
   const url = 'https://swapi.co/api/people/';
   const response = await fetch(url);
-  const rawPeople = (await response.json()).results;
-  return cleanPeople(rawPeople);
+
+  if (response.ok) {
+    const rawPeople = (await response.json()).results;
+    return cleanPeople(rawPeople); 
+  } else {
+    throw new Error('People status was not ok.');
+  }
 }
 
 const cleanPeople = (peopleList) => {

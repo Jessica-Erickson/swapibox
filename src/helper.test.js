@@ -129,6 +129,14 @@ describe('API', () => {
 
       expect(people).toEqual(mockFormatted);
     });
+
+    it('should throw an error if the status is not ok', () => {
+      const expected = Error('People status was not ok.');
+
+      window.fetch = () => Promise.resolve({ ok: false });
+
+      expect(API.getPeople()).rejects.toEqual(expected);
+    });
   });
 });
 
