@@ -27,7 +27,9 @@ exports[`Card should match the snapshot 1`] = `
     onMouseOver={[Function]}
     src="lightsaber-wt.png"
   />
-  <ul>
+  <ul
+    className="content"
+  >
     <li>
       Homeworld: 
       Tatooine

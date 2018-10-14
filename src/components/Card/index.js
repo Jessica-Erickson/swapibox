@@ -35,7 +35,7 @@ class Card extends Component {
             this.setState({ src: src1 });
             this.handleSaberClick();
           }} />
-        <ul>
+        <ul className='content'>
           <li>Homeworld: {contents.homeworld}</li>
           <li>Species: {contents.species}</li>
           <li>Population: {contents.homePop}</li>
