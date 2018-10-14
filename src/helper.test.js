@@ -52,7 +52,7 @@ describe('API', () => {
     });
 
     it('should throw an error if the status is not ok', async () => {
-      const expected = Error('Status was not ok');
+      const expected = Error('Films status was not ok.');
 
       window.fetch = jest.fn(() => Promise.resolve({ ok: false }));
 
@@ -65,12 +65,12 @@ describe('API', () => {
       window.fetch = () => {}
     });
 
-    it('should call fetch with the correct url', () => {
+    it('should call fetch with the correct url', async () => {
       const expected = 'https://swapi.co/api/people/';
 
       await API.getPeople();
 
       expect(window.fetch).toHaveBeenCalledWith(expected);
-    }
+    });
   });
 });
