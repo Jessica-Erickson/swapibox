@@ -24,4 +24,13 @@ describe('App', () => {
 
     expect(wrapper).toMatchSnapshot();
   });
+
+  it('should update category when a nav button is clicked', () => {
+
+    expect(wrapper.state('currentDisplay')).toEqual('default');
+
+    wrapper.instance().handleNavClick('People');
+
+    expect(wrapper.state('currentDisplay')).toEqual('People');
+  });
 });

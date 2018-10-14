@@ -6,25 +6,31 @@ class Button extends Component {
   constructor() {
     super()
     this.state = {
-
+      isActive: false
     }
   }
 
   render() {
-    const { label } = this.props
+    const { label , favorites , handleNavClick } = this.props
 
-    if (this.props.favorites) {
+    if (favorites) {
       return (
-        <button className={`Button ${label}`}>
+        <button className={`Button ${label}`}
+                onClick={() => {handleNavClick(label)}} 
+        >
           Favorites
           <div className="favorites-badge">
-            {this.props.favorites.length}
+            {favorites.length}
           </div>
         </button>
       )
     } else {
       return (
-        <input className={`Button ${label}`} type="button" value={ label }/>
+        <input className={`Button ${label}`} 
+               type="button" 
+               value={ label }
+               onClick={() => {handleNavClick(label)}} 
+        />
       )
     }
   }
