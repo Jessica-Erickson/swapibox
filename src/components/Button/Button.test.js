@@ -15,22 +15,16 @@ describe('Button', () => {
     favorites = []
     handleNavClick = jest.fn()
     currentDisplay = 'default'
-    isActive = false
+  });
 
+  it('should match the snapshot', () => {
     wrapper = shallow(<Button label={label}
                               handleNavClick={handleNavClick}
                               currentDisplay={currentDisplay}
                               isActive={isActive}
                       />)
-  });
-
-  it('should match the snapshot', () => {
     expect(wrapper).toMatchSnapshot()
   });
-
-  it('should be inactive by default', () => {
-    expect(wrapper.find('.active')).toHaveLength(0)
-  })
 
   it('should render favorites button', () => {
     wrapper = shallow(<Button label='Favorites'
@@ -40,7 +34,7 @@ describe('Button', () => {
                               isActive={isActive}
                       />)
 
-    expect(wrapper.find('.Favorites')).toHaveLength(1)
+    expect(wrapper).toMatchSnapshot()
   });
 
   it('should call handleNavClick when category button clicked', () => {
@@ -80,7 +74,7 @@ describe('Button', () => {
                       isActive={isActive}
                       />)
 
-    expect(wrapper.find('.active')).toHaveLength(1)
+    expect(wrapper).toMatchSnapshot()
   })
 
   it('should add "active" class if favorites button isActive', () => {
@@ -93,6 +87,6 @@ describe('Button', () => {
                       isActive={isActive}
                       />)
 
-    expect(wrapper.find('.active')).toHaveLength(1)
+    expect(wrapper).toMatchSnapshot()
   })
 })

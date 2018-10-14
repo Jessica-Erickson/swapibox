@@ -26,6 +26,8 @@ const Button = ({ label , favorites , handleNavClick, isActive }) => {
   }
 }
 
+Button.defaultProps = { isActive: false }
+
 Button.propTypes = {
   label: PropTypes.string.isRequired,
   favorites: PropTypes.array,
