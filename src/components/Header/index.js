@@ -21,7 +21,6 @@ const Header = ({ favorites, handleNavClick, currentDisplay }) => {
           label='People'
           handleNavClick={handleNavClick}
           isActive={'People' === currentDisplay}
-
         />
         <Button
           label='Planets'

@@ -2,8 +2,8 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import './Button.css'
 
-const Button = ({ label , favorites , handleNavClick, isActive }) => {
-  if (favorites) {
+const Button = ({ label, favorites, handleNavClick, isActive }) => {
+  if (favorites !== undefined) {
     return (
       <button className={`Button ${label} ${ isActive ? 'active' : '' }`}
               value={ label }

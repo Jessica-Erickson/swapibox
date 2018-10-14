@@ -1,13 +1,8 @@
 import React, { Component } from 'react';
-import './Card.css';
-<<<<<<< HEAD
 import PropTypes from 'prop-types';
-const src1 = require('./../../assets/icons/lightsaber-wt.png');
-const src2 = require('./../../assets/icons/lightsaber-bk.png');
-=======
 import whiteSaber from './../../assets/icons/lightsaber-wt.png';
 import blackSaber from './../../assets/icons/lightsaber-bk.png';
->>>>>>>  Refactor tests to match snapshots vs lengths
+import './Card.css';
 
 class Card extends Component {
   constructor () {
