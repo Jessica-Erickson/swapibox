@@ -61,54 +61,66 @@ describe('API', () => {
   });
 
   describe('getPeople', () => {
-    let url;
+    let url1;
+    let url2;
+    let url3;
+    let mockFormatted;
     let mockResponse;
-    let mockPeople;
+    let mockPlanet;
+    let mockSpecies;
 
     beforeEach(() => {
-      url = 'https://swapi.co/api/people/';
+      url1 = 'https://swapi.co/api/people/';
+      url2 = 'https://swapi.co/api/planets/1/';
+      url3 = 'https://swapi.co/api/species/1/';
 
-      mockPeople = [
+      mockFormatted = [
       { name: 'Luke Skywalker',
         homeworld: 'Tatooine',
         species: 'Human',
-        homePop: '200000'},
-      { name: 'Leia Organa',
-        homeworld: 'Alderaan',
-        species: 'Human',
-        homePop: '2000000000'},
-      { name: 'R2-D2',
-        homeworld: 'Naboo',
-        species: 'Droid',
-        homePop: '4500000000'}];
+        homePop: '200000'}];
 
       mockResponse = [
       { name: 'Luke Skywalker',
         homeworld: 'https://swapi.co/api/planets/1/',
-        species: 'https://swapi.co/api/species/1/'},
-      { name: 'Leia Organa',
-        homeworld: 'https://swapi.co/api/planets/2/',
-        species: 'https://swapi.co/api/species/1/'},
-      { name: 'R2-D2',
-        homeworld: 'https://swapi.co/api/planets/8/',
-        species: 'https://swapi.co/api/species/2/'}];
+        species: 'https://swapi.co/api/species/1/'}];
 
-      window.fetch = jest.fn(() => Promise.resolve({
-        ok: true,
-        json: () => Promise.resolve(mockResponse)
-      }));
+      mockPlanet = { name: 'Tatooine', population: '200000' };
+
+      mockSpecies = { name: 'Human' };
+
+      window.fetch = jest.fn((url) => {
+        if (url === url1) {
+          return Promise.resolve({
+            ok: true,
+            json: () => Promise.resolve(mockResponse)
+          });
+        } else if (url === url2) {
+          return Promise.resolve({
+            ok: true,
+            json: () => Promise.resolve(mockPlanet)
+          });
+        } else if (url === url3) {
+          return  Promise.resolve({
+            ok: true,
+            json: () => Promise.resolve(mockSpecies)
+          });
+        }
+      });
     });
 
     it('should call fetch with the correct url', async () => {
       await API.getPeople();
 
-      expect(window.fetch).toHaveBeenCalledWith(url);
+      expect(window.fetch).toHaveBeenCalledWith(url1);
     });
 
-    it('should return an array of people if the status is ok', async () => {  
-      const people = await API.getPeople();
+    it('should call fetch with all relevant urls', async () => {  
+      await API.getPeople();
 
-      expect(people).toEqual(mockPeople);
+      expect(window.fetch).toHaveBeenCalledWith(url1);
+      expect(window.fetch).toHaveBeenCalledWith(url2);
+      expect(window.fetch).toHaveBeenCalledWith(url3);
     });
   });
 });
