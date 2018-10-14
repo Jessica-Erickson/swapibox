@@ -13,29 +13,14 @@ describe('Button', () => {
     label = 'People';
     favorites = 2;
     handleNavClick = jest.fn();
-    isActive = false;
-
-    wrapper = shallow(<Button label={label}
-                              handleNavClick={handleNavClick}
-                              isActive={isActive}
-                      />);
   });
 
   it('should match the snapshot', () => {
-    expect(wrapper).toMatchSnapshot();
-  });
-
-  it('should be inactive by default', () => {
-    expect(wrapper.find('.active')).toHaveLength(0);
-  });
-
-  it('should render navigation button', () => {
     wrapper = shallow(<Button label={label}
                               handleNavClick={handleNavClick}
                               isActive={isActive}
-                      />);
-
-    expect(wrapper.find('.People')).toHaveLength(1);
+                      />)
+    expect(wrapper).toMatchSnapshot()
   });
 
   it('should render favorites button', () => {
@@ -46,7 +31,7 @@ describe('Button', () => {
                               isActive={isActive}
                       />);
 
-    expect(wrapper.find('.Favorites')).toHaveLength(1);
+    expect(wrapper).toMatchSnapshot()
   });
 
   it('should call handleNavClick when category button clicked', () => {
@@ -82,8 +67,8 @@ describe('Button', () => {
                       isActive={isActive}
                       />);
 
-    expect(wrapper.find('.active')).toHaveLength(1);
-  });
+    expect(wrapper).toMatchSnapshot()
+  })
 
   it('should add "active" class if favorites button isActive', () => {
     isActive = true;
@@ -94,6 +79,6 @@ describe('Button', () => {
                       isActive={isActive}
                       />);
 
-    expect(wrapper.find('.active')).toHaveLength(1);
-  });
-});
+    expect(wrapper).toMatchSnapshot()
+  })
+})

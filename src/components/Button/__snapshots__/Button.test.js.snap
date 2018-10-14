@@ -1,5 +1,29 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Button should add "active" class if favorites button isActive 1`] = `
+<button
+  className="Button Favorites active"
+  onClick={[Function]}
+  value="Favorites"
+>
+  Favorites
+  <div
+    className="favorites-badge"
+  >
+    0
+  </div>
+</button>
+`;
+
+exports[`Button should add "active" class if isActive 1`] = `
+<input
+  className="Button People active"
+  onClick={[Function]}
+  type="button"
+  value="People"
+/>
+`;
+
 exports[`Button should match the snapshot 1`] = `
 <input
   className="Button People "
@@ -7,4 +31,19 @@ exports[`Button should match the snapshot 1`] = `
   type="button"
   value="People"
 />
+`;
+
+exports[`Button should render favorites button 1`] = `
+<button
+  className="Button Favorites "
+  onClick={[Function]}
+  value="Favorites"
+>
+  Favorites
+  <div
+    className="favorites-badge"
+  >
+    0
+  </div>
+</button>
 `;

@@ -11,3 +11,146 @@ exports[`CardContainer should match the snapshot 1`] = `
   </h1>
 </main>
 `;
+
+exports[`CardContainer should render cards when it gets contents 1`] = `
+<CardContainer
+  cardContents={
+    Array [
+      Object {
+        "name": "Luke Skywalker",
+      },
+      Object {
+        "name": "Leia Organa",
+      },
+      Object {
+        "name": "R2-D2",
+      },
+    ]
+  }
+>
+  <main
+    className="CardContainer"
+  >
+    <Card
+      contents={
+        Object {
+          "name": "Luke Skywalker",
+        }
+      }
+      key="Luke Skywalker"
+    >
+      <article
+        className="Card isAlsoOff"
+      >
+        <h3
+          className="name isWhite"
+        >
+          Luke Skywalker
+        </h3>
+        <div
+          className="saber isOff"
+        />
+        <img
+          alt="The hilt of a lightsaber. Turn the lightsaber on to favorite this card."
+          className="hilt"
+          onClick={[Function]}
+          onMouseOut={[Function]}
+          onMouseOver={[Function]}
+          src="lightsaber-wt.png"
+        />
+        <ul>
+          <li>
+            Homeworld: 
+          </li>
+          <li>
+            Species: 
+          </li>
+          <li>
+            Population: 
+          </li>
+        </ul>
+      </article>
+    </Card>
+    <Card
+      contents={
+        Object {
+          "name": "Leia Organa",
+        }
+      }
+      key="Leia Organa"
+    >
+      <article
+        className="Card isAlsoOff"
+      >
+        <h3
+          className="name isWhite"
+        >
+          Leia Organa
+        </h3>
+        <div
+          className="saber isOff"
+        />
+        <img
+          alt="The hilt of a lightsaber. Turn the lightsaber on to favorite this card."
+          className="hilt"
+          onClick={[Function]}
+          onMouseOut={[Function]}
+          onMouseOver={[Function]}
+          src="lightsaber-wt.png"
+        />
+        <ul>
+          <li>
+            Homeworld: 
+          </li>
+          <li>
+            Species: 
+          </li>
+          <li>
+            Population: 
+          </li>
+        </ul>
+      </article>
+    </Card>
+    <Card
+      contents={
+        Object {
+          "name": "R2-D2",
+        }
+      }
+      key="R2-D2"
+    >
+      <article
+        className="Card isAlsoOff"
+      >
+        <h3
+          className="name isWhite"
+        >
+          R2-D2
+        </h3>
+        <div
+          className="saber isOff"
+        />
+        <img
+          alt="The hilt of a lightsaber. Turn the lightsaber on to favorite this card."
+          className="hilt"
+          onClick={[Function]}
+          onMouseOut={[Function]}
+          onMouseOver={[Function]}
+          src="lightsaber-wt.png"
+        />
+        <ul>
+          <li>
+            Homeworld: 
+          </li>
+          <li>
+            Species: 
+          </li>
+          <li>
+            Population: 
+          </li>
+        </ul>
+      </article>
+    </Card>
+  </main>
+</CardContainer>
+`;

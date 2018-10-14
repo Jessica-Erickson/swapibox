@@ -25,30 +25,25 @@ describe('Card', () => {
     expect(wrapper.state()).toMatchSnapshot();
   });
 
-  it('should become active when hilt is clicked', () => {
-    expect(wrapper.state('isActive')).toEqual(false);
+  it('should toggle isActive on when hilt is clicked', () => {
+    wrapper.find('img').simulate('click');
 
-    wrapper.find('.hilt').simulate('click');
+    expect(wrapper).toMatchSnapshot();
 
-    expect(wrapper.state('isActive')).toEqual(true);
+    // it should toggle isActive off when hilt is clicked
+    wrapper.find('img').simulate('click');
 
-    wrapper.find('.hilt').simulate('click');
-
-    expect(wrapper.state('isActive')).toEqual(false);
+    expect(wrapper).toMatchSnapshot();
   });
 
   it('should change colors when user hovers over hilt', () => {
-    const src1 = 'lightsaber-wt.png';
-    const src2 = 'lightsaber-bk.png';
+    wrapper.find('img').simulate('mouseOver');
 
-    expect(wrapper.state('src')).toEqual(src1);
+    expect(wrapper).toMatchSnapshot();
 
-    wrapper.find('.hilt').simulate('mouseOver');
+    // it should change colors when user hovers over hilt
+    wrapper.find('img').simulate('mouseOut');
 
-    expect(wrapper.state('src')).toEqual(src2);
-
-    wrapper.find('.hilt').simulate('mouseOut');
-
-    expect(wrapper.state('src')).toEqual(src1);
+    expect(wrapper).toMatchSnapshot();
   });
 });
