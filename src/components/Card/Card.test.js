@@ -25,16 +25,16 @@ describe('Card', () => {
     expect(wrapper.state()).toMatchSnapshot();
   });
 
-  it('should become active when hilt is clicked', () => {
-    expect(wrapper.state('isActive')).toEqual(false);
+  it('should toggle isActive on when hilt is clicked', () => {
+    wrapper.find('img').simulate('click');
 
-    wrapper.find('.hilt').simulate('click');
+    expect(wrapper).toMatchSnapshot();
 
-    expect(wrapper.state('isActive')).toEqual(true);
+    it('should toggle isActive off when hilt is clicked', () => {
+      wrapper.find('img').simulate('click');
 
-    wrapper.find('.hilt').simulate('click');
-
-    expect(wrapper.state('isActive')).toEqual(false);
+      expect(wrapper).toMatchSnapshot();
+    }
   });
 
   it('should change colors when user hovers over hilt', () => {

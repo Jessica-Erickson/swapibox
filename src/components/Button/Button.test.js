@@ -23,7 +23,6 @@ describe('Button', () => {
     expect(wrapper).toMatchSnapshot()
   });
 
->>>>>>> Refactor Button tests to multiple snapshots instead of chai syntax
   it('should render favorites button', () => {
     label = 'Favorites';
     wrapper = shallow(<Button label={label}
@@ -32,11 +31,7 @@ describe('Button', () => {
                               isActive={isActive}
                       />);
 
-<<<<<<< HEAD
-    expect(wrapper.find('.Favorites')).toHaveLength(1);
-=======
     expect(wrapper).toMatchSnapshot()
->>>>>>> Refactor Button tests to multiple snapshots instead of chai syntax
   });
 
   it('should call handleNavClick when category button clicked', () => {
@@ -72,13 +67,8 @@ describe('Button', () => {
                       isActive={isActive}
                       />);
 
-<<<<<<< HEAD
-    expect(wrapper.find('.active')).toHaveLength(1);
-  });
-=======
     expect(wrapper).toMatchSnapshot()
   })
->>>>>>> Refactor Button tests to multiple snapshots instead of chai syntax
 
   it('should add "active" class if favorites button isActive', () => {
     isActive = true;
@@ -89,12 +79,6 @@ describe('Button', () => {
                       isActive={isActive}
                       />);
 
-<<<<<<< HEAD
-    expect(wrapper.find('.active')).toHaveLength(1);
-  });
-});
-=======
     expect(wrapper).toMatchSnapshot()
   })
 })
->>>>>>> Refactor Button tests to multiple snapshots instead of chai syntax
