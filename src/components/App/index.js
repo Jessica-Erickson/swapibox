@@ -11,12 +11,12 @@ class App extends Component {
     super()
     this.state = {
       isLoading: true,
-      default: [],
       allFilms: [],
       people: [],
       planets: [],
       vehicles: [],
       favorites: [],
+      default: [],
       currentDisplay: 'default'
     }
   }
@@ -52,8 +52,7 @@ class App extends Component {
         allFilms: await API.getFilms(),
         people: await API.getPeople(),
         planets: await API.getPlanets(),
-        vehicles: await API.getVehicles(),
-        favorites: []
+        vehicles: await API.getVehicles()
       }
 
       Object.keys(allData).forEach(collection => {
