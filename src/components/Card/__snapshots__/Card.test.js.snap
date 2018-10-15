@@ -2,15 +2,15 @@
 
 exports[`Card should change colors when user hovers over hilt 1`] = `
 <article
-  className="Card isAlsoOff"
+  className="Card people-bg-off"
 >
   <h3
-    className="name isWhite"
+    className="name is-white"
   >
     Luke Skywalker
   </h3>
   <div
-    className="saber isOff"
+    className="saber people-is-off"
   />
   <img
     alt="The hilt of a lightsaber. Turn the lightsaber on to favorite this card."
@@ -23,17 +23,38 @@ exports[`Card should change colors when user hovers over hilt 1`] = `
   <ul
     className="content"
   >
-    <li>
-      Homeworld: 
-      Tatooine
+    <li
+      key="Luke Skywalker-0"
+    >
+      homeworld
+      : 
+      <span
+        className="details"
+      >
+        Tatooine
+      </span>
     </li>
-    <li>
-      Species: 
-      Human
+    <li
+      key="Luke Skywalker-1"
+    >
+      species
+      : 
+      <span
+        className="details"
+      >
+        Human
+      </span>
     </li>
-    <li>
-      Population: 
-      200000
+    <li
+      key="Luke Skywalker-2"
+    >
+      homePop
+      : 
+      <span
+        className="details"
+      >
+        200000
+      </span>
     </li>
   </ul>
 </article>
@@ -41,15 +62,15 @@ exports[`Card should change colors when user hovers over hilt 1`] = `
 
 exports[`Card should change colors when user hovers over hilt 2`] = `
 <article
-  className="Card isAlsoOff"
+  className="Card people-bg-off"
 >
   <h3
-    className="name isWhite"
+    className="name is-white"
   >
     Luke Skywalker
   </h3>
   <div
-    className="saber isOff"
+    className="saber people-is-off"
   />
   <img
     alt="The hilt of a lightsaber. Turn the lightsaber on to favorite this card."
@@ -62,17 +83,38 @@ exports[`Card should change colors when user hovers over hilt 2`] = `
   <ul
     className="content"
   >
-    <li>
-      Homeworld: 
-      Tatooine
+    <li
+      key="Luke Skywalker-0"
+    >
+      homeworld
+      : 
+      <span
+        className="details"
+      >
+        Tatooine
+      </span>
     </li>
-    <li>
-      Species: 
-      Human
+    <li
+      key="Luke Skywalker-1"
+    >
+      species
+      : 
+      <span
+        className="details"
+      >
+        Human
+      </span>
     </li>
-    <li>
-      Population: 
-      200000
+    <li
+      key="Luke Skywalker-2"
+    >
+      homePop
+      : 
+      <span
+        className="details"
+      >
+        200000
+      </span>
     </li>
   </ul>
 </article>
@@ -87,15 +129,15 @@ Object {
 
 exports[`Card should match the snapshot 1`] = `
 <article
-  className="Card isAlsoOff"
+  className="Card people-bg-off"
 >
   <h3
-    className="name isWhite"
+    className="name is-white"
   >
     Luke Skywalker
   </h3>
   <div
-    className="saber isOff"
+    className="saber people-is-off"
   />
   <img
     alt="The hilt of a lightsaber. Turn the lightsaber on to favorite this card."
@@ -108,17 +150,38 @@ exports[`Card should match the snapshot 1`] = `
   <ul
     className="content"
   >
-    <li>
-      Homeworld: 
-      Tatooine
+    <li
+      key="Luke Skywalker-0"
+    >
+      homeworld
+      : 
+      <span
+        className="details"
+      >
+        Tatooine
+      </span>
     </li>
-    <li>
-      Species: 
-      Human
+    <li
+      key="Luke Skywalker-1"
+    >
+      species
+      : 
+      <span
+        className="details"
+      >
+        Human
+      </span>
     </li>
-    <li>
-      Population: 
-      200000
+    <li
+      key="Luke Skywalker-2"
+    >
+      homePop
+      : 
+      <span
+        className="details"
+      >
+        200000
+      </span>
     </li>
   </ul>
 </article>
@@ -126,15 +189,15 @@ exports[`Card should match the snapshot 1`] = `
 
 exports[`Card should toggle isActive on when hilt is clicked 1`] = `
 <article
-  className="Card isAlsoLit"
+  className="Card people-bg-glow"
 >
   <h3
-    className="name isBlack"
+    className="name is-black"
   >
     Luke Skywalker
   </h3>
   <div
-    className="saber isLit"
+    className="saber people-is-glowing"
   />
   <img
     alt="The hilt of a lightsaber. Turn the lightsaber on to favorite this card."
@@ -147,17 +210,38 @@ exports[`Card should toggle isActive on when hilt is clicked 1`] = `
   <ul
     className="content"
   >
-    <li>
-      Homeworld: 
-      Tatooine
+    <li
+      key="Luke Skywalker-0"
+    >
+      homeworld
+      : 
+      <span
+        className="details"
+      >
+        Tatooine
+      </span>
     </li>
-    <li>
-      Species: 
-      Human
+    <li
+      key="Luke Skywalker-1"
+    >
+      species
+      : 
+      <span
+        className="details"
+      >
+        Human
+      </span>
     </li>
-    <li>
-      Population: 
-      200000
+    <li
+      key="Luke Skywalker-2"
+    >
+      homePop
+      : 
+      <span
+        className="details"
+      >
+        200000
+      </span>
     </li>
   </ul>
 </article>
@@ -165,15 +249,15 @@ exports[`Card should toggle isActive on when hilt is clicked 1`] = `
 
 exports[`Card should toggle isActive on when hilt is clicked 2`] = `
 <article
-  className="Card isAlsoOff"
+  className="Card people-bg-off"
 >
   <h3
-    className="name isWhite"
+    className="name is-white"
   >
     Luke Skywalker
   </h3>
   <div
-    className="saber isOff"
+    className="saber people-is-off"
   />
   <img
     alt="The hilt of a lightsaber. Turn the lightsaber on to favorite this card."
@@ -186,17 +270,38 @@ exports[`Card should toggle isActive on when hilt is clicked 2`] = `
   <ul
     className="content"
   >
-    <li>
-      Homeworld: 
-      Tatooine
+    <li
+      key="Luke Skywalker-0"
+    >
+      homeworld
+      : 
+      <span
+        className="details"
+      >
+        Tatooine
+      </span>
     </li>
-    <li>
-      Species: 
-      Human
+    <li
+      key="Luke Skywalker-1"
+    >
+      species
+      : 
+      <span
+        className="details"
+      >
+        Human
+      </span>
     </li>
-    <li>
-      Population: 
-      200000
+    <li
+      key="Luke Skywalker-2"
+    >
+      homePop
+      : 
+      <span
+        className="details"
+      >
+        200000
+      </span>
     </li>
   </ul>
 </article>

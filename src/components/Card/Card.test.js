@@ -12,7 +12,7 @@ describe('Card', () => {
                  species: 'Human',
                  homePop: '200000' };
 
-    wrapper = shallow(<Card contents={contents} />);
+    wrapper = shallow(<Card contents={contents} currentDisplay='people' />);
   });
 
   it('should match the snapshot', () => {
@@ -20,7 +20,7 @@ describe('Card', () => {
   });
 
   it('should have default state', () => {
-    wrapper = shallow(<Card contents={contents} />,
+    wrapper = shallow(<Card contents={contents} currentDisplay='people'/>,
                       { disableLifecycleMethods: true }
                      );
 

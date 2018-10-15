@@ -4,10 +4,12 @@ import './Button.css'
 
 const Button = ({ label, favorites, handleNavClick, isActive }) => {
   if (favorites !== undefined) {
+    const lowerLabel = label.toLowerCase()
+
     return (
-      <button className={`Button ${label} ${ isActive ? 'active' : '' }`}
+      <button className={`Button ${lowerLabel} ${ isActive ? 'active' : '' }`}
               value={ label }
-              onClick={() => handleNavClick(label)}
+              onClick={() => handleNavClick(lowerLabel)}
       >
         Favorites
         <div className="favorites-badge">
@@ -16,11 +18,13 @@ const Button = ({ label, favorites, handleNavClick, isActive }) => {
       </button>
     )
   } else {
+    const lowerLabel = label.toLowerCase()
+
     return (
-      <input className={`Button ${label} ${ isActive ? 'active' : '' }`}
+      <input className={`Button ${lowerLabel} ${ isActive ? 'active' : '' }`}
              type="button"
              value={ label }
-             onClick={() => handleNavClick(label)}
+             onClick={() => handleNavClick(lowerLabel)}
       />
     )
   }

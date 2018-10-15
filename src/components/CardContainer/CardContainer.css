@@ -9,14 +9,14 @@
 }
 
 .default,
-.Favorites-default {
+.favorites-default {
   color: gold;
   text-align: center;
   font-size: 2rem;
   margin-bottom: 0;
 }
 
-.Favorites-default-text {
+.favorites-default-text {
   color: gold;
   font-size: 1.75rem;
   margin-top: 0;

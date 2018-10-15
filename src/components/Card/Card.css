@@ -48,36 +48,68 @@
   padding: 0;
 }
 
-.isLit {
-  background-color: hsl(195, 85%, 70%);
+.details {
+  font-weight: 400;
+}
+
+.people-is-glowing {
   box-shadow: 0 0 10px deepskyblue, 0 0 15px white;
+  background-color: hsl(195, 85%, 70%);
   transition: width 1s;
   width: 185px;
 }
 
-.isOff {
+.planets-is-glowing {
+  box-shadow: 0 0 10px springgreen, 0 0 15px white;
+  background-color: hsl(150, 100%, 70%);
+  transition: width 1s;
+  width: 185px;
+}
+
+.vehicles-is-glowing {
+  box-shadow: 0 0 10px red, 0 0 15px white;
+  background-color: hsl(0, 100%, 62%) ;
+  transition: width 1s;
+  width: 185px;
+}
+
+.people-is-off,
+.planets-is-off,
+.vehicles-is-off {
   background-color: transparent;
   box-shadow: 0 0 0  transparent;
   transition: background-color 0s 1.8s , box-shadow 0s 1.8s, width 1s 0.8s;
   width: 1px;
 }
 
-.isAlsoLit {
+.people-bg-glow {
   box-shadow: 0 0 50px -5px deepskyblue, 0 0 60px -5px white;
   transition: box-shadow 1s 0.8s;
 }
 
-.isAlsoOff {
+.planets-bg-glow {
+  box-shadow: 0 0 50px -5px springgreen, 0 0 60px -5px white;
+  transition: box-shadow 1s 0.8s;
+}
+
+.vehicles-bg-glow {
+  box-shadow: 0 0 50px -5px red, 0 0 60px -5px white;
+  transition: box-shadow 1s 0.8s;
+}
+
+.people-bg-off,
+.planets-bg-off,
+.vehicles-bg-off {
   box-shadow: 0 0 0 0 transparent;
   transition: box-shadow 1s;
 }
 
-.isBlack {
+.is-black {
   color: black;
   transition: color 1s;
 }
 
-.isWhite {
+.is-white {
   color: white;
   transition: color 1s 0.8s;
 }

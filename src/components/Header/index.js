@@ -13,24 +13,24 @@ const Header = ({ favorites, handleNavClick, currentDisplay }) => {
           label='Favorites'
           favorites={favorites}
           handleNavClick={handleNavClick}
-          isActive={'Favorites' === currentDisplay}
+          isActive={'favorites' === currentDisplay}
         />
       </div>
       <nav>
         <Button
           label='People'
           handleNavClick={handleNavClick}
-          isActive={'People' === currentDisplay}
+          isActive={'people' === currentDisplay}
         />
         <Button
           label='Planets'
           handleNavClick={handleNavClick}
-          isActive={'Planets' === currentDisplay}
+          isActive={'planets' === currentDisplay}
         />
         <Button
           label='Vehicles'
           handleNavClick={handleNavClick}
-          isActive={'Vehicles' === currentDisplay}
+          isActive={'vehicles' === currentDisplay}
         />
       </nav>
     </header>
