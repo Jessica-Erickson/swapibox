@@ -19,6 +19,14 @@ describe('App', () => {
     expect(wrapper.state()).toMatchSnapshot();
   });
 
+  it('should set and load API data on initial mount', () => {
+
+  })
+
+  it('should getStorage on refresh / subsequent mounts', () => {
+
+  })
+
   it('should render the app if not Loading', () => {
     wrapper.setState({ isLoading: false });
 
@@ -33,4 +41,5 @@ describe('App', () => {
 
     expect(wrapper.state('currentDisplay')).toEqual('People');
   });
+
 });
