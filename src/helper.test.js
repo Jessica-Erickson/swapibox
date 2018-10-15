@@ -180,17 +180,37 @@ describe('API', () => {
           terrain: "Desert",
           population: "120000",
           climate: "Arid",
-          resident1: 'Leia Organa',
-          resident2: 'Bail Prestor Organa',
-          resident3: 'Raymus Antilles'
+          resident0: 'Leia Organa',
+          resident1: 'Bail Prestor Organa',
+          resident2: 'Raymus Antilles'
         }
       ]
 
       window.fetch = jest.fn((url) => {
-        return Promise.resolve({
-          ok: true,
-          json: () => Promise.resolve(mockResponse1)
-        })
+        if (url === url1) {
+          return Promise.resolve({
+            ok: true,
+            json: () => Promise.resolve(mockResponse1)
+          })
+        }
+        else if (url === url2) {
+          return Promise.resolve({
+            ok: true,
+            json: () => Promise.resolve(mockResponse2)
+          })
+        }
+        else if (url === url3) {
+          return Promise.resolve({
+            ok: true,
+            json: () => Promise.resolve(mockResponse3)
+          })
+        }
+        else if (url === url4) {
+          return Promise.resolve({
+            ok: true,
+            json: () => Promise.resolve(mockResponse4)
+          })
+        }
       })
     })
 
@@ -203,5 +223,10 @@ describe('API', () => {
       expect(window.fetch).toHaveBeenCalledWith(url4);
     })
 
+    it('should format the response properly', async () => {
+      const APIcall = await API.getPlanets();
+
+      expect(APIcall).toEqual(mockFormatted);
+    })
   })
 });

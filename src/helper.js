@@ -39,9 +39,9 @@ export const getPeople = async () => {
 const cleanPeople = (peopleList) => {
   const newPeople = peopleList.map(async person => {
     const response = await Promise.all([ fetch(person.homeworld), fetch(person.species) ]);
-    const rawJson = await Promise.all([ response[0].json(), response[1].json() ]);
-    const homeData = { homeworld: rawJson[0].name, homePop: rawJson[0].population };
-    const speciesData = { species: rawJson[1].name };
+    const parsedJson = await Promise.all([ response[0].json(), response[1].json() ]);
+    const homeData = { homeworld: parsedJson[0].name, homePop: parsedJson[0].population };
+    const speciesData = { species: parsedJson[1].name };
     return { name: person.name,
              ...homeData,
              ...speciesData }
@@ -63,16 +63,37 @@ export const getPlanets = async () => {
 
 const cleanPlanets = (planetList) => {
   const newPlanets = planetList.map(async planet => {
-    const reponse = await Promise.all([
-      getResidents(planet.residents)
-    ])
+    const residentsList = await getResidents(planet.residents)
+    const residents = cleanResidents(residentsList)
+
+    return {
+      name: planet.name,
+      terrain: planet.terrain,
+      population: planet.population,
+      climate: planet.climate,
+      ...residents
+    }
   })
+
+  return Promise.all(newPlanets)
 }
 
-const getResidents = (residentList) => {
-  const newResidents = residentList.map(resident => {
-    return fetch(resident)
+const getResidents = (residentUrls) => {
+  const newResidents = residentUrls.map(async url => {
+    const response = await fetch(url)
+    const name = await response.json()
+    return name
   })
 
   return Promise.all(newResidents)
+}
+
+const cleanResidents = (residentsList) => {
+  const cleanResidents = residentsList.reduce((allResidents, resident, i) => {
+      allResidents[`resident${i}`] = resident.name
+
+      return allResidents
+    }, {})
+
+  return cleanResidents
 }
