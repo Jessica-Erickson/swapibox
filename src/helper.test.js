@@ -281,5 +281,13 @@ describe('API', () => {
 
       expect(vehicles).toEqual(mockFormatted);
     });
+
+    it('should throw an error if status is not ok', () => {
+      const expected = Error('Vehicles status was not ok.');
+      
+      window.fetch = () => Promise.resolve({ ok: false });
+
+      expect(API.getVehicles()).rejects.toEqual(expected);
+    });
   });
 });
