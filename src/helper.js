@@ -102,5 +102,19 @@ export const getVehicles = async () => {
   const url = 'https://swapi.co/api/vehicles/';
   const response = await fetch(url);
 
-  
+  if (response.ok) {
+    const rawVehicles = (await response.json()).results;
+    return cleanVehicles(rawVehicles);
+  } else {
+    throw new Error('Vehicles status was not ok.')
+  }
+}
+
+const cleanVehicles = (vehiclesList) => {
+  const newVehicles = vehiclesList.map(vehicle => {
+    const { name, model, vehicle_class, passengers } = vehicle;
+    return { name, model, class: vehicle_class, passengers }
+  });
+
+  return newVehicles;
 }
