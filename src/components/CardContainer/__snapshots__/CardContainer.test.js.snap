@@ -57,18 +57,19 @@ exports[`CardContainer should render cards when it gets contents 1`] = `
           "name": "Luke Skywalker",
         }
       }
+      currentDisplay="default"
       key="Luke Skywalker"
     >
       <article
-        className="Card isAlsoOff"
+        className="Card default-bg-off"
       >
         <h3
-          className="name isWhite"
+          className="name is-white"
         >
           Luke Skywalker
         </h3>
         <div
-          className="saber isOff"
+          className="saber default-is-off"
         />
         <img
           alt="The hilt of a lightsaber. Turn the lightsaber on to favorite this card."
@@ -89,18 +90,19 @@ exports[`CardContainer should render cards when it gets contents 1`] = `
           "name": "Leia Organa",
         }
       }
+      currentDisplay="default"
       key="Leia Organa"
     >
       <article
-        className="Card isAlsoOff"
+        className="Card default-bg-off"
       >
         <h3
-          className="name isWhite"
+          className="name is-white"
         >
           Leia Organa
         </h3>
         <div
-          className="saber isOff"
+          className="saber default-is-off"
         />
         <img
           alt="The hilt of a lightsaber. Turn the lightsaber on to favorite this card."
@@ -121,18 +123,19 @@ exports[`CardContainer should render cards when it gets contents 1`] = `
           "name": "R2-D2",
         }
       }
+      currentDisplay="default"
       key="R2-D2"
     >
       <article
-        className="Card isAlsoOff"
+        className="Card default-bg-off"
       >
         <h3
-          className="name isWhite"
+          className="name is-white"
         >
           R2-D2
         </h3>
         <div
-          className="saber isOff"
+          className="saber default-is-off"
         />
         <img
           alt="The hilt of a lightsaber. Turn the lightsaber on to favorite this card."

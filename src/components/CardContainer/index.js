@@ -23,7 +23,7 @@ const CardContainer = ({ cardContents, currentDisplay }) => {
   }
   else {
     cards = cardContents.map(item => {
-      return <Card contents={item} key={item.name} />
+      return <Card contents={item} currentDisplay={currentDisplay} key={item.name} />
     });
   }
 

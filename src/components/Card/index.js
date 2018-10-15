@@ -19,20 +19,31 @@ class Card extends Component {
 
   createListItems = (contentsList) => {
     const name = contentsList.shift()
-    return contentsList.map(item => <li key={name[1]}>{item.join(': ')}</li>)
+    return contentsList.map((item, index) => {
+      return(
+        <li key={`${name[1]}-${index}`}>
+          {item[0]}: <span className='details'>{item[1]}</span>
+        </li>
+      )
+    })
   }
 
   render() {
     const { isActive , src } = this.state;
-    const { contents } = this.props;
+    const { contents, currentDisplay } = this.props;
     const contentsList = Object.entries(contents)
 
     return (
-      <article className={'Card ' + (isActive ? 'isAlsoLit' : 'isAlsoOff')}>
-        <h3 className={'name ' + (isActive ? 'isBlack' : 'isWhite')}>
+      <article className={
+        `Card ${currentDisplay}-` + (isActive ? 'bg-glow' : 'bg-off')
+      }>
+        <h3 className={'name ' + (isActive ? 'is-black' : 'is-white')}>
           {contents.name}
         </h3>
-        <div className={'saber ' + (isActive ? 'isLit' : 'isOff')} ></div>
+        <div className={
+          `saber ${currentDisplay}-` + (isActive ? 'is-glowing' : 'is-off')
+        }>
+        </div>
         <img
           className='hilt'
           src={src}
@@ -52,7 +63,8 @@ class Card extends Component {
 }
 
 Card.propTypes = {
-  contents: PropTypes.object.isRequired
+  contents: PropTypes.object.isRequired,
+  currentDisplay: PropTypes.string.isRequired
 }
 
 export default Card;
