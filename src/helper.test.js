@@ -275,5 +275,11 @@ describe('API', () => {
 
       expect(window.fetch).toHaveBeenCalledWith(url);
     });
+
+    it('should return the correct data when status is ok', async () => {
+      const vehicles = await API.getVehicles();
+
+      expect(vehicles).toEqual(mockFormatted);
+    });
   });
 });
