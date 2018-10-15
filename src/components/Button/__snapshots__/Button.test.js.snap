@@ -2,7 +2,7 @@
 
 exports[`Button should add "active" class if favorites button isActive 1`] = `
 <button
-  className="Button Favorites active"
+  className="Button favorites active"
   onClick={[Function]}
   value="Favorites"
 >
@@ -17,7 +17,7 @@ exports[`Button should add "active" class if favorites button isActive 1`] = `
 
 exports[`Button should add "active" class if isActive 1`] = `
 <input
-  className="Button People active"
+  className="Button people active"
   onClick={[Function]}
   type="button"
   value="People"
@@ -26,7 +26,7 @@ exports[`Button should add "active" class if isActive 1`] = `
 
 exports[`Button should match the snapshot 1`] = `
 <input
-  className="Button People "
+  className="Button people "
   onClick={[Function]}
   type="button"
   value="People"
@@ -35,7 +35,7 @@ exports[`Button should match the snapshot 1`] = `
 
 exports[`Button should render favorites button 1`] = `
 <button
-  className="Button Favorites "
+  className="Button favorites "
   onClick={[Function]}
   value="Favorites"
 >

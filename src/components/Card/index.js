@@ -23,7 +23,9 @@ class Card extends Component {
 
     return (
       <article className={'Card ' + (isActive ? 'isAlsoLit' : 'isAlsoOff')}>
-        <h3 className={'name ' + (isActive ? 'isBlack' : 'isWhite')}>{contents.name}</h3>
+        <h3 className={'name ' + (isActive ? 'isBlack' : 'isWhite')}>
+          {contents.name}
+        </h3>
         <div className={'saber ' + (isActive ? 'isLit' : 'isOff')} ></div>
         <img
           className='hilt'

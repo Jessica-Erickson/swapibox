@@ -13,8 +13,10 @@ class App extends Component {
       isLoading: true,
       default: [],
       allFilms: [],
-      People: [],
-      Favorites: [],
+      people: [],
+      planets: [],
+      vehicles: [],
+      favorites: [],
       currentDisplay: 'default'
     }
   }
@@ -26,12 +28,14 @@ class App extends Component {
   async componentDidMount() {
     this.setState({
       allFilms: await API.getFilms(),
-      People: await API.getPeople(),
+      people: await API.getPeople(),
+      planets: await API.getPlanets(),
+      vehicles: await API.getVehicles(),
       isLoading: false });
   }
 
   render() {
-    const { isLoading, allFilms, Favorites, currentDisplay } = this.state;
+    const { isLoading, allFilms, favorites, currentDisplay } = this.state;
     const cardContents = this.state[currentDisplay];
 
     if (isLoading) {
@@ -44,7 +48,7 @@ class App extends Component {
         <div className="App">
           <ScrollingText allFilms={allFilms} />
           <Header
-            favorites={Favorites.length}
+            favorites={favorites.length}
             handleNavClick={this.handleNavClick}
             currentDisplay={currentDisplay}
           />

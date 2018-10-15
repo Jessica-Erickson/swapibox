@@ -6,13 +6,13 @@ import './CardContainer.css';
 const CardContainer = ({ cardContents, currentDisplay }) => {
   let cards;
 
-  if ( currentDisplay === 'Favorites' && cardContents.length === 0) {
+  if ( currentDisplay === 'favorites' && cardContents.length === 0) {
     cards = (
       <div>
-        <h2 className="Favorites-default">
+        <h2 className="favorites-default">
           You currently don't have any favorites.
         </h2>
-        <p className="Favorites-default-text">
+        <p className="favorites-default-text">
           Click on the lightsaber in the top right corner of a card to favorite it.
         </p>
       </div>
@@ -29,9 +29,7 @@ const CardContainer = ({ cardContents, currentDisplay }) => {
 
   return (
     <main className="CardContainer">
-      {
-        cards
-      }
+      { cards }
     </main>
   );
 }

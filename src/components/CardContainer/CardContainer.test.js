@@ -22,7 +22,7 @@ describe('CardContainer', () => {
   });
 
   it('should display the Favorites default message if no Favorites', () => {
-    currentDisplay = 'Favorites'
+    currentDisplay = 'favorites'
     wrapper = shallow(<CardContainer
                     cardContents={cardContents}
                     currentDisplay={currentDisplay}

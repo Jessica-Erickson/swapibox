@@ -16,13 +16,13 @@
   border-color: white;
 }
 
-.Favorites {
+.favorites {
   position: relative;
   display: flex;
   justify-content: space-around;
 }
 
-.Favorites:hover {
+.favorites:hover {
   box-shadow: 0 0 15px gold, 0 0 15px white;
 }
 
@@ -30,15 +30,15 @@
   font-weight: 700;
 }
 
-.People:hover {
+.people:hover {
   box-shadow: 0 0 15px deepskyblue, 0 0 15px white;
 }
 
-.Planets:hover {
+.planets:hover {
   box-shadow: 0 0 15px springgreen, 0 0 15px white;
 }
 
-.Vehicles:hover {
+.vehicles:hover {
   box-shadow: 0 0 15px red, 0 0 15px white;
 }
 

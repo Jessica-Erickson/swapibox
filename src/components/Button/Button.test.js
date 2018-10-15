@@ -41,7 +41,7 @@ describe('Button', () => {
                       isActive={isActive}
                     />);
 
-    wrapper.find('.People').simulate('click');
+    wrapper.find('.people').simulate('click');
 
     expect(handleNavClick).toHaveBeenCalled();
   });
@@ -55,7 +55,7 @@ describe('Button', () => {
                       isActive={isActive}
                     />);
 
-    wrapper.find('.Favorites').simulate('click');
+    wrapper.find('.favorites').simulate('click');
 
     expect(handleNavClick).toHaveBeenCalled();
   });
