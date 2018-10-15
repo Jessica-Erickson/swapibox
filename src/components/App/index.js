@@ -25,34 +25,43 @@ class App extends Component {
     this.setState({ currentDisplay: category });
   }
 
+  getDataFromLocalStorage = () => {
+    const storage = Object.keys(this.state).reduce((stored, list) => {
+      if (Array.isArray(this.state[list]) && list !== 'default') {
+        stored[list] = JSON.parse(localStorage.getItem(list))
+      }
+      return stored;
+    }, {})
+
+    return storage
+  }
+
+  setDataInLocalStorage = (keyword, collection) => {
+    localStorage.setItem(keyword, JSON.stringify(collection))
+  }
+
   async componentDidMount() {
     if (localStorage.length) {
       this.setState({
-        allFilms: JSON.parse(localStorage.getItem('allFilms')),
-        people: JSON.parse(localStorage.getItem('people')),
-        planets: JSON.parse(localStorage.getItem('planets')),
-        vehicles: JSON.parse(localStorage.getItem('vehicles')),
-        favorites: JSON.parse(localStorage.getItem('favorites')),
-        isLoading: false });
+        ...this.getDataFromLocalStorage(),
+        isLoading: false
+      });
     }
     else {
-      const allFilms = await API.getFilms();
-      const people = await API.getPeople();
-      const planets = await API.getPlanets();
-      const vehicles = await API.getVehicles();
-      const favorites = [];
+      const allData = {
+        allFilms: await API.getFilms(),
+        people: await API.getPeople(),
+        planets: await API.getPlanets(),
+        vehicles: await API.getVehicles(),
+        favorites: []
+      }
 
-      localStorage.setItem('allFilms', JSON.stringify(allFilms))
-      localStorage.setItem('people', JSON.stringify(people))
-      localStorage.setItem('planets', JSON.stringify(planets))
-      localStorage.setItem('vehicles', JSON.stringify(vehicles))
-      localStorage.setItem('favorites', JSON.stringify(favorites))
+      Object.keys(allData).forEach(collection => {
+        this.setDataInLocalStorage(collection, allData[collection])
+      })
 
       this.setState({
-        allFilms: allFilms,
-        people: people,
-        planets: planets,
-        vehicles: vehicles,
+        ...allData,
         isLoading: false });
     }
   }
