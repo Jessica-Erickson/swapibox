@@ -17,9 +17,15 @@ class Card extends Component {
     this.setState({ isActive: !this.state.isActive });
   }
 
+  createListItems = (contentsList) => (
+    contentsList.map(item => <li>{item.join(': ')}</li>)
+  )
+
   render() {
     const { isActive , src } = this.state;
     const { contents } = this.props;
+    const contentsList = Object.entries(contents)
+    contentsList.shift()
 
     return (
       <article className={'Card ' + (isActive ? 'isAlsoLit' : 'isAlsoOff')}>
@@ -38,9 +44,7 @@ class Card extends Component {
             this.handleSaberClick();
           }} />
         <ul className='content'>
-          <li>Homeworld: {contents.homeworld}</li>
-          <li>Species: {contents.species}</li>
-          <li>Population: {contents.homePop}</li>
+          {this.createListItems(contentsList)}
         </ul>
       </article>
     )

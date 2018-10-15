@@ -67,12 +67,11 @@ export const getPlanets = async () => {
 const cleanPlanets = (planetList) => {
   const newPlanets = planetList.map(async planet => {
     const residentsList = await getResidents(planet.residents);
-
     const residents = cleanResidents(residentsList);
 
     const { name, terrain, population, climate } = planet;
 
-    return { name, terrain, population, climate, ...residents };
+    return { name, terrain, population, climate, residents };
   });
 
   return Promise.all(newPlanets);
@@ -89,11 +88,11 @@ const getResidents = (residentUrls) => {
 }
 
 const cleanResidents = (residentsList) => {
-  const cleanResidents = residentsList.reduce((allResidents, resident, i) => {
-      allResidents[`resident${i}`] = resident.name;
+  const cleanResidents = residentsList.reduce((allResidents, resident) => {
+      allResidents.push(resident.name);
 
       return allResidents;
-    }, {});
+    }, []).join(', ');
 
   return cleanResidents;
 }

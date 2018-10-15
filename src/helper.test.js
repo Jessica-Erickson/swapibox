@@ -180,9 +180,7 @@ describe('API', () => {
           terrain: "Desert",
           population: "120000",
           climate: "Arid",
-          resident0: 'Leia Organa',
-          resident1: 'Bail Prestor Organa',
-          resident2: 'Raymus Antilles'
+          residents: 'Leia Organa, Bail Prestor Organa, Raymus Antilles'
         }
       ]
 
@@ -284,7 +282,7 @@ describe('API', () => {
 
     it('should throw an error if status is not ok', () => {
       const expected = Error('Vehicles status was not ok.');
-      
+
       window.fetch = () => Promise.resolve({ ok: false });
 
       expect(API.getVehicles()).rejects.toEqual(expected);
