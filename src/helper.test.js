@@ -236,5 +236,44 @@ describe('API', () => {
 
       expect(API.getPlanets()).rejects.toEqual(expected);
     })
-  })
+  });
+
+  describe('getVehicles', () => {
+    let url;
+    let mockResponse;
+    let mockFormatted;
+
+    beforeEach(() => {
+      url = 'https://swapi.co/api/vehicles/';
+
+      mockResponse = {
+        results: [
+          { name: 'Sand Crawler',
+            model: 'Digger Crawler',
+            vehicle_class: 'wheeled',
+            passengers: '30' }
+        ]
+      };
+
+      mockFormatted = [
+        { name: 'Sand Crawler',
+          model: 'Digger Crawler',
+          class: 'wheeled',
+          passengers: '30' }
+      ];
+
+      window.fetch = jest.fn(() => {
+        return Promise.resolve({
+          ok: true,
+          json: () => Promise.resolve(mockResponse)
+        })
+      })
+    });
+
+    it('should call fetch with the correct parameters', async () => {
+      await API.getVehicles();
+
+      expect(window.fetch).toHaveBeenCalledWith(url);
+    });
+  });
 });
