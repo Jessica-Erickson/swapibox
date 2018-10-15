@@ -97,3 +97,10 @@ const cleanResidents = (residentsList) => {
 
   return cleanResidents
 }
+
+export const getVehicles = async () => {
+  const url = 'https://swapi.co/api/vehicles/';
+  const response = await fetch(url);
+
+  
+}
