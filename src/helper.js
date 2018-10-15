@@ -30,7 +30,7 @@ export const getPeople = async () => {
 
   if (response.ok) {
     const rawPeople = (await response.json()).results;
-    return cleanPeople(rawPeople); 
+    return cleanPeople(rawPeople);
   } else {
     throw new Error('People status was not ok.');
   }
@@ -43,8 +43,36 @@ const cleanPeople = (peopleList) => {
     const homeData = { homeworld: rawJson[0].name, homePop: rawJson[0].population };
     const speciesData = { species: rawJson[1].name };
     return { name: person.name,
-             ...homeData, 
+             ...homeData,
              ...speciesData }
   });
   return Promise.all(newPeople);
+}
+
+export const getPlanets = async () => {
+  const url = 'https://swapi.co/api/planets/';
+  const response = await fetch(url);
+
+  if (response.ok) {
+    const rawPlanets = (await response.json()).results;
+    return cleanPlanets(rawPlanets);
+  } else {
+    throw new Error('Planets status was not ok.')
+  }
+}
+
+const cleanPlanets = (planetList) => {
+  const newPlanets = planetList.map(async planet => {
+    const reponse = await Promise.all([
+      getResidents(planet.residents)
+    ])
+  })
+}
+
+const getResidents = (residentList) => {
+  const newResidents = residentList.map(resident => {
+    return fetch(resident)
+  })
+
+  return Promise.all(newResidents)
 }

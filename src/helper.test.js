@@ -110,13 +110,7 @@ describe('API', () => {
       });
     });
 
-    it('should call fetch with the correct url', async () => {
-      await API.getPeople();
-
-      expect(window.fetch).toHaveBeenCalledWith(url1);
-    });
-
-    it('should call fetch with all relevant urls', async () => {  
+    it('should call fetch with all relevant urls', async () => {
       await API.getPeople();
 
       expect(window.fetch).toHaveBeenCalledWith(url1);
@@ -138,4 +132,76 @@ describe('API', () => {
       expect(API.getPeople()).rejects.toEqual(expected);
     });
   });
+
+  describe('getPlanets', () => {
+    let url1;
+    let url2;
+    let url3;
+    let url4;
+    let mockResults;
+    let mockResponse1;
+    let mockResponse2;
+    let mockResponse3;
+    let mockResponse4;
+    let mockFormatted;
+
+    beforeEach(() => {
+      url1 = 'https://swapi.co/api/planets/';
+      url2 = 'https://swapi.co/api/people/5/';
+      url3 = 'https://swapi.co/api/people/68/';
+      url4 = 'https://swapi.co/api/people/81/';
+
+      mockResponse1 = {
+        results: [
+          { name: 'Tatooine',
+            terrain: "Desert",
+            population: "120000",
+            climate: "Arid",
+            residents: [ url2, url3, url4 ]
+          }
+        ]
+      };
+
+      mockResponse2 = {
+        name: 'Leia Organa'
+      }
+
+      mockResponse3 = {
+        name: 'Bail Prestor Organa'
+      }
+
+      mockResponse4 = {
+        name: 'Raymus Antilles'
+      }
+
+      mockFormatted = [
+        {
+          name: 'Tatooine',
+          terrain: "Desert",
+          population: "120000",
+          climate: "Arid",
+          resident1: 'Leia Organa',
+          resident2: 'Bail Prestor Organa',
+          resident3: 'Raymus Antilles'
+        }
+      ]
+
+      window.fetch = jest.fn((url) => {
+        return Promise.resolve({
+          ok: true,
+          json: () => Promise.resolve(mockResponse1)
+        })
+      })
+    })
+
+    it('should call fetch with the relevant urls', async () => {
+      await API.getPlanets();
+
+      expect(window.fetch).toHaveBeenCalledWith(url1);
+      expect(window.fetch).toHaveBeenCalledWith(url2);
+      expect(window.fetch).toHaveBeenCalledWith(url3);
+      expect(window.fetch).toHaveBeenCalledWith(url4);
+    })
+
+  })
 });
