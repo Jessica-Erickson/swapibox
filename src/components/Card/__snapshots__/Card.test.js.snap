@@ -23,17 +23,20 @@ exports[`Card should change colors when user hovers over hilt 1`] = `
   <ul
     className="content"
   >
-    <li>
-      Homeworld: 
-      Tatooine
+    <li
+      key="Luke Skywalker"
+    >
+      homeworld: Tatooine
     </li>
-    <li>
-      Species: 
-      Human
+    <li
+      key="Luke Skywalker"
+    >
+      species: Human
     </li>
-    <li>
-      Population: 
-      200000
+    <li
+      key="Luke Skywalker"
+    >
+      homePop: 200000
     </li>
   </ul>
 </article>
@@ -62,17 +65,20 @@ exports[`Card should change colors when user hovers over hilt 2`] = `
   <ul
     className="content"
   >
-    <li>
-      Homeworld: 
-      Tatooine
+    <li
+      key="Luke Skywalker"
+    >
+      homeworld: Tatooine
     </li>
-    <li>
-      Species: 
-      Human
+    <li
+      key="Luke Skywalker"
+    >
+      species: Human
     </li>
-    <li>
-      Population: 
-      200000
+    <li
+      key="Luke Skywalker"
+    >
+      homePop: 200000
     </li>
   </ul>
 </article>
@@ -108,17 +114,20 @@ exports[`Card should match the snapshot 1`] = `
   <ul
     className="content"
   >
-    <li>
-      Homeworld: 
-      Tatooine
+    <li
+      key="Luke Skywalker"
+    >
+      homeworld: Tatooine
     </li>
-    <li>
-      Species: 
-      Human
+    <li
+      key="Luke Skywalker"
+    >
+      species: Human
     </li>
-    <li>
-      Population: 
-      200000
+    <li
+      key="Luke Skywalker"
+    >
+      homePop: 200000
     </li>
   </ul>
 </article>
@@ -147,17 +156,20 @@ exports[`Card should toggle isActive on when hilt is clicked 1`] = `
   <ul
     className="content"
   >
-    <li>
-      Homeworld: 
-      Tatooine
+    <li
+      key="Luke Skywalker"
+    >
+      homeworld: Tatooine
     </li>
-    <li>
-      Species: 
-      Human
+    <li
+      key="Luke Skywalker"
+    >
+      species: Human
     </li>
-    <li>
-      Population: 
-      200000
+    <li
+      key="Luke Skywalker"
+    >
+      homePop: 200000
     </li>
   </ul>
 </article>
@@ -186,17 +198,20 @@ exports[`Card should toggle isActive on when hilt is clicked 2`] = `
   <ul
     className="content"
   >
-    <li>
-      Homeworld: 
-      Tatooine
+    <li
+      key="Luke Skywalker"
+    >
+      homeworld: Tatooine
     </li>
-    <li>
-      Species: 
-      Human
+    <li
+      key="Luke Skywalker"
+    >
+      species: Human
     </li>
-    <li>
-      Population: 
-      200000
+    <li
+      key="Luke Skywalker"
+    >
+      homePop: 200000
     </li>
   </ul>
 </article>

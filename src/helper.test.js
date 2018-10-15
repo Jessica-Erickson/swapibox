@@ -76,9 +76,9 @@ describe('API', () => {
 
       mockFormatted = [
       { name: 'Luke Skywalker',
-        homeworld: 'Tatooine',
-        species: 'Human',
-        homePop: '200000' }];
+        Homeworld: 'Tatooine',
+        Species: 'Human',
+        Population: '200,000' }];
 
       mockResponse = { results: [
       { name: 'Luke Skywalker',
@@ -123,6 +123,20 @@ describe('API', () => {
 
       expect(people).toEqual(mockFormatted);
     });
+
+    it('should return text if planet population is text', async () => {
+      mockPlanet = { name: 'Tatooine', population: 'unknown' };
+      mockFormatted = [
+        { name: 'Luke Skywalker',
+          Homeworld: 'Tatooine',
+          Species: 'Human',
+          Population: 'unknown' }
+      ];
+      const people = await API.getPeople();
+
+      expect(people).toEqual(mockFormatted);
+
+    })
 
     it('should throw an error if the status is not ok', () => {
       const expected = Error('People status was not ok.');
@@ -177,10 +191,10 @@ describe('API', () => {
       mockFormatted = [
         {
           name: 'Tatooine',
-          terrain: "Desert",
-          population: "120000",
-          climate: "Arid",
-          residents: 'Leia Organa, Bail Prestor Organa, Raymus Antilles'
+          Terrain: "Desert",
+          Population: "120,000",
+          Climate: "Arid",
+          Residents: 'Leia Organa, Bail Prestor Organa, Raymus Antilles'
         }
       ]
 
@@ -255,9 +269,9 @@ describe('API', () => {
 
       mockFormatted = [
         { name: 'Sand Crawler',
-          model: 'Digger Crawler',
-          class: 'wheeled',
-          passengers: '30' }
+          Model: 'Digger Crawler',
+          Class: 'wheeled',
+          Capacity: '30' }
       ];
 
       window.fetch = jest.fn(() => {

@@ -80,17 +80,7 @@ exports[`CardContainer should render cards when it gets contents 1`] = `
         />
         <ul
           className="content"
-        >
-          <li>
-            Homeworld: 
-          </li>
-          <li>
-            Species: 
-          </li>
-          <li>
-            Population: 
-          </li>
-        </ul>
+        />
       </article>
     </Card>
     <Card
@@ -122,17 +112,7 @@ exports[`CardContainer should render cards when it gets contents 1`] = `
         />
         <ul
           className="content"
-        >
-          <li>
-            Homeworld: 
-          </li>
-          <li>
-            Species: 
-          </li>
-          <li>
-            Population: 
-          </li>
-        </ul>
+        />
       </article>
     </Card>
     <Card
@@ -164,17 +144,7 @@ exports[`CardContainer should render cards when it gets contents 1`] = `
         />
         <ul
           className="content"
-        >
-          <li>
-            Homeworld: 
-          </li>
-          <li>
-            Species: 
-          </li>
-          <li>
-            Population: 
-          </li>
-        </ul>
+        />
       </article>
     </Card>
   </main>

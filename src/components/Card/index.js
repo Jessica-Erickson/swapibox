@@ -17,15 +17,15 @@ class Card extends Component {
     this.setState({ isActive: !this.state.isActive });
   }
 
-  createListItems = (contentsList) => (
-    contentsList.map(item => <li>{item.join(': ')}</li>)
-  )
+  createListItems = (contentsList) => {
+    const name = contentsList.shift()
+    return contentsList.map(item => <li key={name[1]}>{item.join(': ')}</li>)
+  }
 
   render() {
     const { isActive , src } = this.state;
     const { contents } = this.props;
     const contentsList = Object.entries(contents)
-    contentsList.shift()
 
     return (
       <article className={'Card ' + (isActive ? 'isAlsoLit' : 'isAlsoOff')}>
