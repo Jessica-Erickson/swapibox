@@ -26,12 +26,35 @@ class App extends Component {
   }
 
   async componentDidMount() {
-    this.setState({
-      allFilms: await API.getFilms(),
-      people: await API.getPeople(),
-      planets: await API.getPlanets(),
-      vehicles: await API.getVehicles(),
-      isLoading: false });
+    if (localStorage.length) {
+      this.setState({
+        allFilms: JSON.parse(localStorage.getItem('allFilms')),
+        people: JSON.parse(localStorage.getItem('people')),
+        planets: JSON.parse(localStorage.getItem('planets')),
+        vehicles: JSON.parse(localStorage.getItem('vehicles')),
+        favorites: JSON.parse(localStorage.getItem('favorites')),
+        isLoading: false });
+    }
+    else {
+      const allFilms = await API.getFilms();
+      const people = await API.getPeople();
+      const planets = await API.getPlanets();
+      const vehicles = await API.getVehicles();
+      const favorites = [];
+
+      localStorage.setItem('allFilms', JSON.stringify(allFilms))
+      localStorage.setItem('people', JSON.stringify(people))
+      localStorage.setItem('planets', JSON.stringify(planets))
+      localStorage.setItem('vehicles', JSON.stringify(vehicles))
+      localStorage.setItem('favorites', JSON.stringify(favorites))
+
+      this.setState({
+        allFilms: allFilms,
+        people: people,
+        planets: planets,
+        vehicles: vehicles,
+        isLoading: false });
+    }
   }
 
   render() {
