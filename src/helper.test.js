@@ -236,5 +236,58 @@ describe('API', () => {
 
       expect(API.getPlanets()).rejects.toEqual(expected);
     })
-  })
+  });
+
+  describe('getVehicles', () => {
+    let url;
+    let mockResponse;
+    let mockFormatted;
+
+    beforeEach(() => {
+      url = 'https://swapi.co/api/vehicles/';
+
+      mockResponse = {
+        results: [
+          { name: 'Sand Crawler',
+            model: 'Digger Crawler',
+            vehicle_class: 'wheeled',
+            passengers: '30' }
+        ]
+      };
+
+      mockFormatted = [
+        { name: 'Sand Crawler',
+          model: 'Digger Crawler',
+          class: 'wheeled',
+          passengers: '30' }
+      ];
+
+      window.fetch = jest.fn(() => {
+        return Promise.resolve({
+          ok: true,
+          json: () => Promise.resolve(mockResponse)
+        })
+      })
+    });
+
+    it('should call fetch with the correct parameters', async () => {
+      await API.getVehicles();
+
+      expect(window.fetch).toHaveBeenCalledWith(url);
+    });
+
+    it('should return the correct data when status is ok', async () => {
+      const vehicles = await API.getVehicles();
+
+      expect(vehicles).toEqual(mockFormatted);
+    });
+
+    it('should throw an error if status is not ok', () => {
+      const expected = Error('Vehicles status was not ok.');
+      
+      window.fetch = () => Promise.resolve({ ok: false });
+
+      expect(API.getVehicles()).rejects.toEqual(expected);
+    });
+  });
 });

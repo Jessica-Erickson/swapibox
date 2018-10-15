@@ -38,13 +38,16 @@ export const getPeople = async () => {
 
 const cleanPeople = (peopleList) => {
   const newPeople = peopleList.map(async person => {
-    const response = await Promise.all([ fetch(person.homeworld), fetch(person.species) ]);
-    const parsedJson = await Promise.all([ response[0].json(), response[1].json() ]);
+    const { homeworld, species } = person;
+    const secondFetches = [ fetch(homeworld), fetch(species) ];
+    const response = await Promise.all(secondFetches);
+    const parsedFetches = [ response[0].json(), response[1].json() ];
+    const parsedJson = await Promise.all(parsedFetches);
     const homeData = { homeworld: parsedJson[0].name, homePop: parsedJson[0].population };
     const speciesData = { species: parsedJson[1].name };
     return { name: person.name,
              ...homeData,
-             ...speciesData }
+             ...speciesData };
   });
   return Promise.all(newPeople);
 }
@@ -63,19 +66,16 @@ export const getPlanets = async () => {
 
 const cleanPlanets = (planetList) => {
   const newPlanets = planetList.map(async planet => {
-    const residentsList = await getResidents(planet.residents)
-    const residents = cleanResidents(residentsList)
+    const residentsList = await getResidents(planet.residents);
 
-    return {
-      name: planet.name,
-      terrain: planet.terrain,
-      population: planet.population,
-      climate: planet.climate,
-      ...residents
-    }
-  })
+    const residents = cleanResidents(residentsList);
 
-  return Promise.all(newPlanets)
+    const { name, terrain, population, climate } = planet;
+
+    return { name, terrain, population, climate, ...residents };
+  });
+
+  return Promise.all(newPlanets);
 }
 
 const getResidents = (residentUrls) => {
@@ -90,10 +90,32 @@ const getResidents = (residentUrls) => {
 
 const cleanResidents = (residentsList) => {
   const cleanResidents = residentsList.reduce((allResidents, resident, i) => {
-      allResidents[`resident${i}`] = resident.name
+      allResidents[`resident${i}`] = resident.name;
 
-      return allResidents
-    }, {})
+      return allResidents;
+    }, {});
 
-  return cleanResidents
+  return cleanResidents;
+}
+
+export const getVehicles = async () => {
+  const url = 'https://swapi.co/api/vehicles/';
+  const response = await fetch(url);
+
+  if (response.ok) {
+    const rawVehicles = (await response.json()).results;
+    return cleanVehicles(rawVehicles);
+  } else {
+    throw new Error('Vehicles status was not ok.')
+  }
+}
+
+const cleanVehicles = (vehiclesList) => {
+  const newVehicles = vehiclesList.map(vehicle => {
+    const { name, model, vehicle_class, passengers } = vehicle;
+
+    return { name, model, class: vehicle_class, passengers }
+  });
+
+  return newVehicles;
 }
