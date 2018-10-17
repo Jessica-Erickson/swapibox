@@ -50,24 +50,4 @@ describe('CardContainer', () => {
 
     expect(wrapper).toMatchSnapshot();
   });
-
-  it('should include individual card info in addFavorite function', () => {
-    cardContents = [{ name: 'Luke Skywalker' },
-                    { name: 'Leia Organa'},
-                    { name: 'R2-D2'}];
-
-    wrapper = mount(<CardContainer
-                      cardContents={cardContents}
-                      currentDisplay={currentDisplay}
-                      addFavorite={jest.fn()}
-                      removeFavorite={jest.fn()}
-                    />);
-
-    const spy = spyOn(wrapper.find(Card).instance(), 'addFavorite')
-
-    wrapper.find(Card).find('img').simulate('click')
-    wrapper.instance().forceUpdate()
-
-    expect(spy).toHaveBeenCalled()
-  })
 });
