@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Card from './../Card';
 import './CardContainer.css';
 
-const CardContainer = ({ cardContents, currentDisplay, addFavorite }) => {
+const CardContainer = ({ cardContents, currentDisplay, addFavorite, removeFavorite }) => {
   let cards;
 
   if ( currentDisplay === 'favorites' && cardContents.length === 0) {
@@ -27,7 +27,7 @@ const CardContainer = ({ cardContents, currentDisplay, addFavorite }) => {
                 contents={item}
                 currentDisplay={currentDisplay}
                 addFavorite={addFavorite}
-                key={item.name} />
+                key={item.id || item.name} />
     });
   }
 
@@ -41,7 +41,8 @@ const CardContainer = ({ cardContents, currentDisplay, addFavorite }) => {
 CardContainer.propTypes = {
   cardContents: PropTypes.array.isRequired,
   currentDisplay: PropTypes.string.isRequired,
-  addFavorite: PropTypes.func.isRequired
+  addFavorite: PropTypes.func.isRequired,
+  removeFavorite: PropTypes.func.isRequired
 }
 
 export default CardContainer;
