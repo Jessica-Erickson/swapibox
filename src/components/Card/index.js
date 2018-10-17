@@ -5,33 +5,33 @@ import blackSaber from './../../assets/icons/lightsaber-bk.png';
 import './Card.css';
 
 class Card extends Component {
-  constructor () {
-    super();
+  constructor (props) {
+    super(props);
     this.state = {
-      isActive: false,
+      isActive: props.isActive,
       src: whiteSaber
     }
   }
 
   handleSaberClick = () => {
-    this.setState({ isActive: !this.state.isActive },
-      this.props.addFavorite(this.state));
-
+    this.checkActive()
+    this.setState({ isActive: !this.state.isActive })
   }
 
   checkActive = () => {
-    if (this.state.isActive) {
-      this.props.addFavorite(this.state)
+    if (!this.props.isActive) {
+      this.props.addFavorite()
     } else {
-      this.props.removeFavorite(this.props.id)
+      this.props.removeFavorite()
     }
   }
 
   createListItems = (contentsList) => {
-    const name = contentsList.shift()
+    contentsList.shift()
+    const id = contentsList.shift()
     return contentsList.map((item, index) => {
       return(
-        <li key={`${name[1]}-${index}`}>
+        <li key={`${id}-${index}`}>
           {item[0]}: <span className='details'>{item[1]}</span>
         </li>
       )
@@ -75,7 +75,9 @@ class Card extends Component {
 Card.propTypes = {
   contents: PropTypes.object.isRequired,
   currentDisplay: PropTypes.string.isRequired,
-  addFavorite: PropTypes.func.isRequired
+  addFavorite: PropTypes.func.isRequired,
+  removeFavorite: PropTypes.func.isRequired,
+  isActive: PropTypes.bool.isRequired
 }
 
 export default Card;

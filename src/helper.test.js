@@ -76,6 +76,7 @@ describe('API', () => {
 
       mockFormatted = [
       { name: 'Luke Skywalker',
+        id: 'Luke Skywalker-0',
         Homeworld: 'Tatooine',
         Species: 'Human',
         Population: '200,000' }];
@@ -128,6 +129,7 @@ describe('API', () => {
       mockPlanet = { name: 'Tatooine', population: 'unknown' };
       mockFormatted = [
         { name: 'Luke Skywalker',
+          id: 'Luke Skywalker-0',
           Homeworld: 'Tatooine',
           Species: 'Human',
           Population: 'unknown' }
@@ -191,6 +193,7 @@ describe('API', () => {
       mockFormatted = [
         {
           name: 'Tatooine',
+          id: 'Tatooine-0',
           Terrain: "Desert",
           Population: "120,000",
           Climate: "Arid",
@@ -269,6 +272,7 @@ describe('API', () => {
 
       mockFormatted = [
         { name: 'Sand Crawler',
+          id: 'Sand Crawler-0',
           Model: 'Digger Crawler',
           Class: 'wheeled',
           Capacity: '30' }

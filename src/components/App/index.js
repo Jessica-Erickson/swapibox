@@ -24,17 +24,17 @@ class App extends Component {
     this.setState({ currentDisplay: category });
   }
 
-  addFavorite = (favorite) => {
-    const newFavorite = {...favorite, id: Date.now()}
+  addFavorite = (newFavorite) => {
     const favorites = [...this.state.favorites, newFavorite]
-    this.setState({ favorites },
-      this.setDataInLocalStorage(this.state))
+    this.setState({ favorites })
+    localStorage.setItem('favorites', JSON.stringify(favorites))
   }
 
   removeFavorite = (id) => {
     const filteredFaves = this.state.favorites.filter(fave => fave.id !==id)
-    this.setState({ favorites: filteredFaves },
-      this.setDataInLocalStorage(this.state))
+
+    this.setState({ favorites: filteredFaves })
+    localStorage.setItem('favorites', JSON.stringify(filteredFaves))
   }
 
   getDataFromLocalStorage = () => {
@@ -107,6 +107,7 @@ class App extends Component {
             currentDisplay={currentDisplay}
             addFavorite={this.addFavorite}
             removeFavorite={this.removeFavorite}
+            favorites={favorites}
           />
         </div>
       );

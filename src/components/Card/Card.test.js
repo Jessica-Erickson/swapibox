@@ -6,6 +6,7 @@ describe('Card', () => {
   let wrapper;
   let contents;
   let addFavorite;
+  let removeFavorite;
 
   beforeEach(() => {
     contents = { name: 'Luke Skywalker',
@@ -14,11 +15,14 @@ describe('Card', () => {
                  homePop: '200000' };
 
     addFavorite = jest.fn()
+    removeFavorite = jest.fn()
 
     wrapper = shallow(<Card
                         contents={contents}
                         currentDisplay='people'
                         addFavorite={addFavorite}
+                        removeFavorite={removeFavorite}
+                        isActive={false}
                       />);
   });
 
@@ -30,6 +34,8 @@ describe('Card', () => {
     wrapper = shallow(<Card contents={contents}
                             currentDisplay='people'
                             addFavorite={addFavorite}
+                            removeFavorite={removeFavorite}
+                            isActive={false}
                       />,
                       { disableLifecycleMethods: true }
                      );
