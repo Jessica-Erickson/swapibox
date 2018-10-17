@@ -24,18 +24,7 @@ exports[`Card should change colors when user hovers over hilt 1`] = `
     className="content"
   >
     <li
-      key="Luke Skywalker-0"
-    >
-      homeworld
-      : 
-      <span
-        className="details"
-      >
-        Tatooine
-      </span>
-    </li>
-    <li
-      key="Luke Skywalker-1"
+      key="homeworld,Tatooine-0"
     >
       species
       : 
@@ -46,7 +35,7 @@ exports[`Card should change colors when user hovers over hilt 1`] = `
       </span>
     </li>
     <li
-      key="Luke Skywalker-2"
+      key="homeworld,Tatooine-1"
     >
       homePop
       : 
@@ -84,18 +73,7 @@ exports[`Card should change colors when user hovers over hilt 2`] = `
     className="content"
   >
     <li
-      key="Luke Skywalker-0"
-    >
-      homeworld
-      : 
-      <span
-        className="details"
-      >
-        Tatooine
-      </span>
-    </li>
-    <li
-      key="Luke Skywalker-1"
+      key="homeworld,Tatooine-0"
     >
       species
       : 
@@ -106,7 +84,7 @@ exports[`Card should change colors when user hovers over hilt 2`] = `
       </span>
     </li>
     <li
-      key="Luke Skywalker-2"
+      key="homeworld,Tatooine-1"
     >
       homePop
       : 
@@ -151,18 +129,7 @@ exports[`Card should match the snapshot 1`] = `
     className="content"
   >
     <li
-      key="Luke Skywalker-0"
-    >
-      homeworld
-      : 
-      <span
-        className="details"
-      >
-        Tatooine
-      </span>
-    </li>
-    <li
-      key="Luke Skywalker-1"
+      key="homeworld,Tatooine-0"
     >
       species
       : 
@@ -173,7 +140,7 @@ exports[`Card should match the snapshot 1`] = `
       </span>
     </li>
     <li
-      key="Luke Skywalker-2"
+      key="homeworld,Tatooine-1"
     >
       homePop
       : 
@@ -211,18 +178,7 @@ exports[`Card should toggle isActive on when hilt is clicked 1`] = `
     className="content"
   >
     <li
-      key="Luke Skywalker-0"
-    >
-      homeworld
-      : 
-      <span
-        className="details"
-      >
-        Tatooine
-      </span>
-    </li>
-    <li
-      key="Luke Skywalker-1"
+      key="homeworld,Tatooine-0"
     >
       species
       : 
@@ -233,7 +189,7 @@ exports[`Card should toggle isActive on when hilt is clicked 1`] = `
       </span>
     </li>
     <li
-      key="Luke Skywalker-2"
+      key="homeworld,Tatooine-1"
     >
       homePop
       : 
@@ -271,18 +227,7 @@ exports[`Card should toggle isActive on when hilt is clicked 2`] = `
     className="content"
   >
     <li
-      key="Luke Skywalker-0"
-    >
-      homeworld
-      : 
-      <span
-        className="details"
-      >
-        Tatooine
-      </span>
-    </li>
-    <li
-      key="Luke Skywalker-1"
+      key="homeworld,Tatooine-0"
     >
       species
       : 
@@ -293,7 +238,7 @@ exports[`Card should toggle isActive on when hilt is clicked 2`] = `
       </span>
     </li>
     <li
-      key="Luke Skywalker-2"
+      key="homeworld,Tatooine-1"
     >
       homePop
       : 

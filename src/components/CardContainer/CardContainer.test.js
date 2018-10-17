@@ -7,18 +7,28 @@ describe('CardContainer', () => {
   let wrapper;
   let cardContents;
   let currentDisplay;
+  let addFavorite;
+  let removeFavorite;
+  let isActive;
+  let favorites;
 
   beforeEach(() => {
     currentDisplay = 'default'
     cardContents = []
+    addFavorite = jest.fn();
+    removeFavorite = jest.fn();
+    favorites = []
+    isActive = false;
   });
 
   it('should match the snapshot', () => {
     wrapper = shallow(<CardContainer
                         cardContents={cardContents}
                         currentDisplay={currentDisplay}
-                        addFavorite={jest.fn()}
-                        removeFavorite={jest.fn()}
+                        addFavorite={addFavorite}
+                        removeFavorite={removeFavorite}
+                        isActive={isActive}
+                        favorites={favorites}
                       />);
 
     expect(wrapper).toMatchSnapshot();
@@ -29,8 +39,10 @@ describe('CardContainer', () => {
     wrapper = shallow(<CardContainer
                     cardContents={cardContents}
                     currentDisplay={currentDisplay}
-                    addFavorite={jest.fn()}
-                    removeFavorite={jest.fn()}
+                    addFavorite={addFavorite}
+                    removeFavorite={removeFavorite}
+                    isActive={isActive}
+                    favorites={favorites}
                   />);
 
     expect(wrapper).toMatchSnapshot();
@@ -44,8 +56,10 @@ describe('CardContainer', () => {
     wrapper = mount(<CardContainer
                       cardContents={cardContents}
                       currentDisplay={currentDisplay}
-                      addFavorite={jest.fn()}
-                      removeFavorite={jest.fn()}
+                      addFavorite={addFavorite}
+                      removeFavorite={removeFavorite}
+                      isActive={isActive}
+                      favorites={favorites}
                     />);
 
     expect(wrapper).toMatchSnapshot();
