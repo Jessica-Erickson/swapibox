@@ -49,7 +49,7 @@ class App extends Component {
     })
   }
 
-  getData = async () => {
+  getDataFromAPI = async () => {
     const allData = {
       allFilms: await API.getFilms(),
       people: await API.getPeople(),
@@ -68,7 +68,7 @@ class App extends Component {
       });
     }
     else {
-      const allData = await this.getData()
+      const allData = await this.getDataFromAPI()
 
       this.setDataInLocalStorage(allData)
 
@@ -99,7 +99,7 @@ class App extends Component {
           <CardContainer
             cardContents={cardContents}
             currentDisplay={currentDisplay}
-            addFavorites={this.addFavorites}
+            addFavorite={this.addFavorite}
           />
         </div>
       );

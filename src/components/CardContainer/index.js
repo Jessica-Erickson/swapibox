@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Card from './../Card';
 import './CardContainer.css';
 
-const CardContainer = ({ cardContents, currentDisplay }) => {
+const CardContainer = ({ cardContents, currentDisplay, addFavorite }) => {
   let cards;
 
   if ( currentDisplay === 'favorites' && cardContents.length === 0) {
