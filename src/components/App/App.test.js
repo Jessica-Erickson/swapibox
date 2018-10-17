@@ -92,7 +92,6 @@ describe('App', () => {
   });
 
   it('should add favorites to state and localStorage when favorited', () => {
-    Date.now = () => { return 181016 }
 
     wrapper.instance().addFavorite(mockFavorite)
 
