@@ -6,6 +6,7 @@ import * as API from '../../helper.js';
 describe('App', () => {
   let wrapper;
   let mockData;
+  let mockFavorite;
 
   beforeEach(() => {
     localStorage.clear()
@@ -16,6 +17,10 @@ describe('App', () => {
       planets: [{}],
       vehicles: [{}],
       favorites: [{}]
+    }
+
+    mockFavorite = {
+      cardData: 'someData'
     }
   });
 
@@ -86,4 +91,9 @@ describe('App', () => {
     expect(wrapper.state('currentDisplay')).toEqual('people');
   });
 
+  it('should add favorites to state and localStorage when favorited', () => {
+    wrapper.instance().addFavorite(mockFavorite)
+
+    expect(wrapper.state()).toMatchSnapshot()
+  })
 });

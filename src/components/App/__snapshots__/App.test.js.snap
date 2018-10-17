@@ -6,6 +6,23 @@ exports[`App matches the snapshot 1`] = `
 />
 `;
 
+exports[`App should add favorites to state and localStorage when favorited 1`] = `
+Object {
+  "allFilms": Array [],
+  "currentDisplay": "default",
+  "default": Array [],
+  "favorites": Array [
+    Object {
+      "cardData": "someData",
+    },
+  ],
+  "isLoading": true,
+  "people": Array [],
+  "planets": Array [],
+  "vehicles": Array [],
+}
+`;
+
 exports[`App should getStorage on refresh / subsequent mounts 1`] = `
 Object {
   "allFilms": Array [
