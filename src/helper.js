@@ -37,7 +37,7 @@ export const getPeople = async () => {
 }
 
 const cleanPeople = (peopleList) => {
-  const newPeople = peopleList.map(async person => {
+  const newPeople = peopleList.map(async (person, index) => {
     const { homeworld, species } = person;
     const secondFetches = [ fetch(homeworld), fetch(species) ];
     const response = await Promise.all(secondFetches);
@@ -51,6 +51,7 @@ const cleanPeople = (peopleList) => {
     };
     const speciesData = { Species: parsedJson[1].name };
     return { name: person.name,
+             id: `${person.name}-${index}`,
              ...homeData,
              ...speciesData };
   });
