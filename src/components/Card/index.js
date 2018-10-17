@@ -14,7 +14,8 @@ class Card extends Component {
   }
 
   handleSaberClick = () => {
-    this.setState({ isActive: !this.state.isActive });
+    this.setState({ isActive: !this.state.isActive },
+      this.props.addFavorite(this.state));
   }
 
   createListItems = (contentsList) => {
@@ -30,7 +31,7 @@ class Card extends Component {
 
   render() {
     const { isActive , src } = this.state;
-    const { contents, currentDisplay, addFavorite } = this.props;
+    const { contents, currentDisplay } = this.props;
     const contentsList = Object.entries(contents)
 
     return (
@@ -53,7 +54,6 @@ class Card extends Component {
           onClick={() => {
             this.setState({ src: whiteSaber });
             this.handleSaberClick();
-            addFavorite();
           }} />
         <ul className='content'>
           {this.createListItems(contentsList)}

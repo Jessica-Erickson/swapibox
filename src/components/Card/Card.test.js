@@ -5,6 +5,7 @@ import Card from './index'
 describe('Card', () => {
   let wrapper;
   let contents;
+  let addFavorite;
 
   beforeEach(() => {
     contents = { name: 'Luke Skywalker',
@@ -12,7 +13,13 @@ describe('Card', () => {
                  species: 'Human',
                  homePop: '200000' };
 
-    wrapper = shallow(<Card contents={contents} currentDisplay='people' />);
+    addFavorite = jest.fn()
+
+    wrapper = shallow(<Card
+                        contents={contents}
+                        currentDisplay='people'
+                        addFavorite={addFavorite}
+                      />);
   });
 
   it('should match the snapshot', () => {
@@ -20,7 +27,10 @@ describe('Card', () => {
   });
 
   it('should have default state', () => {
-    wrapper = shallow(<Card contents={contents} currentDisplay='people'/>,
+    wrapper = shallow(<Card contents={contents}
+                            currentDisplay='people'
+                            addFavorite={addFavorite}
+                      />,
                       { disableLifecycleMethods: true }
                      );
 

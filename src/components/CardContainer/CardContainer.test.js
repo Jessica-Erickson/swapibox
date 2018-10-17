@@ -16,6 +16,7 @@ describe('CardContainer', () => {
     wrapper = shallow(<CardContainer
                         cardContents={cardContents}
                         currentDisplay={currentDisplay}
+                        addFavorite={jest.fn()}
                       />);
 
     expect(wrapper).toMatchSnapshot();
@@ -26,6 +27,7 @@ describe('CardContainer', () => {
     wrapper = shallow(<CardContainer
                     cardContents={cardContents}
                     currentDisplay={currentDisplay}
+                    addFavorite={jest.fn()}
                   />);
 
     expect(wrapper).toMatchSnapshot();
@@ -39,6 +41,7 @@ describe('CardContainer', () => {
     wrapper = mount(<CardContainer
                       cardContents={cardContents}
                       currentDisplay={currentDisplay}
+                      addFavorite={jest.fn()}
                     />);
 
     expect(wrapper).toMatchSnapshot();

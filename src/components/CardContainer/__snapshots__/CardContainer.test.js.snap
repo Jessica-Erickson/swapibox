@@ -33,6 +33,7 @@ exports[`CardContainer should match the snapshot 1`] = `
 
 exports[`CardContainer should render cards when it gets contents 1`] = `
 <CardContainer
+  addFavorite={[MockFunction]}
   cardContents={
     Array [
       Object {
@@ -52,6 +53,7 @@ exports[`CardContainer should render cards when it gets contents 1`] = `
     className="CardContainer"
   >
     <Card
+      addFavorite={[MockFunction]}
       contents={
         Object {
           "name": "Luke Skywalker",
@@ -85,6 +87,7 @@ exports[`CardContainer should render cards when it gets contents 1`] = `
       </article>
     </Card>
     <Card
+      addFavorite={[MockFunction]}
       contents={
         Object {
           "name": "Leia Organa",
@@ -118,6 +121,7 @@ exports[`CardContainer should render cards when it gets contents 1`] = `
       </article>
     </Card>
     <Card
+      addFavorite={[MockFunction]}
       contents={
         Object {
           "name": "R2-D2",

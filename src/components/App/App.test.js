@@ -47,7 +47,7 @@ describe('App', () => {
     API.getPlanets = jest.fn()
     API.getVehicles = jest.fn()
 
-    await wrapper.instance().getData()
+    await wrapper.instance().getDataFromAPI()
 
     expect(API.getFilms).toHaveBeenCalled()
     expect(API.getPeople).toHaveBeenCalled()
