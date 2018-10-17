@@ -122,12 +122,6 @@ exports[`Card should change colors when user hovers over hilt 2`] = `
 
 exports[`Card should have default state 1`] = `
 Object {
-  "contents": Object {
-    "homePop": "200000",
-    "homeworld": "Tatooine",
-    "name": "Luke Skywalker",
-    "species": "Human",
-  },
   "isActive": false,
   "src": "lightsaber-wt.png",
 }

@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`CardContainer should display the Favorites default message if no Favorites 1`] = `
+exports[`CardContainer should display the favorites default message if no favorites 1`] = `
 <main
   className="CardContainer"
 >
@@ -48,19 +48,22 @@ exports[`CardContainer should render cards when it gets contents 1`] = `
     ]
   }
   currentDisplay="default"
+  removeFavorite={[MockFunction]}
 >
   <main
     className="CardContainer"
   >
     <Card
-      addFavorite={[MockFunction]}
+      addFavorite={[Function]}
       contents={
         Object {
           "name": "Luke Skywalker",
         }
       }
       currentDisplay="default"
+      id="Luke Skywalker-0"
       key="Luke Skywalker"
+      removeFavorite={[Function]}
     >
       <article
         className="Card default-bg-off"
@@ -87,14 +90,16 @@ exports[`CardContainer should render cards when it gets contents 1`] = `
       </article>
     </Card>
     <Card
-      addFavorite={[MockFunction]}
+      addFavorite={[Function]}
       contents={
         Object {
           "name": "Leia Organa",
         }
       }
       currentDisplay="default"
+      id="Leia Organa-1"
       key="Leia Organa"
+      removeFavorite={[Function]}
     >
       <article
         className="Card default-bg-off"
@@ -121,14 +126,16 @@ exports[`CardContainer should render cards when it gets contents 1`] = `
       </article>
     </Card>
     <Card
-      addFavorite={[MockFunction]}
+      addFavorite={[Function]}
       contents={
         Object {
           "name": "R2-D2",
         }
       }
       currentDisplay="default"
+      id="R2-D2-2"
       key="R2-D2"
+      removeFavorite={[Function]}
     >
       <article
         className="Card default-bg-off"
