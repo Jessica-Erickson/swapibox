@@ -76,14 +76,12 @@
 .favorites-is-glowing {
   box-shadow: 0 0 10px gold, 0 0 15px white;
   background-color: hsl(51, 100%, 50%) ;
-  transition: width 1s;
   width: 185px;
 }
 
 .people-is-off,
 .planets-is-off,
-.vehicles-is-off,
-.favorites-is-off {
+.vehicles-is-off {
   background-color: transparent;
   box-shadow: 0 0 0  transparent;
   transition: background-color 0s 1.8s , box-shadow 0s 1.8s, width 1s 0.8s;
@@ -92,28 +90,26 @@
 
 .people-bg-glow {
   box-shadow: 0 0 50px -5px deepskyblue, 0 0 60px -5px white;
-  transition: box-shadow 1s 0.8s;
+  transition: box-shadow 1s 0.7s;
 }
 
 .planets-bg-glow {
   box-shadow: 0 0 50px -5px springgreen, 0 0 60px -5px white;
-  transition: box-shadow 1s 0.8s;
+  transition: box-shadow 1s 0.7s;
 }
 
 .vehicles-bg-glow {
   box-shadow: 0 0 50px -5px red, 0 0 60px -5px white;
-  transition: box-shadow 1s 0.8s;
+  transition: box-shadow 1s 0.7s;
 }
 
 .favorites-bg-glow {
   box-shadow: 0 0 50px -5px gold, 0 0 60px -5px white;
-  transition: box-shadow 1s 0.8s;
 }
 
 .people-bg-off,
 .planets-bg-off,
-.vehicles-bg-off,
-.favorites-bg-off {
+.vehicles-bg-off {
   box-shadow: 0 0 0 0 transparent;
   transition: box-shadow 1s;
 }
