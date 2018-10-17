@@ -22,12 +22,16 @@ const CardContainer = ({ cardContents, currentDisplay, addFavorite, removeFavori
     cards = <h2 className="default">Select a Category or Favorites</h2>;
   }
   else {
-    cards = cardContents.map(item => {
+    cards = cardContents.map((item, index) => {
+      const newFave = {...item, id: `${item.name}-${index}`}
+
       return <Card
                 contents={item}
                 currentDisplay={currentDisplay}
-                addFavorite={addFavorite}
-                key={item.id || item.name} />
+                addFavorite={() => addFavorite(newFave)}
+                removeFavorite={() => removeFavorite(newFave.id)}
+                id={`${item.name}-${index}`}
+                key={item.name} />
     });
   }
 
