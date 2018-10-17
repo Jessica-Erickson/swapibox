@@ -27,10 +27,11 @@ class Card extends Component {
   }
 
   createListItems = (contentsList) => {
-    const name = contentsList.shift()
+    contentsList.shift()
+    const id = contentsList.shift()
     return contentsList.map((item, index) => {
       return(
-        <li key={`${name[1]}-${index}`}>
+        <li key={`${id}-${index}`}>
           {item[0]}: <span className='details'>{item[1]}</span>
         </li>
       )

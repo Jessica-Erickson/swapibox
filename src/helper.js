@@ -71,7 +71,7 @@ export const getPlanets = async () => {
 }
 
 const cleanPlanets = (planetList) => {
-  const newPlanets = planetList.map(async planet => {
+  const newPlanets = planetList.map(async (planet, index) => {
     const residentsList = await getResidents(planet.residents);
     const residents = cleanResidents(residentsList);
 
@@ -79,6 +79,7 @@ const cleanPlanets = (planetList) => {
 
     return {
       name,
+      id: `${name}-${index}`,
       Terrain: terrain,
       Population: parseInt(population).toLocaleString(),
       Climate: climate,
@@ -122,10 +123,15 @@ export const getVehicles = async () => {
 }
 
 const cleanVehicles = (vehiclesList) => {
-  const newVehicles = vehiclesList.map(vehicle => {
+  const newVehicles = vehiclesList.map((vehicle, index) => {
     const { name, model, vehicle_class, passengers } = vehicle;
 
-    return { name, Model: model, Class: vehicle_class, Capacity: parseInt(passengers).toLocaleString() }
+    return {
+      name,
+      id: `${name}-${index}`,
+      Model: model,
+      Class: vehicle_class,
+      Capacity: parseInt(passengers).toLocaleString() }
   });
 
   return newVehicles;
