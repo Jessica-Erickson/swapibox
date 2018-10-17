@@ -6,6 +6,29 @@ exports[`App matches the snapshot 1`] = `
 />
 `;
 
+exports[`App should getStorage on refresh / subsequent mounts 1`] = `
+Object {
+  "allFilms": Array [
+    Object {},
+  ],
+  "currentDisplay": "default",
+  "default": Array [],
+  "favorites": Array [
+    Object {},
+  ],
+  "isLoading": false,
+  "people": Array [
+    Object {},
+  ],
+  "planets": Array [
+    Object {},
+  ],
+  "vehicles": Array [
+    Object {},
+  ],
+}
+`;
+
 exports[`App should have a default state 1`] = `
 Object {
   "allFilms": Array [],
@@ -36,4 +59,25 @@ exports[`App should render the app if not Loading 1`] = `
     currentDisplay="default"
   />
 </div>
+`;
+
+exports[`App should set favorites to [] if no favorites in localStorage 1`] = `
+Object {
+  "allFilms": Array [
+    Object {},
+  ],
+  "currentDisplay": "default",
+  "default": Array [],
+  "favorites": Array [],
+  "isLoading": false,
+  "people": Array [
+    Object {},
+  ],
+  "planets": Array [
+    Object {},
+  ],
+  "vehicles": Array [
+    Object {},
+  ],
+}
 `;

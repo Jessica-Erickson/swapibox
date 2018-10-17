@@ -11,12 +11,12 @@ class App extends Component {
     super()
     this.state = {
       isLoading: true,
-      default: [],
       allFilms: [],
       people: [],
       planets: [],
       vehicles: [],
       favorites: [],
+      default: [],
       currentDisplay: 'default'
     }
   }
@@ -25,13 +25,51 @@ class App extends Component {
     this.setState({ currentDisplay: category });
   }
 
-  async componentDidMount() {
-    this.setState({
+  getDataFromLocalStorage = () => {
+    const storage = Object.keys(this.state).reduce((stored, list) => {
+      if (Array.isArray(this.state[list]) && list !== 'default') {
+        stored[list] = JSON.parse(localStorage.getItem(list)) || []
+      }
+
+      return stored;
+    }, {})
+
+    return storage
+  }
+
+  setDataInLocalStorage = (allData) => {
+    Object.keys(allData).forEach(collection => {
+      localStorage.setItem(collection, JSON.stringify(allData[collection]))
+    })
+  }
+
+  getData = async () => {
+    const allData = {
       allFilms: await API.getFilms(),
       people: await API.getPeople(),
       planets: await API.getPlanets(),
-      vehicles: await API.getVehicles(),
-      isLoading: false });
+      vehicles: await API.getVehicles()
+    }
+
+    return allData
+  }
+
+  async componentDidMount() {
+    if (localStorage.length) {
+      this.setState({
+        ...this.getDataFromLocalStorage(),
+        isLoading: false
+      });
+    }
+    else {
+      const allData = await this.getData()
+
+      this.setDataInLocalStorage(allData)
+
+      this.setState({
+        ...allData,
+        isLoading: false });
+    }
   }
 
   render() {
