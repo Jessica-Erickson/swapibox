@@ -12,10 +12,10 @@ const Button = ({ label, favorites, handleNavClick, isActive }) => {
                className={`Button ${lowerLabel}`}
                onClick={() => handleNavClick(lowerLabel)}
       >
-          Favorites
-          <div className="favorites-badge">
-            {favorites}
-          </div>
+        Favorites
+        <div className="favorites-badge">
+          {favorites}
+        </div>
       </NavLink>
     )
   } else {
@@ -25,7 +25,7 @@ const Button = ({ label, favorites, handleNavClick, isActive }) => {
       <NavLink to={`/${lowerLabel}`}
                className={`Button ${lowerLabel}`}
                onClick={() => handleNavClick(lowerLabel)}>
-      {label}
+        {label}
       </NavLink>
 
     )
