@@ -22,6 +22,7 @@ describe('Card', () => {
                         currentDisplay='people'
                         addFavorite={addFavorite}
                         removeFavorite={removeFavorite}
+                        isActive={false}
                       />);
   });
 
@@ -34,6 +35,7 @@ describe('Card', () => {
                             currentDisplay='people'
                             addFavorite={addFavorite}
                             removeFavorite={removeFavorite}
+                            isActive={false}
                       />,
                       { disableLifecycleMethods: true }
                      );

@@ -48,6 +48,8 @@ exports[`CardContainer should render cards when it gets contents 1`] = `
     ]
   }
   currentDisplay="default"
+  favorites={Array []}
+  isActive={false}
   removeFavorite={[MockFunction]}
 >
   <main
@@ -61,7 +63,7 @@ exports[`CardContainer should render cards when it gets contents 1`] = `
         }
       }
       currentDisplay="default"
-      id="Luke Skywalker-0"
+      isActive={false}
       key="Luke Skywalker"
       removeFavorite={[Function]}
     >
@@ -97,7 +99,7 @@ exports[`CardContainer should render cards when it gets contents 1`] = `
         }
       }
       currentDisplay="default"
-      id="Leia Organa-1"
+      isActive={false}
       key="Leia Organa"
       removeFavorite={[Function]}
     >
@@ -133,7 +135,7 @@ exports[`CardContainer should render cards when it gets contents 1`] = `
         }
       }
       currentDisplay="default"
-      id="R2-D2-2"
+      isActive={false}
       key="R2-D2"
       removeFavorite={[Function]}
     >

@@ -88,6 +88,7 @@ exports[`App should render the app if not Loading 1`] = `
     addFavorite={[Function]}
     cardContents={Array []}
     currentDisplay="default"
+    favorites={Array []}
     removeFavorite={[Function]}
   />
 </div>
