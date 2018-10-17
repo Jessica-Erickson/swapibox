@@ -73,9 +73,17 @@
   width: 185px;
 }
 
+.favorites-is-glowing {
+  box-shadow: 0 0 10px gold, 0 0 15px white;
+  background-color: hsl(51, 100%, 50%) ;
+  transition: width 1s;
+  width: 185px;
+}
+
 .people-is-off,
 .planets-is-off,
-.vehicles-is-off {
+.vehicles-is-off,
+.favorites-is-off {
   background-color: transparent;
   box-shadow: 0 0 0  transparent;
   transition: background-color 0s 1.8s , box-shadow 0s 1.8s, width 1s 0.8s;
@@ -97,9 +105,15 @@
   transition: box-shadow 1s 0.8s;
 }
 
+.favorites-bg-glow {
+  box-shadow: 0 0 50px -5px gold, 0 0 60px -5px white;
+  transition: box-shadow 1s 0.8s;
+}
+
 .people-bg-off,
 .planets-bg-off,
-.vehicles-bg-off {
+.vehicles-bg-off,
+.favorites-bg-off {
   box-shadow: 0 0 0 0 transparent;
   transition: box-shadow 1s;
 }
