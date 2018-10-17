@@ -1,28 +1,31 @@
 import React from 'react';
+import { Route } from 'react-router-dom'
 import PropTypes from 'prop-types';
 import Card from './../Card';
 import './CardContainer.css';
 
 const CardContainer = ({ cardContents, currentDisplay, addFavorite, removeFavorite, favorites }) => {
-  let cards;
 
-  if ( currentDisplay === 'favorites' && cardContents.length === 0) {
-    cards = (
-      <div>
-        <h2 className="favorites-default">
-          You currently don't have any favorites.
-        </h2>
-        <p className="favorites-default-text">
-          Click on the lightsaber in the top right corner of a card to favorite it.
-        </p>
-      </div>
-    )
+  const checkFaves = () => {
+    if ( currentDisplay === 'favorites' && cardContents.length === 0) {
+      return (
+        <div>
+          <h2 className="favorites-default">
+            You currently don't have any favorites.
+          </h2>
+          <p className="favorites-default-text">
+            Click on the lightsaber in the top right corner of a card to favorite it.
+          </p>
+        </div>
+      )
+    }
+    else {
+      return makeCards()
+    }
   }
-  else if ( cardContents.length === 0 ) {
-    cards = <h2 className="default">Select a Category or Favorites</h2>;
-  }
-  else {
-    cards = cardContents.map((item) => {
+
+  const makeCards = () => {
+    return cardContents.map((item) => {
       return <Card
                 contents={item}
                 currentDisplay={currentDisplay}
@@ -35,7 +38,22 @@ const CardContainer = ({ cardContents, currentDisplay, addFavorite, removeFavori
 
   return (
     <main className="CardContainer">
-      { cards }
+      <Route exact path='/' render={ () => (
+        <h2 className="default">Select a Category or Favorites</h2>
+      )}/>
+
+      <Route exact path='/favorites' render={ () => (
+        checkFaves()
+      )}/>
+      <Route exact path='/people' render={ () => (
+        makeCards()
+      )}/>
+      <Route exact path='/planets' render={ () => (
+        makeCards()
+      )}/>
+      <Route exact path='/vehicles' render={ () => (
+        makeCards()
+      )}/>
     </main>
   );
 }

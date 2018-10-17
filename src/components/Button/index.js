@@ -1,4 +1,5 @@
 import React from 'react'
+import { NavLink } from 'react-router-dom'
 import PropTypes from 'prop-types'
 import './Button.css'
 
@@ -7,25 +8,26 @@ const Button = ({ label, favorites, handleNavClick, isActive }) => {
     const lowerLabel = label.toLowerCase()
 
     return (
-      <button className={`Button ${lowerLabel} ${ isActive ? 'active' : '' }`}
-              value={ label }
-              onClick={() => handleNavClick(lowerLabel)}
+      <NavLink to={`/${lowerLabel}`}
+               className={`Button ${lowerLabel}`}
+               onClick={() => handleNavClick(lowerLabel)}
       >
-        Favorites
-        <div className="favorites-badge">
-          {favorites}
-        </div>
-      </button>
+          Favorites
+          <div className="favorites-badge">
+            {favorites}
+          </div>
+      </NavLink>
     )
   } else {
     const lowerLabel = label.toLowerCase()
 
     return (
-      <input className={`Button ${lowerLabel} ${ isActive ? 'active' : '' }`}
-             type="button"
-             value={ label }
-             onClick={() => handleNavClick(lowerLabel)}
-      />
+      <NavLink to={`/${lowerLabel}`}
+               className={`Button ${lowerLabel}`}
+               onClick={() => handleNavClick(lowerLabel)}>
+      {label}
+      </NavLink>
+
     )
   }
 }
