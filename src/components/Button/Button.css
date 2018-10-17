@@ -22,7 +22,7 @@
 
 .favorites {
   height: 75px;
-  min-width: 100px;
+  max-width: 100px;
   position: relative;
   display: flex;
   flex-direction: column;
