@@ -23,7 +23,11 @@ const CardContainer = ({ cardContents, currentDisplay }) => {
   }
   else {
     cards = cardContents.map(item => {
-      return <Card contents={item} currentDisplay={currentDisplay} key={item.name} />
+      return <Card
+                contents={item}
+                currentDisplay={currentDisplay}
+                addFavorite={addFavorite}
+                key={item.name} />
     });
   }
 
@@ -36,7 +40,8 @@ const CardContainer = ({ cardContents, currentDisplay }) => {
 
 CardContainer.propTypes = {
   cardContents: PropTypes.array.isRequired,
-  currentDisplay: PropTypes.string.isRequired
+  currentDisplay: PropTypes.string.isRequired,
+  addFavorite: PropTypes.func.isRequired
 }
 
 export default CardContainer;

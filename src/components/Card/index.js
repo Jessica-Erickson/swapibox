@@ -30,7 +30,7 @@ class Card extends Component {
 
   render() {
     const { isActive , src } = this.state;
-    const { contents, currentDisplay } = this.props;
+    const { contents, currentDisplay, addFavorite } = this.props;
     const contentsList = Object.entries(contents)
 
     return (
@@ -53,6 +53,7 @@ class Card extends Component {
           onClick={() => {
             this.setState({ src: whiteSaber });
             this.handleSaberClick();
+            addFavorite();
           }} />
         <ul className='content'>
           {this.createListItems(contentsList)}
@@ -64,7 +65,8 @@ class Card extends Component {
 
 Card.propTypes = {
   contents: PropTypes.object.isRequired,
-  currentDisplay: PropTypes.string.isRequired
+  currentDisplay: PropTypes.string.isRequired,
+  addFavorite: PropTypes.func.isRequired
 }
 
 export default Card;

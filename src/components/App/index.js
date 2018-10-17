@@ -25,6 +25,12 @@ class App extends Component {
     this.setState({ currentDisplay: category });
   }
 
+  addFavorite = (favorite) => {
+    const currentFavorites = this.state.favorites
+    this.setState({ favorites: [...currentFavorites, favorite] },
+      this.setDataInLocalStorage(this.state.favorites))
+  }
+
   getDataFromLocalStorage = () => {
     const storage = Object.keys(this.state).reduce((stored, list) => {
       if (Array.isArray(this.state[list]) && list !== 'default') {
@@ -93,6 +99,7 @@ class App extends Component {
           <CardContainer
             cardContents={cardContents}
             currentDisplay={currentDisplay}
+            addFavorites={this.addFavorites}
           />
         </div>
       );
