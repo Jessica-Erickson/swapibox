@@ -28,13 +28,13 @@ class App extends Component {
     const newFavorite = {...favorite, id: Date.now()}
     const favorites = [...this.state.favorites, newFavorite]
     this.setState({ favorites },
-      this.setDataInLocalStorage(this.state.favorites))
+      this.setDataInLocalStorage(this.state))
   }
 
   removeFavorite = (id) => {
     const filteredFaves = this.state.favorites.filter(fave => fave.id !==id)
     this.setState({ favorites: filteredFaves },
-      this.setDataInLocalStorage(this.state.favorites))
+      this.setDataInLocalStorage(this.state))
   }
 
   getDataFromLocalStorage = () => {
@@ -106,6 +106,7 @@ class App extends Component {
             cardContents={cardContents}
             currentDisplay={currentDisplay}
             addFavorite={this.addFavorite}
+            removeFavorite={this.removeFavorite}
           />
         </div>
       );

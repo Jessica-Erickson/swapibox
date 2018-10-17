@@ -16,6 +16,15 @@ class Card extends Component {
   handleSaberClick = () => {
     this.setState({ isActive: !this.state.isActive },
       this.props.addFavorite(this.state));
+
+  }
+
+  checkActive = () => {
+    if (this.state.isActive) {
+      this.props.addFavorite(this.state)
+    } else {
+      this.props.removeFavorite(this.props.id)
+    }
   }
 
   createListItems = (contentsList) => {
