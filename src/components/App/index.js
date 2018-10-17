@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import * as API from '../../helper.js';
-
 import ScrollingText from '../ScrollingText'
 import Header from '../Header'
 import CardContainer from '../CardContainer'
@@ -26,8 +25,15 @@ class App extends Component {
   }
 
   addFavorite = (favorite) => {
-    const currentFavorites = this.state.favorites
-    this.setState({ favorites: [...currentFavorites, favorite] },
+    const newFavorite = {...favorite, id: Date.now()}
+    const favorites = [...this.state.favorites, newFavorite]
+    this.setState({ favorites },
+      this.setDataInLocalStorage(this.state.favorites))
+  }
+
+  removeFavorite = (id) => {
+    const filteredFaves = this.state.favorites.filter(fave => fave.id !==id)
+    this.setState({ favorites: filteredFaves },
       this.setDataInLocalStorage(this.state.favorites))
   }
 

@@ -14,6 +14,7 @@ Object {
   "favorites": Array [
     Object {
       "cardData": "someData",
+      "id": 181016,
     },
   ],
   "isLoading": true,
@@ -47,6 +48,19 @@ Object {
 `;
 
 exports[`App should have a default state 1`] = `
+Object {
+  "allFilms": Array [],
+  "currentDisplay": "default",
+  "default": Array [],
+  "favorites": Array [],
+  "isLoading": true,
+  "people": Array [],
+  "planets": Array [],
+  "vehicles": Array [],
+}
+`;
+
+exports[`App should remove favorites from state and localStorage when unfavorited 1`] = `
 Object {
   "allFilms": Array [],
   "currentDisplay": "default",
