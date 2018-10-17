@@ -107,6 +107,7 @@ class App extends Component {
             currentDisplay={currentDisplay}
             addFavorite={this.addFavorite}
             removeFavorite={this.removeFavorite}
+            favorites={favorites}
           />
         </div>
       );
