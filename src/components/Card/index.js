@@ -14,7 +14,17 @@ class Card extends Component {
   }
 
   handleSaberClick = () => {
-    this.setState({ isActive: !this.state.isActive });
+    this.setState({ isActive: !this.state.isActive },
+      this.props.addFavorite(this.state));
+
+  }
+
+  checkActive = () => {
+    if (this.state.isActive) {
+      this.props.addFavorite(this.state)
+    } else {
+      this.props.removeFavorite(this.props.id)
+    }
   }
 
   createListItems = (contentsList) => {
@@ -64,7 +74,8 @@ class Card extends Component {
 
 Card.propTypes = {
   contents: PropTypes.object.isRequired,
-  currentDisplay: PropTypes.string.isRequired
+  currentDisplay: PropTypes.string.isRequired,
+  addFavorite: PropTypes.func.isRequired
 }
 
 export default Card;

@@ -6,6 +6,24 @@ exports[`App matches the snapshot 1`] = `
 />
 `;
 
+exports[`App should add favorites to state and localStorage when favorited 1`] = `
+Object {
+  "allFilms": Array [],
+  "currentDisplay": "default",
+  "default": Array [],
+  "favorites": Array [
+    Object {
+      "cardData": "someData",
+      "id": 181016,
+    },
+  ],
+  "isLoading": true,
+  "people": Array [],
+  "planets": Array [],
+  "vehicles": Array [],
+}
+`;
+
 exports[`App should getStorage on refresh / subsequent mounts 1`] = `
 Object {
   "allFilms": Array [
@@ -42,6 +60,19 @@ Object {
 }
 `;
 
+exports[`App should remove favorites from state and localStorage when unfavorited 1`] = `
+Object {
+  "allFilms": Array [],
+  "currentDisplay": "default",
+  "default": Array [],
+  "favorites": Array [],
+  "isLoading": true,
+  "people": Array [],
+  "planets": Array [],
+  "vehicles": Array [],
+}
+`;
+
 exports[`App should render the app if not Loading 1`] = `
 <div
   className="App"
@@ -55,6 +86,7 @@ exports[`App should render the app if not Loading 1`] = `
     handleNavClick={[Function]}
   />
   <CardContainer
+    addFavorite={[Function]}
     cardContents={Array []}
     currentDisplay="default"
   />

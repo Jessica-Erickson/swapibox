@@ -6,6 +6,7 @@ import * as API from '../../helper.js';
 describe('App', () => {
   let wrapper;
   let mockData;
+  let mockFavorite;
 
   beforeEach(() => {
     localStorage.clear()
@@ -16,6 +17,10 @@ describe('App', () => {
       planets: [{}],
       vehicles: [{}],
       favorites: [{}]
+    }
+
+    mockFavorite = {
+      cardData: 'someData'
     }
   });
 
@@ -42,7 +47,7 @@ describe('App', () => {
     API.getPlanets = jest.fn()
     API.getVehicles = jest.fn()
 
-    await wrapper.instance().getData()
+    await wrapper.instance().getDataFromAPI()
 
     expect(API.getFilms).toHaveBeenCalled()
     expect(API.getPeople).toHaveBeenCalled()
@@ -86,4 +91,17 @@ describe('App', () => {
     expect(wrapper.state('currentDisplay')).toEqual('people');
   });
 
+  it('should add favorites to state and localStorage when favorited', () => {
+    Date.now = () => { return 181016 }
+
+    wrapper.instance().addFavorite(mockFavorite)
+
+    expect(wrapper.state()).toMatchSnapshot()
+  })
+
+  it('should remove favorites from state and localStorage when unfavorited', () => {
+    wrapper.instance().removeFavorite(mockFavorite)
+
+    expect(wrapper.state()).toMatchSnapshot()
+  })
 });

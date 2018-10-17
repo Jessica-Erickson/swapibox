@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import * as API from '../../helper.js';
-
 import ScrollingText from '../ScrollingText'
 import Header from '../Header'
 import CardContainer from '../CardContainer'
@@ -25,6 +24,19 @@ class App extends Component {
     this.setState({ currentDisplay: category });
   }
 
+  addFavorite = (favorite) => {
+    const newFavorite = {...favorite, id: Date.now()}
+    const favorites = [...this.state.favorites, newFavorite]
+    this.setState({ favorites },
+      this.setDataInLocalStorage(this.state))
+  }
+
+  removeFavorite = (id) => {
+    const filteredFaves = this.state.favorites.filter(fave => fave.id !==id)
+    this.setState({ favorites: filteredFaves },
+      this.setDataInLocalStorage(this.state))
+  }
+
   getDataFromLocalStorage = () => {
     const storage = Object.keys(this.state).reduce((stored, list) => {
       if (Array.isArray(this.state[list]) && list !== 'default') {
@@ -43,7 +55,7 @@ class App extends Component {
     })
   }
 
-  getData = async () => {
+  getDataFromAPI = async () => {
     const allData = {
       allFilms: await API.getFilms(),
       people: await API.getPeople(),
@@ -62,7 +74,7 @@ class App extends Component {
       });
     }
     else {
-      const allData = await this.getData()
+      const allData = await this.getDataFromAPI()
 
       this.setDataInLocalStorage(allData)
 
@@ -93,6 +105,8 @@ class App extends Component {
           <CardContainer
             cardContents={cardContents}
             currentDisplay={currentDisplay}
+            addFavorite={this.addFavorite}
+            removeFavorite={this.removeFavorite}
           />
         </div>
       );
