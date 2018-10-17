@@ -92,7 +92,15 @@ describe('App', () => {
   });
 
   it('should add favorites to state and localStorage when favorited', () => {
+    Date.now = () => { return 181016 }
+
     wrapper.instance().addFavorite(mockFavorite)
+
+    expect(wrapper.state()).toMatchSnapshot()
+  })
+
+  it('should remove favorites from state and localStorage when unfavorited', () => {
+    wrapper.instance().removeFavorite(mockFavorite)
 
     expect(wrapper.state()).toMatchSnapshot()
   })
