@@ -1,13 +1,24 @@
 import { configure } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 
-//need to make localStorage a class and actually save data (see Pam's code)
-const localStorageMock = {
-  getItem: () => jest.fn(),
-  setItem: () => jest.fn(),
-  clear: () => jest.fn()
+class LocalStorage {
+  contructor() {
+    this.store = {};
+  }
+
+  getItem(key) {
+    return this.store[key];
+  }
+
+  setItem(key, string) {
+    this.store[key] = string;
+  }
+
+  clear() {
+    this.store = {};
+  }
 };
 
-global.localStorageMock = localStorageMock;
+global.localStorage = new LocalStorage();
 
 configure({ adapter: new Adapter() });

@@ -28,16 +28,30 @@ class App extends Component {
   getDataFromLocalStorage = () => {
     const storage = Object.keys(this.state).reduce((stored, list) => {
       if (Array.isArray(this.state[list]) && list !== 'default') {
-        stored[list] = JSON.parse(localStorage.getItem(list))
+        stored[list] = JSON.parse(localStorage.getItem(list)) || []
       }
+
       return stored;
     }, {})
 
     return storage
   }
 
-  setDataInLocalStorage = (keyword, collection) => {
-    localStorage.setItem(keyword, JSON.stringify(collection))
+  setDataInLocalStorage = (allData) => {
+    Object.keys(allData).forEach(collection => {
+      localStorage.setItem(collection, JSON.stringify(allData[collection]))
+    })
+  }
+
+  getData = async () => {
+    const allData = {
+      allFilms: await API.getFilms(),
+      people: await API.getPeople(),
+      planets: await API.getPlanets(),
+      vehicles: await API.getVehicles()
+    }
+
+    return allData
   }
 
   async componentDidMount() {
@@ -48,16 +62,9 @@ class App extends Component {
       });
     }
     else {
-      const allData = {
-        allFilms: await API.getFilms(),
-        people: await API.getPeople(),
-        planets: await API.getPlanets(),
-        vehicles: await API.getVehicles()
-      }
+      const allData = await this.getData()
 
-      Object.keys(allData).forEach(collection => {
-        this.setDataInLocalStorage(collection, allData[collection])
-      })
+      this.setDataInLocalStorage(allData)
 
       this.setState({
         ...allData,
