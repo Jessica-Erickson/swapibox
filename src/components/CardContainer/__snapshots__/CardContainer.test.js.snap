@@ -1,87 +1,42 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`CardContainer should display the favorites default message if no favorites 1`] = `
-<main
-  className="CardContainer"
+exports[`CardContainer default landing page should match the snapshot 1`] = `
+<MemoryRouter
+  initialEntries={
+    Array [
+      Object {
+        "key": "testKey",
+        "pathname": "/",
+      },
+    ]
+  }
 >
-  <Route
-    exact={true}
-    path="/"
-    render={[Function]}
-  />
-  <Route
-    exact={true}
-    path="/favorites"
-    render={[Function]}
-  />
-  <Route
-    exact={true}
-    path="/people"
-    render={[Function]}
-  />
-  <Route
-    exact={true}
-    path="/planets"
-    render={[Function]}
-  />
-  <Route
-    exact={true}
-    path="/vehicles"
-    render={[Function]}
-  />
-</main>
-`;
-
-exports[`CardContainer should match the snapshot 1`] = `
-<main
-  className="CardContainer"
->
-  <Route
-    exact={true}
-    path="/"
-    render={[Function]}
-  />
-  <Route
-    exact={true}
-    path="/favorites"
-    render={[Function]}
-  />
-  <Route
-    exact={true}
-    path="/people"
-    render={[Function]}
-  />
-  <Route
-    exact={true}
-    path="/planets"
-    render={[Function]}
-  />
-  <Route
-    exact={true}
-    path="/vehicles"
-    render={[Function]}
-  />
-</main>
-`;
-
-exports[`CardContainer should render cards when it gets contents 1`] = `
-<BrowserRouter>
   <Router
     history={
       Object {
         "action": "POP",
         "block": [Function],
+        "canGo": [Function],
         "createHref": [Function],
+        "entries": Array [
+          Object {
+            "hash": "",
+            "key": "testKey",
+            "pathname": "/",
+            "search": "",
+          },
+        ],
         "go": [Function],
         "goBack": [Function],
         "goForward": [Function],
+        "index": 0,
         "length": 1,
         "listen": [Function],
         "location": Object {
           "hash": "",
+          "key": "testKey",
           "pathname": "/",
           "search": "",
-          "state": undefined,
         },
         "push": [Function],
         "replace": [Function],
@@ -90,19 +45,7 @@ exports[`CardContainer should render cards when it gets contents 1`] = `
   >
     <CardContainer
       addFavorite={[MockFunction]}
-      cardContents={
-        Array [
-          Object {
-            "name": "Luke Skywalker",
-          },
-          Object {
-            "name": "Leia Organa",
-          },
-          Object {
-            "name": "R2-D2",
-          },
-        ]
-      }
+      cardContents={Array []}
       currentDisplay="default"
       favorites={Array []}
       isActive={false}
@@ -145,5 +88,927 @@ exports[`CardContainer should render cards when it gets contents 1`] = `
       </main>
     </CardContainer>
   </Router>
-</BrowserRouter>
+</MemoryRouter>
+`;
+
+exports[`CardContainer people page should match the snapshot with people cards 1`] = `
+<MemoryRouter
+  initialEntries={
+    Array [
+      Object {
+        "key": "testKey",
+        "pathname": "/people",
+      },
+    ]
+  }
+>
+  <Router
+    history={
+      Object {
+        "action": "POP",
+        "block": [Function],
+        "canGo": [Function],
+        "createHref": [Function],
+        "entries": Array [
+          Object {
+            "hash": "",
+            "key": "testKey",
+            "pathname": "/people",
+            "search": "",
+          },
+        ],
+        "go": [Function],
+        "goBack": [Function],
+        "goForward": [Function],
+        "index": 0,
+        "length": 1,
+        "listen": [Function],
+        "location": Object {
+          "hash": "",
+          "key": "testKey",
+          "pathname": "/people",
+          "search": "",
+        },
+        "push": [Function],
+        "replace": [Function],
+      }
+    }
+  >
+    <CardContainer
+      addFavorite={[MockFunction]}
+      cardContents={
+        Array [
+          Object {
+            "name": "Luke Skywalker",
+          },
+          Object {
+            "name": "Leia Organa",
+          },
+          Object {
+            "name": "R2-D2",
+          },
+        ]
+      }
+      currentDisplay="people"
+      favorites={Array []}
+      isActive={false}
+      removeFavorite={[MockFunction]}
+    >
+      <main
+        className="CardContainer"
+      >
+        <Route
+          exact={true}
+          path="/"
+          render={[Function]}
+        />
+        <Route
+          exact={true}
+          path="/favorites"
+          render={[Function]}
+        />
+        <Route
+          exact={true}
+          path="/people"
+          render={[Function]}
+        >
+          <Card
+            addFavorite={[Function]}
+            contents={
+              Object {
+                "name": "Luke Skywalker",
+              }
+            }
+            currentDisplay="people"
+            isActive={false}
+            key="Luke Skywalker"
+            removeFavorite={[Function]}
+          >
+            <article
+              className="Card people-bg-off"
+            >
+              <h3
+                className="name is-white"
+              >
+                Luke Skywalker
+              </h3>
+              <div
+                className="saber people-is-off"
+              />
+              <img
+                alt="The hilt of a lightsaber. Turn the lightsaber on to favorite this card."
+                className="hilt"
+                onClick={[Function]}
+                onMouseOut={[Function]}
+                onMouseOver={[Function]}
+                src="lightsaber-wt.png"
+              />
+              <ul
+                className="content"
+              />
+            </article>
+          </Card>
+          <Card
+            addFavorite={[Function]}
+            contents={
+              Object {
+                "name": "Leia Organa",
+              }
+            }
+            currentDisplay="people"
+            isActive={false}
+            key="Leia Organa"
+            removeFavorite={[Function]}
+          >
+            <article
+              className="Card people-bg-off"
+            >
+              <h3
+                className="name is-white"
+              >
+                Leia Organa
+              </h3>
+              <div
+                className="saber people-is-off"
+              />
+              <img
+                alt="The hilt of a lightsaber. Turn the lightsaber on to favorite this card."
+                className="hilt"
+                onClick={[Function]}
+                onMouseOut={[Function]}
+                onMouseOver={[Function]}
+                src="lightsaber-wt.png"
+              />
+              <ul
+                className="content"
+              />
+            </article>
+          </Card>
+          <Card
+            addFavorite={[Function]}
+            contents={
+              Object {
+                "name": "R2-D2",
+              }
+            }
+            currentDisplay="people"
+            isActive={false}
+            key="R2-D2"
+            removeFavorite={[Function]}
+          >
+            <article
+              className="Card people-bg-off"
+            >
+              <h3
+                className="name is-white"
+              >
+                R2-D2
+              </h3>
+              <div
+                className="saber people-is-off"
+              />
+              <img
+                alt="The hilt of a lightsaber. Turn the lightsaber on to favorite this card."
+                className="hilt"
+                onClick={[Function]}
+                onMouseOut={[Function]}
+                onMouseOver={[Function]}
+                src="lightsaber-wt.png"
+              />
+              <ul
+                className="content"
+              />
+            </article>
+          </Card>
+        </Route>
+        <Route
+          exact={true}
+          path="/planets"
+          render={[Function]}
+        />
+        <Route
+          exact={true}
+          path="/vehicles"
+          render={[Function]}
+        />
+      </main>
+    </CardContainer>
+  </Router>
+</MemoryRouter>
+`;
+
+exports[`CardContainer planets page should match the snapshot with planets cards 1`] = `
+<MemoryRouter
+  initialEntries={
+    Array [
+      Object {
+        "key": "testKey",
+        "pathname": "/planets",
+      },
+    ]
+  }
+>
+  <Router
+    history={
+      Object {
+        "action": "POP",
+        "block": [Function],
+        "canGo": [Function],
+        "createHref": [Function],
+        "entries": Array [
+          Object {
+            "hash": "",
+            "key": "testKey",
+            "pathname": "/planets",
+            "search": "",
+          },
+        ],
+        "go": [Function],
+        "goBack": [Function],
+        "goForward": [Function],
+        "index": 0,
+        "length": 1,
+        "listen": [Function],
+        "location": Object {
+          "hash": "",
+          "key": "testKey",
+          "pathname": "/planets",
+          "search": "",
+        },
+        "push": [Function],
+        "replace": [Function],
+      }
+    }
+  >
+    <CardContainer
+      addFavorite={[MockFunction]}
+      cardContents={
+        Array [
+          Object {
+            "name": "Tatooine",
+          },
+          Object {
+            "name": "Death Star",
+          },
+          Object {
+            "name": "Earth",
+          },
+        ]
+      }
+      currentDisplay="planets"
+      favorites={Array []}
+      isActive={false}
+      removeFavorite={[MockFunction]}
+    >
+      <main
+        className="CardContainer"
+      >
+        <Route
+          exact={true}
+          path="/"
+          render={[Function]}
+        />
+        <Route
+          exact={true}
+          path="/favorites"
+          render={[Function]}
+        />
+        <Route
+          exact={true}
+          path="/people"
+          render={[Function]}
+        />
+        <Route
+          exact={true}
+          path="/planets"
+          render={[Function]}
+        >
+          <Card
+            addFavorite={[Function]}
+            contents={
+              Object {
+                "name": "Tatooine",
+              }
+            }
+            currentDisplay="planets"
+            isActive={false}
+            key="Tatooine"
+            removeFavorite={[Function]}
+          >
+            <article
+              className="Card planets-bg-off"
+            >
+              <h3
+                className="name is-white"
+              >
+                Tatooine
+              </h3>
+              <div
+                className="saber planets-is-off"
+              />
+              <img
+                alt="The hilt of a lightsaber. Turn the lightsaber on to favorite this card."
+                className="hilt"
+                onClick={[Function]}
+                onMouseOut={[Function]}
+                onMouseOver={[Function]}
+                src="lightsaber-wt.png"
+              />
+              <ul
+                className="content"
+              />
+            </article>
+          </Card>
+          <Card
+            addFavorite={[Function]}
+            contents={
+              Object {
+                "name": "Death Star",
+              }
+            }
+            currentDisplay="planets"
+            isActive={false}
+            key="Death Star"
+            removeFavorite={[Function]}
+          >
+            <article
+              className="Card planets-bg-off"
+            >
+              <h3
+                className="name is-white"
+              >
+                Death Star
+              </h3>
+              <div
+                className="saber planets-is-off"
+              />
+              <img
+                alt="The hilt of a lightsaber. Turn the lightsaber on to favorite this card."
+                className="hilt"
+                onClick={[Function]}
+                onMouseOut={[Function]}
+                onMouseOver={[Function]}
+                src="lightsaber-wt.png"
+              />
+              <ul
+                className="content"
+              />
+            </article>
+          </Card>
+          <Card
+            addFavorite={[Function]}
+            contents={
+              Object {
+                "name": "Earth",
+              }
+            }
+            currentDisplay="planets"
+            isActive={false}
+            key="Earth"
+            removeFavorite={[Function]}
+          >
+            <article
+              className="Card planets-bg-off"
+            >
+              <h3
+                className="name is-white"
+              >
+                Earth
+              </h3>
+              <div
+                className="saber planets-is-off"
+              />
+              <img
+                alt="The hilt of a lightsaber. Turn the lightsaber on to favorite this card."
+                className="hilt"
+                onClick={[Function]}
+                onMouseOut={[Function]}
+                onMouseOver={[Function]}
+                src="lightsaber-wt.png"
+              />
+              <ul
+                className="content"
+              />
+            </article>
+          </Card>
+        </Route>
+        <Route
+          exact={true}
+          path="/vehicles"
+          render={[Function]}
+        />
+      </main>
+    </CardContainer>
+  </Router>
+</MemoryRouter>
+`;
+
+exports[`CardContainer should display the favorites cards when favorites 1`] = `
+<MemoryRouter
+  initialEntries={
+    Array [
+      Object {
+        "key": "testKey",
+        "pathname": "/favorites",
+      },
+    ]
+  }
+>
+  <Router
+    history={
+      Object {
+        "action": "POP",
+        "block": [Function],
+        "canGo": [Function],
+        "createHref": [Function],
+        "entries": Array [
+          Object {
+            "hash": "",
+            "key": "testKey",
+            "pathname": "/favorites",
+            "search": "",
+          },
+        ],
+        "go": [Function],
+        "goBack": [Function],
+        "goForward": [Function],
+        "index": 0,
+        "length": 1,
+        "listen": [Function],
+        "location": Object {
+          "hash": "",
+          "key": "testKey",
+          "pathname": "/favorites",
+          "search": "",
+        },
+        "push": [Function],
+        "replace": [Function],
+      }
+    }
+  >
+    <CardContainer
+      addFavorite={[MockFunction]}
+      cardContents={
+        Array [
+          Object {
+            "name": "Luke Skywalker",
+          },
+          Object {
+            "name": "Speeder",
+          },
+          Object {
+            "name": "Tatooine",
+          },
+        ]
+      }
+      currentDisplay="favorites"
+      favorites={Array []}
+      isActive={false}
+      removeFavorite={[MockFunction]}
+    >
+      <main
+        className="CardContainer"
+      >
+        <Route
+          exact={true}
+          path="/"
+          render={[Function]}
+        />
+        <Route
+          exact={true}
+          path="/favorites"
+          render={[Function]}
+        >
+          <Card
+            addFavorite={[Function]}
+            contents={
+              Object {
+                "name": "Luke Skywalker",
+              }
+            }
+            currentDisplay="favorites"
+            isActive={false}
+            key="Luke Skywalker"
+            removeFavorite={[Function]}
+          >
+            <article
+              className="Card favorites-bg-off"
+            >
+              <h3
+                className="name is-white"
+              >
+                Luke Skywalker
+              </h3>
+              <div
+                className="saber favorites-is-off"
+              />
+              <img
+                alt="The hilt of a lightsaber. Turn the lightsaber on to favorite this card."
+                className="hilt"
+                onClick={[Function]}
+                onMouseOut={[Function]}
+                onMouseOver={[Function]}
+                src="lightsaber-wt.png"
+              />
+              <ul
+                className="content"
+              />
+            </article>
+          </Card>
+          <Card
+            addFavorite={[Function]}
+            contents={
+              Object {
+                "name": "Speeder",
+              }
+            }
+            currentDisplay="favorites"
+            isActive={false}
+            key="Speeder"
+            removeFavorite={[Function]}
+          >
+            <article
+              className="Card favorites-bg-off"
+            >
+              <h3
+                className="name is-white"
+              >
+                Speeder
+              </h3>
+              <div
+                className="saber favorites-is-off"
+              />
+              <img
+                alt="The hilt of a lightsaber. Turn the lightsaber on to favorite this card."
+                className="hilt"
+                onClick={[Function]}
+                onMouseOut={[Function]}
+                onMouseOver={[Function]}
+                src="lightsaber-wt.png"
+              />
+              <ul
+                className="content"
+              />
+            </article>
+          </Card>
+          <Card
+            addFavorite={[Function]}
+            contents={
+              Object {
+                "name": "Tatooine",
+              }
+            }
+            currentDisplay="favorites"
+            isActive={false}
+            key="Tatooine"
+            removeFavorite={[Function]}
+          >
+            <article
+              className="Card favorites-bg-off"
+            >
+              <h3
+                className="name is-white"
+              >
+                Tatooine
+              </h3>
+              <div
+                className="saber favorites-is-off"
+              />
+              <img
+                alt="The hilt of a lightsaber. Turn the lightsaber on to favorite this card."
+                className="hilt"
+                onClick={[Function]}
+                onMouseOut={[Function]}
+                onMouseOver={[Function]}
+                src="lightsaber-wt.png"
+              />
+              <ul
+                className="content"
+              />
+            </article>
+          </Card>
+        </Route>
+        <Route
+          exact={true}
+          path="/people"
+          render={[Function]}
+        />
+        <Route
+          exact={true}
+          path="/planets"
+          render={[Function]}
+        />
+        <Route
+          exact={true}
+          path="/vehicles"
+          render={[Function]}
+        />
+      </main>
+    </CardContainer>
+  </Router>
+</MemoryRouter>
+`;
+
+exports[`CardContainer should display the favorites default message if no favorites 1`] = `
+<MemoryRouter
+  initialEntries={
+    Array [
+      Object {
+        "key": "testKey",
+        "pathname": "/favorites",
+      },
+    ]
+  }
+>
+  <Router
+    history={
+      Object {
+        "action": "POP",
+        "block": [Function],
+        "canGo": [Function],
+        "createHref": [Function],
+        "entries": Array [
+          Object {
+            "hash": "",
+            "key": "testKey",
+            "pathname": "/favorites",
+            "search": "",
+          },
+        ],
+        "go": [Function],
+        "goBack": [Function],
+        "goForward": [Function],
+        "index": 0,
+        "length": 1,
+        "listen": [Function],
+        "location": Object {
+          "hash": "",
+          "key": "testKey",
+          "pathname": "/favorites",
+          "search": "",
+        },
+        "push": [Function],
+        "replace": [Function],
+      }
+    }
+  >
+    <CardContainer
+      addFavorite={[MockFunction]}
+      cardContents={Array []}
+      currentDisplay="favorites"
+      favorites={Array []}
+      isActive={false}
+      removeFavorite={[MockFunction]}
+    >
+      <main
+        className="CardContainer"
+      >
+        <Route
+          exact={true}
+          path="/"
+          render={[Function]}
+        />
+        <Route
+          exact={true}
+          path="/favorites"
+          render={[Function]}
+        >
+          <div>
+            <h2
+              className="favorites-default"
+            >
+              You currently don't have any favorites.
+            </h2>
+            <p
+              className="favorites-default-text"
+            >
+              Click on the lightsaber in the top right corner of a card to favorite it.
+            </p>
+          </div>
+        </Route>
+        <Route
+          exact={true}
+          path="/people"
+          render={[Function]}
+        />
+        <Route
+          exact={true}
+          path="/planets"
+          render={[Function]}
+        />
+        <Route
+          exact={true}
+          path="/vehicles"
+          render={[Function]}
+        />
+      </main>
+    </CardContainer>
+  </Router>
+</MemoryRouter>
+`;
+
+exports[`CardContainer vehicles page should match the snapshot with vehicles cards 1`] = `
+<MemoryRouter
+  initialEntries={
+    Array [
+      Object {
+        "key": "testKey",
+        "pathname": "/vehicles",
+      },
+    ]
+  }
+>
+  <Router
+    history={
+      Object {
+        "action": "POP",
+        "block": [Function],
+        "canGo": [Function],
+        "createHref": [Function],
+        "entries": Array [
+          Object {
+            "hash": "",
+            "key": "testKey",
+            "pathname": "/vehicles",
+            "search": "",
+          },
+        ],
+        "go": [Function],
+        "goBack": [Function],
+        "goForward": [Function],
+        "index": 0,
+        "length": 1,
+        "listen": [Function],
+        "location": Object {
+          "hash": "",
+          "key": "testKey",
+          "pathname": "/vehicles",
+          "search": "",
+        },
+        "push": [Function],
+        "replace": [Function],
+      }
+    }
+  >
+    <CardContainer
+      addFavorite={[MockFunction]}
+      cardContents={
+        Array [
+          Object {
+            "name": "TIE Fighter",
+          },
+          Object {
+            "name": "Speeder",
+          },
+          Object {
+            "name": "AT-AT",
+          },
+        ]
+      }
+      currentDisplay="vehicles"
+      favorites={Array []}
+      isActive={false}
+      removeFavorite={[MockFunction]}
+    >
+      <main
+        className="CardContainer"
+      >
+        <Route
+          exact={true}
+          path="/"
+          render={[Function]}
+        />
+        <Route
+          exact={true}
+          path="/favorites"
+          render={[Function]}
+        />
+        <Route
+          exact={true}
+          path="/people"
+          render={[Function]}
+        />
+        <Route
+          exact={true}
+          path="/planets"
+          render={[Function]}
+        />
+        <Route
+          exact={true}
+          path="/vehicles"
+          render={[Function]}
+        >
+          <Card
+            addFavorite={[Function]}
+            contents={
+              Object {
+                "name": "TIE Fighter",
+              }
+            }
+            currentDisplay="vehicles"
+            isActive={false}
+            key="TIE Fighter"
+            removeFavorite={[Function]}
+          >
+            <article
+              className="Card vehicles-bg-off"
+            >
+              <h3
+                className="name is-white"
+              >
+                TIE Fighter
+              </h3>
+              <div
+                className="saber vehicles-is-off"
+              />
+              <img
+                alt="The hilt of a lightsaber. Turn the lightsaber on to favorite this card."
+                className="hilt"
+                onClick={[Function]}
+                onMouseOut={[Function]}
+                onMouseOver={[Function]}
+                src="lightsaber-wt.png"
+              />
+              <ul
+                className="content"
+              />
+            </article>
+          </Card>
+          <Card
+            addFavorite={[Function]}
+            contents={
+              Object {
+                "name": "Speeder",
+              }
+            }
+            currentDisplay="vehicles"
+            isActive={false}
+            key="Speeder"
+            removeFavorite={[Function]}
+          >
+            <article
+              className="Card vehicles-bg-off"
+            >
+              <h3
+                className="name is-white"
+              >
+                Speeder
+              </h3>
+              <div
+                className="saber vehicles-is-off"
+              />
+              <img
+                alt="The hilt of a lightsaber. Turn the lightsaber on to favorite this card."
+                className="hilt"
+                onClick={[Function]}
+                onMouseOut={[Function]}
+                onMouseOver={[Function]}
+                src="lightsaber-wt.png"
+              />
+              <ul
+                className="content"
+              />
+            </article>
+          </Card>
+          <Card
+            addFavorite={[Function]}
+            contents={
+              Object {
+                "name": "AT-AT",
+              }
+            }
+            currentDisplay="vehicles"
+            isActive={false}
+            key="AT-AT"
+            removeFavorite={[Function]}
+          >
+            <article
+              className="Card vehicles-bg-off"
+            >
+              <h3
+                className="name is-white"
+              >
+                AT-AT
+              </h3>
+              <div
+                className="saber vehicles-is-off"
+              />
+              <img
+                alt="The hilt of a lightsaber. Turn the lightsaber on to favorite this card."
+                className="hilt"
+                onClick={[Function]}
+                onMouseOut={[Function]}
+                onMouseOver={[Function]}
+                src="lightsaber-wt.png"
+              />
+              <ul
+                className="content"
+              />
+            </article>
+          </Card>
+        </Route>
+      </main>
+    </CardContainer>
+  </Router>
+</MemoryRouter>
 `;
