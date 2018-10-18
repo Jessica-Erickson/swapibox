@@ -59,11 +59,7 @@ describe('App', () => {
   it('should getStorage on refresh / subsequent mounts', () => {
     wrapper.instance().setDataInLocalStorage(mockData)
 
-    wrapper = mount(
-      <BrowserRouter>
-        <App />
-      </BrowserRouter>
-    )
+    wrapper = shallow(<App />)
 
     expect(wrapper.state()).toMatchSnapshot()
   })
@@ -75,13 +71,11 @@ describe('App', () => {
       planets: [{}],
       vehicles: [{}]
     }
+
     wrapper.instance().setDataInLocalStorage(mockData)
 
-    wrapper = mount(
-      <BrowserRouter>
-        <App />
-      </BrowserRouter>
-    )
+    wrapper = shallow(<App />)
+
     expect(wrapper.state()).toMatchSnapshot()
   })
 

@@ -123,7 +123,7 @@ describe('CardContainer', () => {
     expect(wrapper).toMatchSnapshot();
   });
 
-  it('should display the favorites cards when favorites', () => {
+  it('should display the favorites cards when favorites exist', () => {
     currentDisplay = 'favorites'
     cardContents = [{ name: 'Luke Skywalker' },
                     { name: 'Speeder'},
@@ -144,4 +144,5 @@ describe('CardContainer', () => {
 
     expect(wrapper).toMatchSnapshot();
   });
+
 });
