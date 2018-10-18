@@ -1,5 +1,5 @@
 import React from 'react'
-import { shallow } from 'enzyme'
+import { shallow, mount } from 'enzyme'
 import Card from './index'
 
 describe('Card', () => {
@@ -64,4 +64,31 @@ describe('Card', () => {
 
     expect(wrapper).toMatchSnapshot();
   });
+
+  it('should checkActive when clicked', () => {
+    const spy = spyOn(wrapper.instance(), 'checkActive')
+    wrapper.find('img').simulate('click');
+
+    expect(spy).toHaveBeenCalled()
+  })
+
+  it('should addFavorite if class is not active', () => {
+    wrapper.instance().checkActive();
+
+    expect(addFavorite).toHaveBeenCalled()
+  })
+
+  it('should checkActive when clicked', () => {
+    wrapper = shallow(<Card
+                        contents={contents}
+                        currentDisplay='people'
+                        addFavorite={addFavorite}
+                        removeFavorite={removeFavorite}
+                        isActive={true}
+                      />);
+
+    wrapper.instance().checkActive();
+
+    expect(removeFavorite).toHaveBeenCalled()
+  })
 });
