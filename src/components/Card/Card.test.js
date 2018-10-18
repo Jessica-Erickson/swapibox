@@ -72,13 +72,13 @@ describe('Card', () => {
     expect(spy).toHaveBeenCalled()
   })
 
-  it('should addFavorite if class is not active', () => {
+  it('should addFavorite if card is not active', () => {
     wrapper.instance().checkActive();
 
     expect(addFavorite).toHaveBeenCalled()
   })
 
-  it('should checkActive when clicked', () => {
+  it('should removeFavorite if card isActive', () => {
     wrapper = shallow(<Card
                         contents={contents}
                         currentDisplay='people'
