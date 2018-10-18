@@ -16,6 +16,8 @@ class Card extends Component {
   handleSaberClick = () => {
     this.checkActive()
     this.setState({ isActive: !this.state.isActive })
+    // this.setState({ isActive: !this.state.isActive }, () => this.checkActive())
+    //need to persist isActive in local storage
   }
 
   checkActive = () => {

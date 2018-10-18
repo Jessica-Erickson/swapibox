@@ -4,6 +4,7 @@ import ScrollingText from '../ScrollingText'
 import Header from '../Header'
 import CardContainer from '../CardContainer'
 import './App.css';
+    //get router re-rerender on browser back and forward buttons...
 
 class App extends Component {
   constructor() {

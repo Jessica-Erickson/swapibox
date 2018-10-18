@@ -4,31 +4,27 @@ import PropTypes from 'prop-types'
 import './Button.css'
 
 const Button = ({ label, favorites, handleNavClick, isActive }) => {
-  if (favorites !== undefined) {
-    const lowerLabel = label.toLowerCase()
+  const lowerLabel = label.toLowerCase()
 
-    return (
-      <NavLink to={`/${lowerLabel}`}
-               className={`Button ${lowerLabel}`}
-               onClick={() => handleNavClick(lowerLabel)}
-      >
-        Favorites
+  const checkFaves = () => {
+    if (favorites !== undefined) {
+      return (
         <div className="favorites-badge">
           {favorites}
         </div>
-      </NavLink>
-    )
-  } else {
-    const lowerLabel = label.toLowerCase()
-
-    return (
-      <NavLink to={`/${lowerLabel}`}
-               className={`Button ${lowerLabel}`}
-               onClick={() => handleNavClick(lowerLabel)}>
-        {label}
-      </NavLink>
-    )
+      )
+    }
   }
+
+  return (
+    <NavLink to={`/${lowerLabel}`}
+             className={`Button ${lowerLabel}`}
+             onClick={() => handleNavClick(lowerLabel)}
+    >
+      {label}
+      {checkFaves()}
+    </NavLink>
+  )
 }
 
 Button.defaultProps = { isActive: false }
