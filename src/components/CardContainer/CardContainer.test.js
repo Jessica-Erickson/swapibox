@@ -10,7 +10,6 @@ describe('CardContainer', () => {
   let currentDisplay;
   let addFavorite;
   let removeFavorite;
-  let isActive;
   let favorites;
 
   beforeEach(() => {
@@ -19,7 +18,6 @@ describe('CardContainer', () => {
     addFavorite = jest.fn();
     removeFavorite = jest.fn();
     favorites = []
-    isActive = false;
   });
 
   it('default landing page should match the snapshot', () => {
@@ -32,7 +30,6 @@ describe('CardContainer', () => {
           currentDisplay={currentDisplay}
           addFavorite={addFavorite}
           removeFavorite={removeFavorite}
-          isActive={isActive}
           favorites={favorites}
         />
       </MemoryRouter>
@@ -55,7 +52,6 @@ describe('CardContainer', () => {
           currentDisplay={currentDisplay}
           addFavorite={addFavorite}
           removeFavorite={removeFavorite}
-          isActive={isActive}
           favorites={favorites}
         />
       </MemoryRouter>
@@ -78,7 +74,6 @@ describe('CardContainer', () => {
           currentDisplay={currentDisplay}
           addFavorite={addFavorite}
           removeFavorite={removeFavorite}
-          isActive={isActive}
           favorites={favorites}
         />
       </MemoryRouter>
@@ -101,7 +96,6 @@ describe('CardContainer', () => {
           currentDisplay={currentDisplay}
           addFavorite={addFavorite}
           removeFavorite={removeFavorite}
-          isActive={isActive}
           favorites={favorites}
         />
       </MemoryRouter>
@@ -121,7 +115,6 @@ describe('CardContainer', () => {
           currentDisplay={currentDisplay}
           addFavorite={addFavorite}
           removeFavorite={removeFavorite}
-          isActive={isActive}
           favorites={favorites}
         />
       </MemoryRouter>
@@ -144,7 +137,6 @@ describe('CardContainer', () => {
           currentDisplay={currentDisplay}
           addFavorite={addFavorite}
           removeFavorite={removeFavorite}
-          isActive={isActive}
           favorites={favorites}
         />
       </MemoryRouter>
