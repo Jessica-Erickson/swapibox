@@ -45,7 +45,6 @@ describe('Card', () => {
 
   it('should toggle isActive on when hilt is clicked', () => {
     wrapper.find('img').simulate('click');
-
     expect(wrapper).toMatchSnapshot();
 
     // it should toggle isActive off when hilt is clicked
@@ -67,6 +66,13 @@ describe('Card', () => {
 
   it('should checkActive when clicked', () => {
     const spy = spyOn(wrapper.instance(), 'checkActive')
+    wrapper.find('img').simulate('click');
+
+    expect(spy).toHaveBeenCalled()
+  })
+
+  it('should handleSaberClick when clicked', () => {
+    const spy = spyOn(wrapper.instance(), 'handleSaberClick')
     wrapper.find('img').simulate('click');
 
     expect(spy).toHaveBeenCalled()
