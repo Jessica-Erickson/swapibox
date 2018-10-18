@@ -1,4 +1,5 @@
 import React from 'react'
+import { BrowserRouter } from 'react-router-dom'
 import { shallow , mount } from 'enzyme'
 import CardContainer from './index'
 import Card from '../Card'
@@ -53,14 +54,18 @@ describe('CardContainer', () => {
                     { name: 'Leia Organa'},
                     { name: 'R2-D2'}];
 
-    wrapper = mount(<CardContainer
-                      cardContents={cardContents}
-                      currentDisplay={currentDisplay}
-                      addFavorite={addFavorite}
-                      removeFavorite={removeFavorite}
-                      isActive={isActive}
-                      favorites={favorites}
-                    />);
+    wrapper = mount(
+      <BrowserRouter>
+        <CardContainer
+          cardContents={cardContents}
+          currentDisplay={currentDisplay}
+          addFavorite={addFavorite}
+          removeFavorite={removeFavorite}
+          isActive={isActive}
+          favorites={favorites}
+        />
+      </BrowserRouter>
+    );
 
     expect(wrapper).toMatchSnapshot();
   });

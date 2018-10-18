@@ -1,4 +1,5 @@
 import React from 'react'
+import { BrowserRouter } from 'react-router-dom'
 import { shallow , mount } from 'enzyme'
 import Button from './index'
 
@@ -35,27 +36,36 @@ describe('Button', () => {
   });
 
   it('should call handleNavClick when category button clicked', () => {
-    wrapper = mount(<Button
-                      label={label}
-                      handleNavClick={handleNavClick}
-                      isActive={isActive}
-                    />);
+    wrapper = mount(
+      <BrowserRouter>
+        <Button
+          label={label}
+          handleNavClick={handleNavClick}
+          isActive={isActive}
+        />
+      </BrowserRouter>
+    );
 
-    wrapper.find('.people').simulate('click');
+
+    wrapper.find('.people').first().simulate('click');
 
     expect(handleNavClick).toHaveBeenCalled();
   });
 
   it('should call handleNavClick when favorites button clicked', () => {
     label = 'Favorites';
-    wrapper = mount(<Button
-                      label={label}
-                      favorites={favorites}
-                      handleNavClick={handleNavClick}
-                      isActive={isActive}
-                    />);
+        wrapper = mount(
+      <BrowserRouter>
+        <Button
+          label={label}
+          favorites={favorites}
+          handleNavClick={handleNavClick}
+          isActive={isActive}
+        />
+      </BrowserRouter>
+    );
 
-    wrapper.find('.favorites').simulate('click');
+    wrapper.find('.favorites').first().simulate('click');
 
     expect(handleNavClick).toHaveBeenCalled();
   });

@@ -1,4 +1,5 @@
 import React from 'react';
+import { BrowserRouter } from 'react-router-dom'
 import { shallow , mount } from 'enzyme';
 import App from './index';
 import * as API from '../../helper.js';
@@ -58,7 +59,11 @@ describe('App', () => {
   it('should getStorage on refresh / subsequent mounts', () => {
     wrapper.instance().setDataInLocalStorage(mockData)
 
-    wrapper = mount(<App />)
+    wrapper = mount(
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    )
 
     expect(wrapper.state()).toMatchSnapshot()
   })
@@ -72,8 +77,11 @@ describe('App', () => {
     }
     wrapper.instance().setDataInLocalStorage(mockData)
 
-    wrapper = mount(<App />)
-
+    wrapper = mount(
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    )
     expect(wrapper.state()).toMatchSnapshot()
   })
 
