@@ -27,9 +27,15 @@
   text-align: center;
   color: gold;
   margin: 0 0 5px 150px;
-  font-size: 5rem;
-  line-height: 4.5rem;
+  font-size: 2.25rem;
+  line-height: 4rem;
   letter-spacing: 8px;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+.header-title:hover {
+  color: gold;
 }
 
 nav {

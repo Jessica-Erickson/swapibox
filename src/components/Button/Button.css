@@ -9,6 +9,10 @@
   border-radius: 15px;
   padding-bottom: 3px;
   letter-spacing: 1px;
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .Button:hover {
@@ -17,9 +21,13 @@
 }
 
 .favorites {
+  height: 75px;
+  max-width: 100px;
   position: relative;
   display: flex;
-  justify-content: space-around;
+  flex-direction: column;
+  justify-content: center;
+  padding-bottom: 7px;
 }
 
 .favorites:hover {
@@ -27,7 +35,10 @@
 }
 
 .favorites-badge {
+  font-size: 1.75rem;
   font-weight: 700;
+  margin: 0;
+  line-height: 1;
 }
 
 .people:hover {

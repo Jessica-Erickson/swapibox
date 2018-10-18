@@ -1,4 +1,5 @@
 import React from 'react'
+import { NavLink } from 'react-router-dom'
 import PropTypes from 'prop-types'
 import Button from '../Button'
 import './Header.css'
@@ -8,7 +9,9 @@ const Header = ({ favorites, handleNavClick, currentDisplay }) => {
     <header className="Header">
       <div className="upper-header">
         <div></div>
-        <h1 className="header-title">SWApi-Box</h1>
+        <NavLink to='/' className="header-title">
+          <h1>SWApi-Box</h1>
+        </NavLink>
         <Button
           label='Favorites'
           favorites={favorites}
