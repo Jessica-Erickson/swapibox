@@ -41,7 +41,6 @@ const CardContainer = ({ cardContents, currentDisplay, addFavorite, removeFavori
       <Route exact path='/' render={ () => (
         <h2 className="default">Select a Category or Favorites</h2>
       )}/>
-
       <Route exact path='/favorites' render={ () => (
         checkFaves()
       )}/>

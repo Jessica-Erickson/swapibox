@@ -1,10 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Button should add "active" class if favorites button isActive 1`] = `
-<button
-  className="Button favorites active"
+<NavLink
+  activeClassName="active"
+  aria-current="page"
+  className="Button favorites"
   onClick={[Function]}
-  value="Favorites"
+  to="/favorites"
 >
   Favorites
   <div
@@ -12,32 +14,40 @@ exports[`Button should add "active" class if favorites button isActive 1`] = `
   >
     2
   </div>
-</button>
+</NavLink>
 `;
 
 exports[`Button should add "active" class if isActive 1`] = `
-<input
-  className="Button people active"
+<NavLink
+  activeClassName="active"
+  aria-current="page"
+  className="Button people"
   onClick={[Function]}
-  type="button"
-  value="People"
-/>
+  to="/people"
+>
+  People
+</NavLink>
 `;
 
 exports[`Button should match the snapshot 1`] = `
-<input
-  className="Button people "
+<NavLink
+  activeClassName="active"
+  aria-current="page"
+  className="Button people"
   onClick={[Function]}
-  type="button"
-  value="People"
-/>
+  to="/people"
+>
+  People
+</NavLink>
 `;
 
 exports[`Button should render favorites button 1`] = `
-<button
-  className="Button favorites "
+<NavLink
+  activeClassName="active"
+  aria-current="page"
+  className="Button favorites"
   onClick={[Function]}
-  value="Favorites"
+  to="/favorites"
 >
   Favorites
   <div
@@ -45,5 +55,5 @@ exports[`Button should render favorites button 1`] = `
   >
     2
   </div>
-</button>
+</NavLink>
 `;

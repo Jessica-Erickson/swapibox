@@ -27,7 +27,6 @@ const Button = ({ label, favorites, handleNavClick, isActive }) => {
                onClick={() => handleNavClick(lowerLabel)}>
         {label}
       </NavLink>
-
     )
   }
 }

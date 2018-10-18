@@ -1,4 +1,5 @@
 import React from 'react';
+import { BrowserRouter } from 'react-router-dom'
 import { shallow , mount } from 'enzyme';
 import App from './index';
 import * as API from '../../helper.js';
@@ -24,7 +25,7 @@ describe('App', () => {
     }
   });
 
-  it('matches the snapshot', () => {
+  it('matches the snapshot, renders loading page as default', () => {
     expect(wrapper).toMatchSnapshot();
   });
 
@@ -34,7 +35,32 @@ describe('App', () => {
     expect(wrapper.state()).toMatchSnapshot();
   });
 
-  it('should set localStorage', () => {
+  it('should update category when a nav button is clicked', () => {
+    expect(wrapper.state('currentDisplay')).toEqual('default');
+
+    wrapper.instance().handleNavClick('people');
+
+    expect(wrapper.state('currentDisplay')).toEqual('people');
+  });
+
+  it('should add favorites to state and localStorage when favorited', () => {
+    wrapper.instance().addFavorite(mockFavorite)
+
+    let itemsInStorage = JSON.parse(localStorage.getItem('favorites')).length
+
+    expect(wrapper.state()).toMatchSnapshot()
+    expect(itemsInStorage).toEqual(1)
+  })
+
+  it('should remove favorites from state and localStorage when unfavorited', () => {
+    wrapper.instance().removeFavorite(mockFavorite)
+    let itemsInStorage = JSON.parse(localStorage.getItem('favorites')).length
+
+    expect(wrapper.state()).toMatchSnapshot()
+    expect(itemsInStorage).toEqual(0)
+  })
+
+  it('should set a collection of data localStorage', () => {
     wrapper.instance().setDataInLocalStorage(mockData)
     const expected = localStorage.length
 
@@ -58,7 +84,7 @@ describe('App', () => {
   it('should getStorage on refresh / subsequent mounts', () => {
     wrapper.instance().setDataInLocalStorage(mockData)
 
-    wrapper = mount(<App />)
+    wrapper = shallow(<App />)
 
     expect(wrapper.state()).toMatchSnapshot()
   })
@@ -70,9 +96,10 @@ describe('App', () => {
       planets: [{}],
       vehicles: [{}]
     }
+
     wrapper.instance().setDataInLocalStorage(mockData)
 
-    wrapper = mount(<App />)
+    wrapper = shallow(<App />)
 
     expect(wrapper.state()).toMatchSnapshot()
   })
@@ -82,25 +109,4 @@ describe('App', () => {
 
     expect(wrapper).toMatchSnapshot();
   });
-
-  it('should update category when a nav button is clicked', () => {
-    expect(wrapper.state('currentDisplay')).toEqual('default');
-
-    wrapper.instance().handleNavClick('people');
-
-    expect(wrapper.state('currentDisplay')).toEqual('people');
-  });
-
-  it('should add favorites to state and localStorage when favorited', () => {
-
-    wrapper.instance().addFavorite(mockFavorite)
-
-    expect(wrapper.state()).toMatchSnapshot()
-  })
-
-  it('should remove favorites from state and localStorage when unfavorited', () => {
-    wrapper.instance().removeFavorite(mockFavorite)
-
-    expect(wrapper.state()).toMatchSnapshot()
-  })
 });
