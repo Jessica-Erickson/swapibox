@@ -56,7 +56,7 @@ describe('API', () => {
 
       window.fetch = jest.fn(() => Promise.resolve({ ok: false }));
 
-      await expect(API.getFilms()).rejects.toEqual(expected);
+      expect(API.getFilms()).rejects.toEqual(expected);
     });
   });
 
