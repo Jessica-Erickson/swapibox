@@ -28,21 +28,17 @@ class CardContainer extends Component {
   }
 
   makeCards = (cardContents, category, addFavorite, removeFavorite, favorites) => {
-    if (cardContents !== undefined) {
-      return cardContents.map((item) => {
-        return <Card
-                  contents={item}
-                  currentDisplay={category}
-                  addFavorite={() => addFavorite(item)}
-                  removeFavorite={() => removeFavorite(item.id)}
-                  isActive={favorites.some(favorite => {
-                    return favorite.id === item.id;
-                  })}
-                  key={item.name} />
-      });
-    } else {
-      return <h2>Data not found. Please try again later.</h2>
-    }
+    return cardContents.map((item) => {
+      return <Card
+                contents={item}
+                currentDisplay={category}
+                addFavorite={() => addFavorite(item)}
+                removeFavorite={() => removeFavorite(item.id)}
+                isActive={favorites.some(favorite => {
+                  return favorite.id === item.id;
+                })}
+                key={item.name} />
+    });
   }
 
   render() {

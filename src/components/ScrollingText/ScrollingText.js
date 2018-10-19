@@ -32,15 +32,14 @@ class ScrollingText extends Component {
     const { allFilms , displayFilm } = this.state;
     const currentFilm = allFilms[displayFilm];
     if (currentFilm !== undefined) {
-      const { display } = this.props;
       const { title , releaseDate , openingCrawl } = currentFilm;
 
       return (
         <aside 
-          className={display ? 'ScrollingText' : 'display-none'}>
+          className='ScrollingText'>
           <div className='fade'></div>
           <div 
-            className={display ? 'scrolling-wrapper' : ''}
+            className='scrolling-wrapper'
             onAnimationIteration={this.changeText}>
             <p className='opening-crawl'>
               {openingCrawl}
@@ -61,7 +60,6 @@ class ScrollingText extends Component {
 }
 
 ScrollingText.propTypes = {
-  display: PropTypes.bool.isRequired,
   loadingCheck: PropTypes.func.isRequired
 }
 

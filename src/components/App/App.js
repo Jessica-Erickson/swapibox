@@ -46,7 +46,6 @@ class App extends Component {
     return (
       <div className={ ready ? 'App' : 'loading' }>
         <ScrollingText
-          display={ready}
           loadingCheck={() => {
             this.loadingCheck('filmsLoading');
           }} />
