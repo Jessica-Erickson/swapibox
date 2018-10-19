@@ -13,17 +13,20 @@ class App extends Component {
     }
   }
 
-  loadCheck = (category) => {
-    this.setState({})
+  loadingCheck = (category) => {
+    this.setState({ [category]: false });
   }
 
   render() {
-    if (filmsLoading && peopleLoading && planetsLoading && vehiclesLoading) {
-      return <div className='loading'></div>
-    } else {
-      return (
-        <div className='App'>
-          <ScrollingText />
+    let ready = !filmsLoading && !peopleLoading && !planetsLoading && !vehiclesLoading;
+
+    return
+        <div className={ ready ? 'App' : 'loading' }>
+          <ScrollingText
+            display={ready}
+            loadingCheck={() => {
+              loadingCheck('filmsLoading');
+            }} />
         </div>
       )
     }

@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import * as API from '../../helper.js';
+import PropTypes from 'prop-types';
 import './ScrollingText.css';
 
 class ScrollingText extends Component {
@@ -10,6 +12,17 @@ class ScrollingText extends Component {
     }
   }
 
+  async componentDidMount() {
+    let allFilms;
+    if (!localStorge.getItem('allFilms')) {
+      allFilms = JSON.parse(localStorge.getItem('allFilms'));
+    } else {
+      allFilms = await API.getFilms();
+      localStorge.setItem('allFilms', JSON.stringify(allFilms));
+    }
+    this.setState({ allFilms }, this.props.loadingCheck());
+  }
+
   changeText = () => {
     const newFilm = Math.floor(Math.random() * 7);
     this.setState({ film: newFilm });
@@ -17,11 +30,13 @@ class ScrollingText extends Component {
 
   render() {
     const { allFilms , displayFilm } = this.state;
+    const { display } = this.props;
     const currentFilm = allFilms[currentFilm];
     const { title , releaseDate , openingCrawl } = currentFilm;
 
     return (
-      <aside className='ScrollingText'>
+      <aside 
+        className={'ScrollingText ' + (display ? '' : 'display-none')}>
         <div className='fade'></div>
         <div 
           className='scrolling-wrapper'
