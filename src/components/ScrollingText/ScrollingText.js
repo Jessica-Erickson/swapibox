@@ -55,3 +55,10 @@ class ScrollingText extends Component {
     )
   }
 }
+
+ScrollingText.propTypes = {
+  display: PropTypes.bool.isRequired,
+  loadingCheck: PropTypes.func.isRequired
+}
+
+export default ScrollingText;

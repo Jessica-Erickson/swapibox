@@ -39,5 +39,3 @@ class ScrollingText extends Component {
 ScrollingText.propTypes = {
   allFilms: PropTypes.array.isRequired
 }
-
-export default ScrollingText;
