@@ -28,6 +28,19 @@ class App extends Component {
     this.setState({ [category]: false });
   }
 
+  addFavorite = (newFavorite) => {
+    const favorites = [...this.state.favorites, newFavorite]
+    this.setState({ favorites })
+    localStorage.setItem('favorites', JSON.stringify(favorites))
+  }
+
+  removeFavorite = (id) => {
+    const filteredFaves = this.state.favorites.filter(fave => fave.id !==id)
+
+    this.setState({ favorites: filteredFaves })
+    localStorage.setItem('favorites', JSON.stringify(filteredFaves))
+  }
+
   render() {
     const { filmsLoading, peopleLoading, planetsLoading, vehiclesLoading, favorites } = this.state;
     const ready = !filmsLoading && !peopleLoading && !planetsLoading && !vehiclesLoading;
@@ -48,22 +61,22 @@ class App extends Component {
         <Route exact path='/favorites' render={() => {
           <CardContainer 
             favorites={favorites}
-            cardContents='favorites' />
+            category='favorites' />
         }} />
         <Route exact path='/people' render={() => {
           <CardContainer 
             favorites={favorites}
-            cardContents='people' />
+            category='people' />
         }} />
         <Route exact path='/planets' render={() => {
           <CardContainer 
             favorites={favorites}
-            cardContents='planets' />
+            category='planets' />
         }} />
         <Route exact path='/vehicles' render={() => {
           <CardContainer 
             favorites={favorites}
-            cardContents='vehicles' />
+            category='vehicles' />
         }} />
       </div>
     )
