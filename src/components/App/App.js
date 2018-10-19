@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
-import ScrollingText from '../ScrollingText';
-import Header from '../Header';
-import CardContainer from '../CardContainer';
+import ScrollingText from '../ScrollingText/ScrollingText.js';
+import Header from '../Header/Header.js';
+import CardContainer from '../CardContainer/CardContainer.js';
 import './App.css';
 
 class App extends Component {
@@ -10,22 +10,19 @@ class App extends Component {
     super();
     this.state = {
       favorites: [],
-      filmsLoading: true,
-      peopleLoading: true,
-      planetsLoading: true,
-      vehiclesLoading: true
+      isLoading: true
     }
   }
 
   componentDidMount = () => {
-    if (!localStorage.getItem('favorites')) {
+    if (localStorage.getItem('favorites') !== null) {
       const favorites = JSON.parse(localStorage.getItem('favorites'));
       this.setState({ favorites });
     }
   }
 
-  loadingCheck = (category) => {
-    this.setState({ [category]: false });
+  loadingCheck = () => {
+    this.setState({ isLoading: false });
   }
 
   addFavorite = (newFavorite) => {
@@ -43,59 +40,52 @@ class App extends Component {
 
   render() {
     const { addFavorite , removeFavorite } = this;
-    const { filmsLoading, peopleLoading, planetsLoading, vehiclesLoading, favorites } = this.state;
-    const ready = !filmsLoading && !peopleLoading && !planetsLoading && !vehiclesLoading;
+    const { isLoading , favorites } = this.state;
+    const ready = !isLoading;
 
     return (
       <div className={ ready ? 'App' : 'loading' }>
         <ScrollingText
           display={ready}
           loadingCheck={() => {
-            loadingCheck('filmsLoading');
+            this.loadingCheck('filmsLoading');
           }} />
         <Header 
           display={ready}
           favorites={favorites.length} />
-        <Route exact path='/' render={() => {
-          <h2 className="default">Select a Category or Favorites</h2>
-        }}>
-        <Route exact path='/favorites' render={() => {
+        <Route exact path='/' render={() => (
+          <h2 className={ready ? 'default' : 'display-none'}>
+            Select a Category or Favorites
+          </h2>
+        )} />
+        <Route exact path='/favorites' render={() => (
           <CardContainer 
             favorites={favorites}
             addFavorite={addFavorite}
             removeFavorite={removeFavorite}
             category='favorites' />
-        }} />
-        <Route exact path='/people' render={() => {
+        )} />
+        <Route exact path='/people' render={() => (
           <CardContainer 
             favorites={favorites}
             addFavorite={addFavorite}
             removeFavorite={removeFavorite}
-            loadingCheck={() => {
-              loadingCheck('peopleLoading');
-            }}
             category='people' />
-        }} />
-        <Route exact path='/planets' render={() => {
+        )} />
+        <Route exact path='/planets' render={() => (
           <CardContainer 
             favorites={favorites}
             addFavorite={addFavorite}
             removeFavorite={removeFavorite}
-            loadingCheck={() => {
-              loadingCheck('planetsLoading');
-            }}
             category='planets' />
-        }} />
-        <Route exact path='/vehicles' render={() => {
+        )} />
+        <Route exact path='/vehicles' render={() => (
           <CardContainer 
             favorites={favorites}
             addFavorite={addFavorite}
             removeFavorite={removeFavorite}
-            loadingCheck={() => {
-              loadingCheck('vehiclesLoading');
-            }}
             category='vehicles' />
-        }} />
+        )} />
       </div>
     )
   }

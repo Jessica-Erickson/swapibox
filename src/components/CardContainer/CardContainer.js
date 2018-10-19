@@ -1,56 +1,35 @@
-import React from 'react';
+import React, { Component } from 'react';
 import * as API from '../../helper.js';
 import PropTypes from 'prop-types';
 import Card from '../Card';
 import './CardContainer.css';
 
-const CardContainer = ({ favorites , category , addFavorite , removeFavorite , loadingCheck }) => {
-  let contents;
-  let cards;
-
-  if (favorites.length === 0 && category === 'favorites') {
-    return (
-      <div>
-        <h2 className="favorites-default">
-          You currently don't have any favorites.
-        </h2>
-        <p className="favorites-default-text">
-          Click on the lightsaber in the top right corner of a card to favorite it.
-        </p>
-      </div>
-    )
-  } else if (category === 'favorites') {
-    contents = favorites;
-    return makeCards();
-  } else if (category === 'people') {
-    getContents();
-    cards = makeCards();
-    this.props.loadingCheck();
-    return cards;
-  } else if (category === 'planets') {
-    getContents();
-    cards = makeCards();
-    this.props.loadingCheck();
-    return cards;
-  } else if (category === 'vehicles') {
-    getContents();
-    cards = makeCards();
-    this.props.loadingCheck();
-    return cards;
+class CardContainer extends Component {
+  constructor() {
+    super();
+    this.state = {
+      contents: [],
+      isLoading: true
+    }
   }
 
-  const getContents = async () => {
-    if (!localStorage.getItem(category)) {
+  componentDidMount = async () => {
+    const { category , favorites } = this.props;
+    let contents;
+    if (localStorage.getItem(category) !== null) {
       contents = JSON.parse(localStorage.getItem(category));
+    } else if (category === 'favorites') {
+      contents = favorites;
     } else {
       contents = await API[category]();
       localStorage.setItem(category, JSON.stringify(contents));
     }
+    this.setState({ contents , isLoading: false });
   }
 
-  const makeCards = () => {
-    if (typeof contents === 'array') {
-      return contents.map((item) => {
+  makeCards = (cardContents, category, addFavorite, removeFavorite, favorites) => {
+    if (cardContents !== undefined) {
+      return cardContents.map((item) => {
         return <Card
                   contents={item}
                   currentDisplay={category}
@@ -63,15 +42,39 @@ const CardContainer = ({ favorites , category , addFavorite , removeFavorite , l
       return <h2>Data not found. Please try again later.</h2>
     }
   }
+
+  render() {
+    const { favorites , category , addFavorite , removeFavorite } = this.props;
+    const { contents , isLoading } = this.state;
+
+    if (isLoading) {
+      return <div className='loading'></div>
+    } else if (favorites.length === 0 && category === 'favorites') {
+      return (
+        <div>
+          <h2 className="favorites-default">
+            You currently don't have any favorites.
+          </h2>
+          <p className="favorites-default-text">
+            Click on the lightsaber in the top right corner of a card to favorite it.
+          </p>
+        </div>
+      )
+    } else if (category === 'favorites') {
+      return this.makeCards(favorites, category, addFavorite, removeFavorite, favorites);
+    } else {
+      return this.makeCards(contents, category, addFavorite, removeFavorite, favorites);
+    }
+  }
 }
+
 
 
 CardContainer.propTypes = {
   favorites: PropTypes.array.isRequired,
   category: PropTypes.string.isRequired,
   addFavorite: PropTypes.func.isRequired,
-  removeFavorite: PropTypes.func.isRequired,
-  loadingCheck: PropTypes.func.isRequired
+  removeFavorite: PropTypes.func.isRequired
 }
 
 export default CardContainer;

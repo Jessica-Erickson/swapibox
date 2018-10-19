@@ -14,11 +14,11 @@ class ScrollingText extends Component {
 
   componentDidMount = async () => {
     let allFilms;
-    if (!localStorge.getItem('allFilms')) {
-      allFilms = JSON.parse(localStorge.getItem('allFilms'));
+    if (localStorage.getItem('allFilms') !== null) {
+      allFilms = JSON.parse(localStorage.getItem('allFilms'));
     } else {
       allFilms = await API.films();
-      localStorge.setItem('allFilms', JSON.stringify(allFilms));
+      localStorage.setItem('allFilms', JSON.stringify(allFilms));
     }
     this.setState({ allFilms }, this.props.loadingCheck());
   }
@@ -30,29 +30,33 @@ class ScrollingText extends Component {
 
   render() {
     const { allFilms , displayFilm } = this.state;
-    const { display } = this.props;
-    const currentFilm = allFilms[currentFilm];
-    const { title , releaseDate , openingCrawl } = currentFilm;
+    const currentFilm = allFilms[displayFilm];
+    if (currentFilm !== undefined) {
+      const { display } = this.props;
+      const { title , releaseDate , openingCrawl } = currentFilm;
 
-    return (
-      <aside 
-        className={display ? 'ScrollingText' : 'display-none')}>
-        <div className='fade'></div>
-        <div 
-          className={display ? 'scrolling-wrapper' : ''}
-          onAnimationIteration={this.changeText}>
-          <p className='opening-crawl'>
-            {openingCrawl}
-          </p>
-          <h2 className='title'>
-            {title}
-          </h2>
-          <h3 className='release-date'>
-            {releaseDate}
-          </h3>
-        </div>
-      </aside>
-    )
+      return (
+        <aside 
+          className={display ? 'ScrollingText' : 'display-none'}>
+          <div className='fade'></div>
+          <div 
+            className={display ? 'scrolling-wrapper' : ''}
+            onAnimationIteration={this.changeText}>
+            <p className='opening-crawl'>
+              {openingCrawl}
+            </p>
+            <h2 className='title'>
+              {title}
+            </h2>
+            <h3 className='release-date'>
+              {releaseDate}
+            </h3>
+          </div>
+        </aside>
+      )
+    } else {
+      return null;
+    }
   }
 }
 
