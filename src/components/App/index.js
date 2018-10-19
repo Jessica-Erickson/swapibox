@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
-import ScrollingText from '../ScrollingText/ScrollingText.js';
-import Header from '../Header/Header.js';
-import CardContainer from '../CardContainer/CardContainer.js';
+import ScrollingText from '../ScrollingText';
+import Header from '../Header';
+import CardContainer from '../CardContainer';
 import './App.css';
 
 class App extends Component {
