@@ -35,7 +35,9 @@ class CardContainer extends Component {
                   currentDisplay={category}
                   addFavorite={() => addFavorite(item)}
                   removeFavorite={() => removeFavorite(item.id)}
-                  isActive={favorites.includes(item)}
+                  isActive={favorites.some(favorite => {
+                    return favorite.id === item.id;
+                  })}
                   key={item.name} />
       });
     } else {
@@ -60,8 +62,6 @@ class CardContainer extends Component {
           </p>
         </div>
       )
-    } else if (category === 'favorites') {
-      return this.makeCards(favorites, category, addFavorite, removeFavorite, favorites);
     } else {
       return this.makeCards(contents, category, addFavorite, removeFavorite, favorites);
     }
