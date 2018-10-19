@@ -65,5 +65,3 @@ CardContainer.propTypes = {
   removeFavorite: PropTypes.func.isRequired,
   favorites: PropTypes.array.isRequired
 }
-
-export default CardContainer;

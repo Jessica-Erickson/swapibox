@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import Card from '../Card';
 import './CardContainer.css';
 
-const CardContainer = async ({ favorites , category , addFavorite , removeFavorite }) => {
+const CardContainer = ({ favorites , category , addFavorite , removeFavorite }) => {
   let contents;
 
   if (favorites.length === 0 && category === 'favorites') {
@@ -22,26 +22,37 @@ const CardContainer = async ({ favorites , category , addFavorite , removeFavori
     contents = favorites;
     return makeCards();
   } else if (category === 'people') {
-    contents = await API.getPeople();
+    getContents();
     return makeCards();
   } else if (category === 'planets') {
-    contents = await API.getPlanets();
+    getContents();
     return makeCards();
   } else if (category === 'vehicles') {
-    contents = await API.getVehicles();
+    getContents();
     return makeCards();
   }
 
+  const getContents = async () => {
+    if (!localStorage.getItem(category)) {
+      contents = JSON.parse(localStorage.getItem(category));
+    } else {
+      contents = await API[category]();
+    }
+  }
+
   const makeCards = () => {
-    return contents.map((item) => {
-      return 
-        <Card
-          contents={item}
-          addFavorite={() => addFavorite(item)}
-          removeFavorite={() => removeFavorite(item.id)}
-          isActive={favorites.includes(item)}
-          key={item.name} />
-    });
+    if (typeof contents === 'array') {
+      return contents.map((item) => {
+        return <Card
+                  contents={item}
+                  addFavorite={() => addFavorite(item)}
+                  removeFavorite={() => removeFavorite(item.id)}
+                  isActive={favorites.includes(item)}
+                  key={item.name} />
+      });
+    } else {
+      return <h2>Data not found. Please try again later.</h2>
+    }
   }
 }
 

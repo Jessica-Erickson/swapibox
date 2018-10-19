@@ -42,6 +42,7 @@ class App extends Component {
   }
 
   render() {
+    const { addFavorite , removeFavorite } = this;
     const { filmsLoading, peopleLoading, planetsLoading, vehiclesLoading, favorites } = this.state;
     const ready = !filmsLoading && !peopleLoading && !planetsLoading && !vehiclesLoading;
 
@@ -61,21 +62,29 @@ class App extends Component {
         <Route exact path='/favorites' render={() => {
           <CardContainer 
             favorites={favorites}
+            addFavorite={addFavorite}
+            removeFavorite={removeFavorite}
             category='favorites' />
         }} />
         <Route exact path='/people' render={() => {
           <CardContainer 
             favorites={favorites}
+            addFavorite={addFavorite}
+            removeFavorite={removeFavorite}
             category='people' />
         }} />
         <Route exact path='/planets' render={() => {
           <CardContainer 
             favorites={favorites}
+            addFavorite={addFavorite}
+            removeFavorite={removeFavorite}
             category='planets' />
         }} />
         <Route exact path='/vehicles' render={() => {
           <CardContainer 
             favorites={favorites}
+            addFavorite={addFavorite}
+            removeFavorite={removeFavorite}
             category='vehicles' />
         }} />
       </div>
