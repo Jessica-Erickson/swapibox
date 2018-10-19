@@ -12,7 +12,7 @@ class ScrollingText extends Component {
     }
   }
 
-  async componentDidMount() {
+  componentDidMount = async () => {
     let allFilms;
     if (!localStorge.getItem('allFilms')) {
       allFilms = JSON.parse(localStorge.getItem('allFilms'));

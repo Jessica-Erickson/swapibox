@@ -16,6 +16,13 @@ class App extends Component {
     }
   }
 
+  componentDidMount = () => {
+    if (!localStorage.getItem('favorites')) {
+      const favorites = JSON.parse(localStorage.getItem('favorites'));
+      this.setState({ favorites });
+    }
+  }
+
   loadingCheck = (category) => {
     this.setState({ [category]: false });
   }
