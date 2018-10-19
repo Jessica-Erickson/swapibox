@@ -59,6 +59,7 @@ class App extends Component {
         )} />
         <Route exact path='/favorites' render={() => (
           <CardContainer 
+            display={ready}
             favorites={favorites}
             addFavorite={addFavorite}
             removeFavorite={removeFavorite}

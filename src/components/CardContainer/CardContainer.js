@@ -42,14 +42,14 @@ class CardContainer extends Component {
   }
 
   render() {
-    const { favorites , category , addFavorite , removeFavorite } = this.props;
+    const { favorites , category , addFavorite , removeFavorite , display } = this.props;
     const { contents , isLoading } = this.state;
 
     if (isLoading) {
       return <div className='loading'></div>
     } else if (favorites.length === 0 && category === 'favorites') {
       return (
-        <div>
+        <div className={display ? '' : 'display-none'}>
           <h2 className="favorites-default">
             You currently don't have any favorites.
           </h2>
@@ -67,6 +67,7 @@ class CardContainer extends Component {
 
 
 CardContainer.propTypes = {
+  display: PropTypes.any.isRequired,
   favorites: PropTypes.array.isRequired,
   category: PropTypes.string.isRequired,
   addFavorite: PropTypes.func.isRequired,
