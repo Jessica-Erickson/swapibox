@@ -45,5 +45,3 @@ Header.propTypes = {
   handleNavClick: PropTypes.func.isRequired,
   currentDisplay: PropTypes.string.isRequired
 }
-
-export default Header;

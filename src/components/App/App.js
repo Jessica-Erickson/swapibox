@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
+import { Route } from 'react-router-dom';
 import * as API from '../../helper.js';
+import ScrollingText from '../ScrollingText';
 import './App.css';
 
 class App extends Component {
@@ -18,7 +20,7 @@ class App extends Component {
   }
 
   render() {
-    let ready = !filmsLoading && !peopleLoading && !planetsLoading && !vehiclesLoading;
+    const ready = !filmsLoading && !peopleLoading && !planetsLoading && !vehiclesLoading;
 
     return
         <div className={ ready ? 'App' : 'loading' }>
@@ -27,6 +29,8 @@ class App extends Component {
             loadingCheck={() => {
               loadingCheck('filmsLoading');
             }} />
+          <Header 
+            display={ready} />
         </div>
       )
     }

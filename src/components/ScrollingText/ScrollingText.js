@@ -36,10 +36,10 @@ class ScrollingText extends Component {
 
     return (
       <aside 
-        className={'ScrollingText ' + (display ? '' : 'display-none')}>
+        className={display ? 'ScrollingText' : 'display-none')}>
         <div className='fade'></div>
         <div 
-          className='scrolling-wrapper'
+          className={display ? 'scrolling-wrapper' : ''}
           onAnimationIteration={this.changeText}>
           <p className='opening-crawl'>
             {openingCrawl}
