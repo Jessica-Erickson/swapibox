@@ -17,7 +17,7 @@ class ScrollingText extends Component {
     if (!localStorge.getItem('allFilms')) {
       allFilms = JSON.parse(localStorge.getItem('allFilms'));
     } else {
-      allFilms = await API.getFilms();
+      allFilms = await API.films();
       localStorge.setItem('allFilms', JSON.stringify(allFilms));
     }
     this.setState({ allFilms }, this.props.loadingCheck());

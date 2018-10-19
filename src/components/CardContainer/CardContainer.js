@@ -4,8 +4,9 @@ import PropTypes from 'prop-types';
 import Card from '../Card';
 import './CardContainer.css';
 
-const CardContainer = ({ favorites , category , addFavorite , removeFavorite }) => {
+const CardContainer = ({ favorites , category , addFavorite , removeFavorite , loadingCheck }) => {
   let contents;
+  let cards;
 
   if (favorites.length === 0 && category === 'favorites') {
     return (
@@ -23,13 +24,19 @@ const CardContainer = ({ favorites , category , addFavorite , removeFavorite }) 
     return makeCards();
   } else if (category === 'people') {
     getContents();
-    return makeCards();
+    cards = makeCards();
+    this.props.loadingCheck();
+    return cards;
   } else if (category === 'planets') {
     getContents();
-    return makeCards();
+    cards = makeCards();
+    this.props.loadingCheck();
+    return cards;
   } else if (category === 'vehicles') {
     getContents();
-    return makeCards();
+    cards = makeCards();
+    this.props.loadingCheck();
+    return cards;
   }
 
   const getContents = async () => {
@@ -37,6 +44,7 @@ const CardContainer = ({ favorites , category , addFavorite , removeFavorite }) 
       contents = JSON.parse(localStorage.getItem(category));
     } else {
       contents = await API[category]();
+      localStorage.setItem(category, JSON.stringify(contents));
     }
   }
 
@@ -45,6 +53,7 @@ const CardContainer = ({ favorites , category , addFavorite , removeFavorite }) 
       return contents.map((item) => {
         return <Card
                   contents={item}
+                  currentDisplay={category}
                   addFavorite={() => addFavorite(item)}
                   removeFavorite={() => removeFavorite(item.id)}
                   isActive={favorites.includes(item)}
@@ -61,7 +70,8 @@ CardContainer.propTypes = {
   favorites: PropTypes.array.isRequired,
   category: PropTypes.string.isRequired,
   addFavorite: PropTypes.func.isRequired,
-  removeFavorite: PropTypes.func.isRequired
+  removeFavorite: PropTypes.func.isRequired,
+  loadingCheck: PropTypes.func.isRequired
 }
 
 export default CardContainer;

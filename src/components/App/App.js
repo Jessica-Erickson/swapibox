@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
-import * as API from '../../helper.js';
 import ScrollingText from '../ScrollingText';
 import Header from '../Header';
+import CardContainer from '../CardContainer';
 import './App.css';
 
 class App extends Component {
@@ -13,7 +13,7 @@ class App extends Component {
       filmsLoading: true,
       peopleLoading: true,
       planetsLoading: true,
-      vehiclesLoading: true,
+      vehiclesLoading: true
     }
   }
 
@@ -71,6 +71,9 @@ class App extends Component {
             favorites={favorites}
             addFavorite={addFavorite}
             removeFavorite={removeFavorite}
+            loadingCheck={() => {
+              loadingCheck('peopleLoading');
+            }}
             category='people' />
         }} />
         <Route exact path='/planets' render={() => {
@@ -78,6 +81,9 @@ class App extends Component {
             favorites={favorites}
             addFavorite={addFavorite}
             removeFavorite={removeFavorite}
+            loadingCheck={() => {
+              loadingCheck('planetsLoading');
+            }}
             category='planets' />
         }} />
         <Route exact path='/vehicles' render={() => {
@@ -85,6 +91,9 @@ class App extends Component {
             favorites={favorites}
             addFavorite={addFavorite}
             removeFavorite={removeFavorite}
+            loadingCheck={() => {
+              loadingCheck('vehiclesLoading');
+            }}
             category='vehicles' />
         }} />
       </div>
