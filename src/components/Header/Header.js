@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import './Header.css';
 
-const Header = ({ display }) => {
+const Header = ({ display , favorites }) => {
   return (
     <header className={ display ? 'Header' : 'display-none'}>
       <div className='upper-header'>
@@ -13,6 +13,9 @@ const Header = ({ display }) => {
         </NavLink>
         <NavLink to='/favorites' className='Button favorites'>
           Favorites
+          <div className="favorites-badge">
+            {favorites}
+          </div>
         </NavLink>
       </div>
       <nav>
@@ -31,7 +34,8 @@ const Header = ({ display }) => {
 }
 
 Header.propTypes = {
-  display: PropTypes.bool.isRequired
+  display: PropTypes.bool.isRequired,
+  favorites: PropTypes.number.isRequired
 }
 
 export default Header;

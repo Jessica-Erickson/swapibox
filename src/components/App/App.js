@@ -8,6 +8,7 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
+      favorites: [],
       filmsLoading: true,
       peopleLoading: true,
       planetsLoading: true,
@@ -20,6 +21,7 @@ class App extends Component {
   }
 
   render() {
+    const { filmsLoading, peopleLoading, planetsLoading, vehiclesLoading, favorites } = this.state;
     const ready = !filmsLoading && !peopleLoading && !planetsLoading && !vehiclesLoading;
 
     return
@@ -30,7 +32,8 @@ class App extends Component {
               loadingCheck('filmsLoading');
             }} />
           <Header 
-            display={ready} />
+            display={ready}
+            favorites={favorites.length} />
         </div>
       )
     }

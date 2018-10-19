@@ -37,6 +37,10 @@
   z-index: 10;
 }
 
+.display-none {
+  display: none;
+}
+
 @keyframes crawl {
   from {
     transform: rotateX(55deg) translate3d(0, 885px, 325px);
