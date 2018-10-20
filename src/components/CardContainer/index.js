@@ -69,7 +69,7 @@ CardContainer.propTypes = {
   category: PropTypes.string.isRequired,
   addFavorite: PropTypes.func.isRequired,
   removeFavorite: PropTypes.func.isRequired,
-  fetchCall: PropTypes.func.isRequired
+  fetchCall: PropTypes.func
 }
 
 export default CardContainer;
