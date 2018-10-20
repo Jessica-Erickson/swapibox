@@ -5,17 +5,11 @@ import blackSaber from './../../assets/icons/lightsaber-bk.png';
 import './Card.css';
 
 class Card extends Component {
-  constructor (props) {
-    super(props);
+  constructor() {
+    super();
     this.state = {
-      isActive: props.isActive,
       src: whiteSaber
-    }
-  }
-
-  handleSaberClick = () => {
-    this.checkActive()
-    this.setState({ isActive: !this.state.isActive })
+    };
   }
 
   checkActive = () => {
@@ -39,8 +33,8 @@ class Card extends Component {
   }
 
   render() {
-    const { isActive , src } = this.state;
-    const { contents, currentDisplay } = this.props;
+    const { src } = this.state;
+    const { contents , currentDisplay , isActive } = this.props;
     const contentsList = Object.entries(contents)
 
     return (
@@ -62,7 +56,7 @@ class Card extends Component {
           alt='The hilt of a lightsaber. Turn the lightsaber on to favorite this card.'
           onClick={() => {
             this.setState({ src: whiteSaber });
-            this.handleSaberClick();
+            this.checkActive();
           }} />
         <ul className='content'>
           {this.createListItems(contentsList)}
