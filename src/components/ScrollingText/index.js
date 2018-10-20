@@ -24,7 +24,7 @@ class ScrollingText extends Component {
 
   changeText = () => {
     const newFilm = Math.floor(Math.random() * 7);
-    this.setState({ film: newFilm });
+    this.setState({ displayFilm: newFilm });
   }
 
   render() {
