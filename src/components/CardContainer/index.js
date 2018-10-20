@@ -1,15 +1,55 @@
-import React from 'react';
-import { Route } from 'react-router-dom'
+import React, { Component } from 'react';
+import * as API from '../../helper.js';
 import PropTypes from 'prop-types';
-import Card from './../Card';
+import Card from '../Card';
 import './CardContainer.css';
 
-const CardContainer = ({ cardContents, currentDisplay, addFavorite, removeFavorite, favorites }) => {
+class CardContainer extends Component {
+  constructor() {
+    super();
+    this.state = {
+      contents: [],
+      isLoading: true
+    }
+  }
 
-  const checkFaves = () => {
-    if ( currentDisplay === 'favorites' && cardContents.length === 0) {
+  componentDidMount = async () => {
+    const { category , favorites } = this.props;
+    let contents;
+    if (localStorage.getItem(category) !== null) {
+      contents = JSON.parse(localStorage.getItem(category));
+    } else if (category === 'favorites') {
+      contents = favorites;
+    } else {
+      contents = await API[category]();
+      localStorage.setItem(category, JSON.stringify(contents));
+    }
+    this.setState({ contents , isLoading: false });
+  }
+
+  makeCards = (cardContents, category, addFavorite, removeFavorite, favorites) => {
+    return cardContents.map((item) => {
+      return <Card
+                contents={item}
+                currentDisplay={category}
+                addFavorite={() => addFavorite(item)}
+                removeFavorite={() => removeFavorite(item.id)}
+                isActive={favorites.some(favorite => {
+                  return favorite.id === item.id;
+                })}
+                key={item.name} />
+    });
+  }
+
+  render() {
+    const { favorites , category , addFavorite , removeFavorite , display } = this.props;
+    const { contents , isLoading } = this.state;
+
+    if (isLoading) {
+      return <div className='loading'></div>
+    } else if (favorites.length === 0 && category === 'favorites') {
       return (
-        <div>
+        <div className={display ? '' : 'display-none'}>
           <h2 className="favorites-default">
             You currently don't have any favorites.
           </h2>
@@ -18,51 +58,18 @@ const CardContainer = ({ cardContents, currentDisplay, addFavorite, removeFavori
           </p>
         </div>
       )
-    }
-    else {
-      return makeCards()
+    } else {
+      return this.makeCards(contents, category, addFavorite, removeFavorite, favorites);
     }
   }
-
-  const makeCards = () => {
-    return cardContents.map((item) => {
-      return <Card
-                contents={item}
-                currentDisplay={currentDisplay}
-                addFavorite={() => addFavorite(item)}
-                removeFavorite={() => removeFavorite(item.id)}
-                isActive={favorites.includes(item)}
-                key={item.name} />
-    });
-  }
-
-  return (
-    <main className="CardContainer">
-      <Route exact path='/' render={ () => (
-        <h2 className="default">Select a Category or Favorites</h2>
-      )}/>
-      <Route exact path='/favorites' render={ () => (
-        checkFaves()
-      )}/>
-      <Route exact path='/people' render={ () => (
-        makeCards()
-      )}/>
-      <Route exact path='/planets' render={ () => (
-        makeCards()
-      )}/>
-      <Route exact path='/vehicles' render={ () => (
-        makeCards()
-      )}/>
-    </main>
-  );
 }
 
 CardContainer.propTypes = {
-  cardContents: PropTypes.array.isRequired,
-  currentDisplay: PropTypes.string.isRequired,
+  display: PropTypes.any.isRequired,
+  favorites: PropTypes.array.isRequired,
+  category: PropTypes.string.isRequired,
   addFavorite: PropTypes.func.isRequired,
-  removeFavorite: PropTypes.func.isRequired,
-  favorites: PropTypes.array.isRequired
+  removeFavorite: PropTypes.func.isRequired
 }
 
 export default CardContainer;
