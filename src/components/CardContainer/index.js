@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import * as API from '../../helper.js';
 import PropTypes from 'prop-types';
 import Card from '../Card';
 import './CardContainer.css';
@@ -21,7 +20,7 @@ class CardContainer extends Component {
     } else if (category === 'favorites') {
       contents = favorites;
     } else {
-      contents = await API[category]();
+      contents = await this.props.fetchCall();
       localStorage.setItem(category, JSON.stringify(contents));
     }
     this.setState({ contents , isLoading: false });
@@ -65,11 +64,12 @@ class CardContainer extends Component {
 }
 
 CardContainer.propTypes = {
-  display: PropTypes.any.isRequired,
+  display: PropTypes.any,
   favorites: PropTypes.array.isRequired,
   category: PropTypes.string.isRequired,
   addFavorite: PropTypes.func.isRequired,
-  removeFavorite: PropTypes.func.isRequired
+  removeFavorite: PropTypes.func.isRequired,
+  fetchCall: PropTypes.func.isRequired
 }
 
 export default CardContainer;

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
+import * as API from '../../helper.js';
 import ScrollingText from '../ScrollingText';
 import Header from '../Header';
 import CardContainer from '../CardContainer';
@@ -46,6 +47,7 @@ class App extends Component {
     return (
       <div className={ ready ? 'App' : 'loading' }>
         <ScrollingText
+          fetchCall={API.films}
           loadingCheck={() => {
             this.loadingCheck();
           }} />
@@ -66,7 +68,8 @@ class App extends Component {
             category='favorites' />
         )} />
         <Route exact path='/people' render={() => (
-          <CardContainer 
+          <CardContainer
+            fetchCall={API.people}
             favorites={favorites}
             addFavorite={addFavorite}
             removeFavorite={removeFavorite}
@@ -74,13 +77,15 @@ class App extends Component {
         )} />
         <Route exact path='/planets' render={() => (
           <CardContainer 
+            fetchCall={API.planets}
             favorites={favorites}
             addFavorite={addFavorite}
             removeFavorite={removeFavorite}
             category='planets' />
         )} />
         <Route exact path='/vehicles' render={() => (
-          <CardContainer 
+          <CardContainer
+            fetchCall={API.vehicles} 
             favorites={favorites}
             addFavorite={addFavorite}
             removeFavorite={removeFavorite}

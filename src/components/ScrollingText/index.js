@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import * as API from '../../helper.js';
 import PropTypes from 'prop-types';
 import './ScrollingText.css';
 
@@ -17,7 +16,7 @@ class ScrollingText extends Component {
     if (localStorage.getItem('allFilms') !== null) {
       allFilms = JSON.parse(localStorage.getItem('allFilms'));
     } else {
-      allFilms = await API.films();
+      allFilms = await this.props.fetchCall();
       localStorage.setItem('allFilms', JSON.stringify(allFilms));
     }
     this.setState({ allFilms }, this.props.loadingCheck());
@@ -60,7 +59,8 @@ class ScrollingText extends Component {
 }
 
 ScrollingText.propTypes = {
-  loadingCheck: PropTypes.func.isRequired
+  loadingCheck: PropTypes.func.isRequired,
+  fetchCall: PropTypes.func.isRequired
 }
 
 export default ScrollingText;
