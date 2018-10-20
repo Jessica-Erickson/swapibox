@@ -1,49 +1,41 @@
-import React from 'react'
-import { NavLink } from 'react-router-dom'
-import PropTypes from 'prop-types'
-import Button from '../Button'
-import './Header.css'
+import React from 'react';
+import { NavLink } from 'react-router-dom';
+import PropTypes from 'prop-types';
+import './Header.css';
 
-const Header = ({ favorites, handleNavClick, currentDisplay }) => {
+const Header = ({ display , favorites }) => {
   return (
-    <header className="Header">
-      <div className="upper-header">
+    <header className={ display ? 'Header' : 'display-none'}>
+      <div className='upper-header'>
         <div></div>
-        <NavLink to='/' className="header-title">
+        <NavLink to='/' className='header-title'>
           <h1>SWApi-Box</h1>
         </NavLink>
-        <Button
-          label='Favorites'
-          favorites={favorites}
-          handleNavClick={handleNavClick}
-          isActive={'favorites' === currentDisplay}
-        />
+        <NavLink to='/favorites' className='Button favorites'>
+          Favorites
+          <div className="favorites-badge">
+            {favorites}
+          </div>
+        </NavLink>
       </div>
       <nav>
-        <Button
-          label='People'
-          handleNavClick={handleNavClick}
-          isActive={'people' === currentDisplay}
-        />
-        <Button
-          label='Planets'
-          handleNavClick={handleNavClick}
-          isActive={'planets' === currentDisplay}
-        />
-        <Button
-          label='Vehicles'
-          handleNavClick={handleNavClick}
-          isActive={'vehicles' === currentDisplay}
-        />
+        <NavLink to='/people' className='Button people'>
+          People
+        </NavLink>
+        <NavLink to='/planets' className='Button planets'>
+          Planets
+        </NavLink>
+        <NavLink to='/vehicles' className='Button vehicles'>
+          Vehicles
+        </NavLink>
       </nav>
     </header>
   )
 }
 
 Header.propTypes = {
-  favorites: PropTypes.number.isRequired,
-  handleNavClick: PropTypes.func.isRequired,
-  currentDisplay: PropTypes.string.isRequired
+  display: PropTypes.bool.isRequired,
+  favorites: PropTypes.number.isRequired
 }
 
 export default Header;
