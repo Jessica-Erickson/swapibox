@@ -1,4 +1,4 @@
-export const getFilms = async () => {
+export const films = async () => {
   const url = 'https://swapi.co/api/films/';
   const response = await fetch(url);
 
@@ -24,7 +24,7 @@ const cleanFilms = (filmCollection) => {
   return newFilms;
 }
 
-export const getPeople = async () => {
+export const people = async () => {
   const url = 'https://swapi.co/api/people/';
   const response = await fetch(url);
 
@@ -58,7 +58,7 @@ const cleanPeople = (peopleList) => {
   return Promise.all(newPeople);
 }
 
-export const getPlanets = async () => {
+export const planets = async () => {
   const url = 'https://swapi.co/api/planets/';
   const response = await fetch(url);
 
@@ -110,7 +110,7 @@ const cleanResidents = (residentsList) => {
   return cleanResidents;
 }
 
-export const getVehicles = async () => {
+export const vehicles = async () => {
   const url = 'https://swapi.co/api/vehicles/';
   const response = await fetch(url);
 
