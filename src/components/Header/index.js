@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink , Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import './Header.css';
 
@@ -8,9 +8,9 @@ const Header = ({ display , favorites }) => {
     <header className={ display ? 'Header' : 'display-none'}>
       <div className='upper-header'>
         <div></div>
-        <NavLink to='/' className='header-title'>
+        <Link to='/' className='header-title'>
           <h1>SWApi-Box</h1>
-        </NavLink>
+        </Link>
         <NavLink to='/favorites' className='Button favorites'>
           Favorites
           <div className="favorites-badge">
