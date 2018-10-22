@@ -45,7 +45,7 @@ class CardContainer extends Component {
     const { contents , isLoading } = this.state;
 
     if (isLoading) {
-      return <div className='loading'></div>
+      return <div className={`${category}-loading`}></div>
     } else if (favorites.length === 0 && category === 'favorites') {
       return (
         <div className={display ? '' : 'display-none'}>
@@ -58,7 +58,11 @@ class CardContainer extends Component {
         </div>
       )
     } else {
-      return this.makeCards(contents, category, addFavorite, removeFavorite, favorites);
+      return (
+        <main className="CardContainer">
+          { this.makeCards(contents, category, addFavorite, removeFavorite, favorites) }
+        </main>
+      )
     }
   }
 }

@@ -21,8 +21,30 @@
   font-size: 1.75rem;
   margin-top: 0;
   align-self: flex-start;
+  text-align: center;
 }
 
 .display-none {
   display: none;
+}
+
+.people-loading {
+  background-image: url(../../assets/images/skywalker-fett.gif);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.planets-loading {
+  background-image: url(../../assets/images/hoth.gif);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.vehicles-loading {
+  background-image: url(../../assets/images/landspeeder.gif);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
 }
