@@ -1,7 +1,7 @@
 {
-  "main.css": "/swapibox/static/css/main.0a16e3a6.chunk.css",
-  "main.js": "/swapibox/static/js/main.5b31b3e4.chunk.js",
-  "main.js.map": "/swapibox/static/js/main.5b31b3e4.chunk.js.map",
+  "main.css": "/swapibox/static/css/main.556776dc.chunk.css",
+  "main.js": "/swapibox/static/js/main.8432cfb6.chunk.js",
+  "main.js.map": "/swapibox/static/js/main.8432cfb6.chunk.js.map",
   "static/js/1.f429485c.chunk.js": "/swapibox/static/js/1.f429485c.chunk.js",
   "static/js/1.f429485c.chunk.js.map": "/swapibox/static/js/1.f429485c.chunk.js.map",
   "runtime~main.js": "/swapibox/static/js/runtime~main.c9f58f50.js",
@@ -10,8 +10,8 @@
   "static/media/CardContainer.css": "/swapibox/static/media/hoth.260ea6fb.gif",
   "static/media/App.css": "/swapibox/static/media/bb8-loading.c8a19f31.gif",
   "static/media/Header.css": "/swapibox/static/media/Starjedi.cc3019aa.ttf",
-  "static/css/main.0a16e3a6.chunk.css.map": "/swapibox/static/css/main.0a16e3a6.chunk.css.map",
+  "static/css/main.556776dc.chunk.css.map": "/swapibox/static/css/main.556776dc.chunk.css.map",
   "index.html": "/swapibox/index.html",
-  "precache-manifest.763763638edc54a9d734aa9a41216eb9.js": "/swapibox/precache-manifest.763763638edc54a9d734aa9a41216eb9.js",
+  "precache-manifest.3e0691a36e8f29560f2037ddc1e3df0e.js": "/swapibox/precache-manifest.3e0691a36e8f29560f2037ddc1e3df0e.js",
   "service-worker.js": "/swapibox/service-worker.js"
 }
