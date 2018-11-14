@@ -6,14 +6,14 @@
 Project spec can be found [here](http://frontend.turing.io/projects/swapi-box.html).
 
 ## See it live
-[![Alt text](./src/assets/swapibox_screenshot.gif "App Screenshot")](https://colehart.github.io/swapibox/)
+[![App Screenshot](./src/assets/images/swapibox-recording.gif "App Screenshot")](https://colehart.github.io/swapibox/)
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Wireframe
 SWAPI-box is a single page web app with different cards populating a card container depending on the selected navigation button.
 
-[![Alt text](./src/assets/swapibox_wireframe.jpg "App Wireframe")]
+![App wireframe](./src/assets/images/swapibox_wireframe.jpg "App Wireframe")
 
 ## App Architecture
 
