@@ -6,7 +6,7 @@
 Project spec can be found [here](http://frontend.turing.io/projects/swapi-box.html).
 
 ## See it live
-[![App Screenshot](./src/assets/images/swapibox-recording.gif "App Screenshot")](https://colehart.github.io/swapibox/)
+[![App Screenshot](https://github.com/colehart/swapibox/blob/master/src/assets/images/swapi-recording.gif "App Screenshot")](https://colehart.github.io/swapibox/)
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
