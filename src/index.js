@@ -5,7 +5,7 @@ import './index.css';
 import App from './components/App';
 
 const router = (
-  <BrowserRouter>
+  <BrowserRouter basename={process.env.PUBLIC_URL}>
     <App />
   </BrowserRouter>
 )
